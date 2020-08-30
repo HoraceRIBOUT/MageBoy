@@ -298,7 +298,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269999043}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.64, y: 4.72, z: 0}
+  m_LocalPosition: {x: -2.2, y: 3.91, z: -0.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1588594948}
@@ -378,7 +378,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692384869}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.22, y: -0.65, z: 0}
+  m_LocalPosition: {x: 0.66, y: 1.42, z: -1.46}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children: []
   m_Father: {fileID: 269999047}
@@ -609,20 +609,48 @@ MonoBehaviour:
     lightGray: {r: 0.54509807, g: 0.6745098, b: 0.058823533, a: 0}
     darkGray: {r: 0.18823531, g: 0.38431376, b: 0.18823531, a: 0}
     black: {r: 0.058823533, g: 0.21960786, b: 0.058823533, a: 0}
-  - colorWhite: {r: 1, g: 1, b: 1, a: 0}
-    lightGray: {r: 0.66, g: 0.66, b: 0.66, a: 0}
-    darkGray: {r: 0.33, g: 0.33, b: 0.33, a: 0}
-    black: {r: 0, g: 0, b: 0, a: 0}
-  - colorWhite: {r: 1, g: 0.7688679, b: 0.942217, a: 0}
-    lightGray: {r: 0.8270267, g: 0.33609435, b: 0.8867924, a: 0}
-    darkGray: {r: 0.6355691, g: 0.21529014, b: 0.7735849, a: 0}
-    black: {r: 0.20778325, g: 0.024207907, b: 0.3018868, a: 0}
-  - colorWhite: {r: 1, g: 0.9758217, b: 0.76862746, a: 0}
-    lightGray: {r: 1, g: 0.7741319, b: 0.4198113, a: 0}
-    darkGray: {r: 0.7264151, g: 0.46233436, b: 0.14048593, a: 0}
-    black: {r: 0.509434, g: 0.26424736, b: 0, a: 0}
+  - colorWhite: {r: 0.81568635, g: 0.9568628, b: 0.9725491, a: 0}
+    lightGray: {r: 0.43921572, g: 0.6901961, b: 0.75294125, a: 0}
+    darkGray: {r: 0.23529413, g: 0.20392159, b: 0.40784317, a: 0}
+    black: {r: 0.10980393, g: 0.03137255, b: 0.1254902, a: 0}
+  - colorWhite: {r: 0.93725497, g: 0.97647065, b: 0.83921576, a: 0}
+    lightGray: {r: 0.7294118, g: 0.3137255, b: 0.26666668, a: 0}
+    darkGray: {r: 0.4784314, g: 0.10980393, b: 0.29411766, a: 0}
+    black: {r: 0.10588236, g: 0.011764707, b: 0.14901961, a: 0}
+  - colorWhite: {r: 0.7686275, g: 0.8117648, b: 0.6313726, a: 0}
+    lightGray: {r: 0.54509807, g: 0.58431375, b: 0.427451, a: 0}
+    darkGray: {r: 0.3019608, g: 0.3254902, b: 0.23529413, a: 0}
+    black: {r: 0.121568635, g: 0.121568635, b: 0.121568635, a: 0}
+  - colorWhite: {r: 0.9725491, g: 0.94117653, b: 0.53333336, a: 0}
+    lightGray: {r: 0.9725491, g: 0.5647059, b: 0.1254902, a: 0}
+    darkGray: {r: 0.37647063, g: 0.15686275, b: 0.47058827, a: 0}
+    black: {r: 0.18823531, g: 0, b: 0.18823531, a: 0}
+  - colorWhite: {r: 0.74509805, g: 0.9215687, b: 0.4431373, a: 0}
+    lightGray: {r: 0.4156863, g: 0.7058824, b: 0.09019608, a: 0}
+    darkGray: {r: 0.21568629, g: 0.427451, b: 0.011764707, a: 0}
+    black: {r: 0.09019608, g: 0.15686275, b: 0.03137255, a: 0}
+  - colorWhite: {r: 0.9215687, g: 0.9490197, b: 0.78823537, a: 0}
+    lightGray: {r: 0.40784317, g: 0.8117648, b: 0.40784317, a: 0}
+    darkGray: {r: 0.11764707, g: 0.5686275, b: 0.47058827, a: 0}
+    black: {r: 0.019607844, g: 0.14117648, b: 0.121568635, a: 0}
+  - colorWhite: {r: 0.81568635, g: 0.81568635, b: 0.34509805, a: 0}
+    lightGray: {r: 0.627451, g: 0.65882355, b: 0.2509804, a: 0}
+    darkGray: {r: 0.43921572, g: 0.5019608, b: 0.15686275, a: 0}
+    black: {r: 0.2509804, g: 0.3137255, b: 0.0627451, a: 0}
+  - colorWhite: {r: 0.87843144, g: 0.94117653, b: 0.909804, a: 0}
+    lightGray: {r: 0.65882355, g: 0.75294125, b: 0.6901961, a: 0}
+    darkGray: {r: 0.3137255, g: 0.47058827, b: 0.40784317, a: 0}
+    black: {r: 0.09411766, g: 0.18823531, b: 0.18823531, a: 0}
+  - colorWhite: {r: 0.9333334, g: 0.9921569, b: 0.9294118, a: 0}
+    lightGray: {r: 0.6039216, g: 0.48235297, b: 0.7372549, a: 0}
+    darkGray: {r: 0.1764706, g: 0.45882356, b: 0.49411768, a: 0}
+    black: {r: 0, g: 0.10588236, b: 0.18039216, a: 0}
+  - colorWhite: {r: 0.9725491, g: 0.89019614, b: 0.7686275, a: 0}
+    lightGray: {r: 0.8000001, g: 0.20392159, b: 0.58431375, a: 0}
+    darkGray: {r: 0.41960788, g: 0.121568635, b: 0.69411767, a: 0}
+    black: {r: 0.043137256, g: 0.023529414, b: 0.18823531, a: 0}
   matToUpdate: {fileID: 2100000, guid: 8a178d4afc1c64a46a8e85cbc21d3438, type: 2}
-  currentPalette: 3
+  currentPalette: 0
   alwaysUpdate: 1
 --- !u!1 &963194225
 GameObject:
@@ -748,8 +776,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1588594947}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.59, y: 1.35, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalPosition: {x: 0.76, y: 2.28, z: 4.05}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 269999047}
   m_RootOrder: 0

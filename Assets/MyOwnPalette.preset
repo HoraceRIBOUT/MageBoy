@@ -1,0 +1,555 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MyOwnPalette
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: 922e28fcbbd54d445a2592ed24ae68dd,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.size
+    value: 8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[0].colorWhite.r
+    value: 0.60784316
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[0].colorWhite.g
+    value: 0.7372549
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[0].colorWhite.b
+    value: 0.058823533
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[0].colorWhite.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[0].lightGray.r
+    value: 0.54509807
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[0].lightGray.g
+    value: 0.6745098
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[0].lightGray.b
+    value: 0.058823533
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[0].lightGray.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[0].darkGray.r
+    value: 0.18823531
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[0].darkGray.g
+    value: 0.38431376
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[0].darkGray.b
+    value: 0.18823531
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[0].darkGray.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[0].black.r
+    value: 0.058823533
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[0].black.g
+    value: 0.21960786
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[0].black.b
+    value: 0.058823533
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[0].black.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[1].colorWhite.r
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[1].colorWhite.g
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[1].colorWhite.b
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[1].colorWhite.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[1].lightGray.r
+    value: 0.66
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[1].lightGray.g
+    value: 0.66
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[1].lightGray.b
+    value: 0.66
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[1].lightGray.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[1].darkGray.r
+    value: 0.33
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[1].darkGray.g
+    value: 0.33
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[1].darkGray.b
+    value: 0.33
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[1].darkGray.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[1].black.r
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[1].black.g
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[1].black.b
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[1].black.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[2].colorWhite.r
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[2].colorWhite.g
+    value: 0.7688679
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[2].colorWhite.b
+    value: 0.942217
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[2].colorWhite.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[2].lightGray.r
+    value: 0.8270267
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[2].lightGray.g
+    value: 0.33609435
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[2].lightGray.b
+    value: 0.8867924
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[2].lightGray.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[2].darkGray.r
+    value: 0.6355691
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[2].darkGray.g
+    value: 0.21529014
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[2].darkGray.b
+    value: 0.7735849
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[2].darkGray.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[2].black.r
+    value: 0.20778325
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[2].black.g
+    value: 0.024207907
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[2].black.b
+    value: 0.3018868
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[2].black.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[3].colorWhite.r
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[3].colorWhite.g
+    value: 0.9758217
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[3].colorWhite.b
+    value: 0.76862746
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[3].colorWhite.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[3].lightGray.r
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[3].lightGray.g
+    value: 0.7741319
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[3].lightGray.b
+    value: 0.4198113
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[3].lightGray.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[3].darkGray.r
+    value: 0.7264151
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[3].darkGray.g
+    value: 0.46233436
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[3].darkGray.b
+    value: 0.14048593
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[3].darkGray.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[3].black.r
+    value: 0.509434
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[3].black.g
+    value: 0.26424736
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[3].black.b
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[3].black.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[4].colorWhite.r
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[4].colorWhite.g
+    value: 0.9758217
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[4].colorWhite.b
+    value: 0.76862746
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[4].colorWhite.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[4].lightGray.r
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[4].lightGray.g
+    value: 0.41960788
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[4].lightGray.b
+    value: 0.47577757
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[4].lightGray.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[4].darkGray.r
+    value: 0.24528301
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[4].darkGray.g
+    value: 0.24528301
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[4].darkGray.b
+    value: 0.24528301
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[4].darkGray.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[4].black.r
+    value: 0.7264151
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[4].black.g
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[4].black.b
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[4].black.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[5].colorWhite.r
+    value: 0.76632786
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[5].colorWhite.g
+    value: 0.24056602
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[5].colorWhite.b
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[5].colorWhite.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[5].lightGray.r
+    value: 0.3803922
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[5].lightGray.g
+    value: 0.8743741
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[5].lightGray.b
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[5].lightGray.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[5].darkGray.r
+    value: 0.6784314
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[5].darkGray.g
+    value: 0.98039216
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[5].darkGray.b
+    value: 0.744488
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[5].darkGray.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[5].black.r
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[5].black.g
+    value: 0.33648992
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[5].black.b
+    value: 0.3962264
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[5].black.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[6].colorWhite.r
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[6].colorWhite.g
+    value: 0.81451416
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[6].colorWhite.b
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[6].colorWhite.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[6].lightGray.r
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[6].lightGray.g
+    value: 0.5773268
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[6].lightGray.b
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[6].lightGray.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[6].darkGray.r
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[6].darkGray.g
+    value: 0.3176783
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[6].darkGray.b
+    value: 0.839
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[6].darkGray.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[6].black.r
+    value: 0.014740976
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[6].black.g
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[6].black.b
+    value: 0.455
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[6].black.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[7].colorWhite.r
+    value: 0.93725497
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[7].colorWhite.g
+    value: 0.7960785
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[7].colorWhite.b
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[7].colorWhite.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[7].lightGray.r
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[7].lightGray.g
+    value: 0.3803922
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[7].lightGray.b
+    value: 0.3921569
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[7].lightGray.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[7].darkGray.r
+    value: 0.9803922
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[7].darkGray.g
+    value: 0.9607844
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[7].darkGray.b
+    value: 0.6784314
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[7].darkGray.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[7].black.r
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[7].black.g
+    value: 0.37254903
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[7].black.b
+    value: 0.45098042
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: paletteToSwitchFor.Array.data[7].black.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: matToUpdate
+    value: 
+    objectReference: {fileID: 2100000, guid: 8a178d4afc1c64a46a8e85cbc21d3438, type: 2}
+  - target: {fileID: 0}
+    propertyPath: currentPalette
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: alwaysUpdate
+    value: 1
+    objectReference: {fileID: 0}
