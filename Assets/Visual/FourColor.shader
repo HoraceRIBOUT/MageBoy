@@ -7,6 +7,10 @@
 	    _Color2("Color 2", Color) = (0.75, 0.75, 0.75, 0.75)
 		_Color3("Color 3", Color) = (0.25, 0.25, 0.25, 0.25)
 	    _Color4("Color 4", Color) = (0,0,0,0)
+			
+		_Width("Width", float) = 1920
+		_Height("Height", float) = 1080
+		_OnOff("OnOff", Range(0,1)) = 0
     }
     SubShader
     {
@@ -47,10 +51,21 @@
 			float4 _Color3;
 			float4 _Color4;
 
+			float _Width;
+			float _Height;
+
+			float _OnOff;
+
             fixed4 frag (v2f i) : SV_Target
             {
-                fixed4 col = tex2D(_MainTex, i.uv);
-
+				half ratioX = 1 / _Width;
+				half ratioY = 1 / _Height;
+				half2 uv = half2((int)(i.uv.x / ratioX) + 0.5f, (int)(i.uv.y / ratioY) + 0.5f );
+				uv.x *= ratioX;
+				uv.y *= ratioY;
+							   
+                fixed4 col = tex2D(_MainTex, uv);
+				
 			    float sumCol = col.r + col.g + col.b;
 				if(sumCol >= 0.75 * 3)
 					col.rgb = _Color1.rgb;
