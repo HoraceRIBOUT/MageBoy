@@ -10,8 +10,9 @@
 			
 		_Width("Width", float) = 1920
 		_Height("Height", float) = 1080
-		_OnOff("OnOff", Range(0,1)) = 0
-    }
+
+		_OnOff("0 = Both / 1 = Only Color / 2 = Only Pixel", Range(0,2)) = 0
+    } 
     SubShader
     {
         // No culling or depth
@@ -63,18 +64,25 @@
 				half2 uv = half2((int)(i.uv.x / ratioX) + 0.5f, (int)(i.uv.y / ratioY) + 0.5f );
 				uv.x *= ratioX;
 				uv.y *= ratioY;
-							   
+
+				if (_OnOff > 1 && _OnOff != 2)
+					uv = i.uv;
+
                 fixed4 col = tex2D(_MainTex, uv);
-				
-			    float sumCol = col.r + col.g + col.b;
-				if(sumCol >= 0.75 * 3)
-					col.rgb = _Color1.rgb;
-				else if (sumCol >= 0.5 * 3)
-					col.rgb = _Color2.rgb;
-				else if (sumCol >= 0.25 * 3)
-					col.rgb = _Color3.rgb;
-				else
-					col.rgb = _Color4.rgb;
+
+				if (_OnOff != 2)
+				{
+					float sumCol = col.r + col.g + col.b;
+					if (sumCol >= 0.75 * 3)
+						col.rgb = _Color1.rgb;
+					else if (sumCol >= 0.5 * 3)
+						col.rgb = _Color2.rgb;
+					else if (sumCol >= 0.25 * 3)
+						col.rgb = _Color3.rgb;
+					else
+						col.rgb = _Color4.rgb;
+				}
+			    
 
                 return col;
             }
