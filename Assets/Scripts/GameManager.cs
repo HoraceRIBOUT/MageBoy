@@ -4,7 +4,22 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance = null;
+
+    public void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     public Camera mainCamera;
+    public MovePixel movePixel;
     
     // Start is called before the first frame update
     void Start()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteAlways]
 public class ClickToDisapeear : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -18,6 +19,7 @@ public class ClickToDisapeear : MonoBehaviour
             active = !active;
             this.GetComponent<SpriteRenderer>().enabled = active;
         }
-        
+
+        this.transform.localScale = new Vector3(this.transform.localScale.x, this.transform.localScale.x, this.transform.localScale.x);
     }
 }
