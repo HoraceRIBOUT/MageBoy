@@ -5,6 +5,8 @@ using MyBox;
 
 public class InputSave : MonoBehaviour
 {
+    public bool preparingSort = true;
+
     [Header("Sort for launch")]
     public GameObject sortPrefab;
     public Transform startPosition;
@@ -33,6 +35,9 @@ public class InputSave : MonoBehaviour
     private float timerToEraseInput = 0;
     private bool finishErasingInput = false;
 
+    [Header("Visual")]
+    public Animator mageAnimator;
+
     public void Start()
     {
         listInputToRemake.Clear();
@@ -43,6 +48,18 @@ public class InputSave : MonoBehaviour
 
     public void Update()
     {
+        if (preparingSort)
+        {
+            PreparingSortUpdate();
+        }
+        else
+        {
+            WaitingForSortToFinishUpdate();
+        }
+    }
+
+    public void PreparingSortUpdate()
+    {
         //Finish part
         FinishPart();
 
@@ -50,13 +67,33 @@ public class InputSave : MonoBehaviour
         DeletePart();
 
         //Management of input 
-        InputListManagement(KeyCode.A, enumInput.A);
-        InputListManagement(KeyCode.B, enumInput.B);
-        InputListManagement(KeyCode.LeftArrow, enumInput.Left);
-        InputListManagement(KeyCode.RightArrow, enumInput.Right);
-        InputListManagement(KeyCode.UpArrow, enumInput.Up);
-        InputListManagement(KeyCode.DownArrow, enumInput.Down);
-        
+        InputListManagement(KeyCode.A, enumInput.A, "A");
+        InputListManagement(KeyCode.B, enumInput.B, "B");
+        InputListManagement(KeyCode.LeftArrow, enumInput.Left, "Left");
+        InputListManagement(KeyCode.RightArrow, enumInput.Right, "Right");
+        InputListManagement(KeyCode.UpArrow, enumInput.Up, "Up");
+        InputListManagement(KeyCode.DownArrow, enumInput.Down, "Down");
+    }
+
+    public void WaitingForSortToFinishUpdate()
+    {
+        //For now, just wait...
+    }
+
+    public void FinishLaunchingSort()
+    {
+        preparingSort = false;
+            
+        mageAnimator.SetBool("PrepSort", preparingSort);
+    }
+
+    public void SortFinish()
+    {
+        listInputToRemake.Clear();
+        preparingSort = true;
+
+
+        mageAnimator.SetBool("PrepSort", preparingSort);
     }
 
     void FinishPart()
@@ -70,7 +107,7 @@ public class InputSave : MonoBehaviour
                 finishEnteringSort = true;
             }
         }
-        else
+        else if(timerForFinishSort > 0)
         {
             timerForFinishSort -= Time.deltaTime * 1.5f;
         }
@@ -78,7 +115,10 @@ public class InputSave : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return) || finishEnteringSort)
         {
             SpawnSort();
+            FinishLaunchingSort();
+            finishEnteringSort = false;
         }
+        VisualUpdate();
     }
 
     void SpawnSort()
@@ -86,8 +126,12 @@ public class InputSave : MonoBehaviour
         //create a gameObject SORT  
         GameObject sortGO = Instantiate(sortPrefab, startPosition.position, Quaternion.identity);
         Sort sortCpt = sortGO.GetComponent<Sort>();
-        sortCpt.listInput = listInputToRemake;
-        listInputToRemake.Clear();
+        sortCpt.listInput.Clear();
+        foreach (enumInput inp in listInputToRemake)
+        {
+            sortCpt.listInput.Add(inp);
+        }
+        
     }
 
     void DeletePart()
@@ -101,7 +145,7 @@ public class InputSave : MonoBehaviour
                 finishErasingInput = true;
             }
         }
-        else
+        else if(timerToEraseInput > 0)
         {
             timerToEraseInput -= Time.deltaTime * 1.5f;
         }
@@ -110,31 +154,43 @@ public class InputSave : MonoBehaviour
         {
             if (listInputToRemake.Count > 0)
                 listInputToRemake.RemoveAt(listInputToRemake.Count - 1);
+            finishErasingInput = false;
         }
     }
 
 
-    void InputListManagement(KeyCode keyCode, enumInput enumEquivalent)
+    void InputListManagement(KeyCode keyCode, enumInput enumEquivalent, string triggerAnimatorName)
     {
-        if (Input.GetKeyDown(keyCode))
+        if (Input.GetKeyUp(keyCode))
         {
-            if (listInputToRemake.Count > inputNumberLimit)
+            if (listInputToRemake.Count >= inputNumberLimit)
             {
                 //Feedback ? like animation wise ? or flashing ?
                 return;
             }
             listInputToRemake.Add(enumEquivalent);
+            mageAnimator.SetTrigger(triggerAnimatorName);
 
             VisualUpdate();
         }
     }
+
+    public List<SpriteRenderer> inputsSprite = new List<SpriteRenderer>();
+    [Tooltip("Up Down Left Right A B")]
+    public List<Sprite> spriteForInput = new List<Sprite>();
     
     void VisualUpdate()
     {
-        foreach (enumInput enInp in listInputToRemake)
+        for (int i = 0; i < inputsSprite.Count; i++)
         {
-            //Potentialy just change the sprite of the X element who can be spawn in the array
-
+            if (i < listInputToRemake.Count)
+            {
+                inputsSprite[i].sprite = spriteForInput[(int)listInputToRemake[i]];
+            }
+            else
+            {
+                inputsSprite[i].sprite = null;
+            }
         }
     }
 }

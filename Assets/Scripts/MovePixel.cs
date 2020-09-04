@@ -4,102 +4,39 @@ using UnityEngine;
 using MyBox;
 
 public class MovePixel : MonoBehaviour
-{
-    public Vector2 pixelSize = new Vector2(160, 144);
-    public Vector4 minMaxPoxXY = new Vector4(-5.5f, 5.5f, -4, 6);
-    public Vector2 moveSize;
+{  
 
+    public Vector2 gridSize = new Vector2(5, 5);
 
-    public Vector2 caseSize = new Vector2(26,26);
-    public Vector2 moveCase;
-
-
-    public float moveEveryXSeconds = 2f;
-    private bool canMove = true;
-    private float secretTimer = 0;
-
-    public void Start()
+    public GameObject caseGO;
+    public List<GameObject> generatedCases = new List<GameObject>();
+    [MyBox.ButtonMethod()]
+    public void PopulateGrid()
     {
-        moveSize.x = (minMaxPoxXY.y - minMaxPoxXY.x) / pixelSize.x;
-        moveSize.y = (minMaxPoxXY.w - minMaxPoxXY.z) / pixelSize.y;
-        secretTimer = 0;
+        DeleteGrid();
 
-        moveCase.x = (minMaxPoxXY.y - minMaxPoxXY.x) * caseSize.x / pixelSize.x;
-        moveCase.y = (minMaxPoxXY.w - minMaxPoxXY.z) * caseSize.y / pixelSize.y;
+        for (int i = 0; i < gridSize.x; i++)
+        {
+            for (int j = 0; j < gridSize.y; j++)
+            {
+                Vector2 pos = new Vector2(
+                    this.transform.position.x + PixelUtils.caseSize.x * (i - (gridSize.x / 2.0f) + 0.5f),
+                    this.transform.position.y + PixelUtils.caseSize.y * (j - (gridSize.y / 2.0f) + 0.5f)
+                );
+                generatedCases.Add(Instantiate(caseGO, pos, Quaternion.identity, this.transform));
+            }
+        }
     }
 
-    public float deathZoneForMove = 0.2f;
-
-    public void Update()
+    [MyBox.ButtonMethod()]
+    public void DeleteGrid()
     {
-        if (canMove)
+        foreach (GameObject gO in generatedCases)
         {
-            float x = Input.GetAxisRaw("Horizontal");
-            float y = Input.GetAxisRaw("Vertical");
-
-            if (Mathf.Abs(x) > deathZoneForMove)
-            {
-                this.transform.Translate(Vector3.right * Mathf.Sign(x) * moveCase.x);
-            }
-            if (Mathf.Abs(y) > deathZoneForMove)
-            {
-                this.transform.Translate(Vector3.up * Mathf.Sign(y) * moveCase.y);
-            }
-
-            if (Mathf.Abs(x) > deathZoneForMove || Mathf.Abs(y) > deathZoneForMove)
-            {
-                canMove = false;
-            }
+            DestroyImmediate(gO);
         }
-
-
-        if ((secretTimer + Time.deltaTime) % moveEveryXSeconds < (secretTimer) % moveEveryXSeconds)
-        {
-            canMove = true;
-        }
-        secretTimer += Time.deltaTime;
+        generatedCases.Clear();
     }
     
-
-
-
-    //public Vector2 offset = new Vector2(1 / 3.75f, 1 / 2.0f);
-    //public GameObject pixel;
-    //public List<GameObject> generatedPixel = new List<GameObject>();
-    //[MyBox.ButtonMethod()]
-    //public void Populate()
-    //{
-    //    Delete();
-    //    Start();
-    //    for (int i = 0; i < pixelSize.x; i++)
-    //    {
-    //        for (int j = 0; j < pixelSize.y; j++)
-    //        {
-    //            if((i+j)% 2 == 0)
-    //            {
-    //                Vector2 pos = new Vector2(
-    //                    minMaxPoxXY.x + ((minMaxPoxXY.y - minMaxPoxXY.x) / pixelSize.x) * i,
-    //                    minMaxPoxXY.z + ((minMaxPoxXY.w - minMaxPoxXY.z) / pixelSize.y) * j);
-    //                pos.x -= ((minMaxPoxXY.y - minMaxPoxXY.x) / pixelSize.x) * offset.x;
-    //                pos.y += moveSize.y * offset.y;
-
-    //                generatedPixel.Add(Instantiate(pixel, pos, Quaternion.identity, this.transform));
-    //                generatedPixel[generatedPixel.Count - 1].GetComponent<SpriteRenderer>().color = Color.black;
-    //                generatedPixel[generatedPixel.Count - 1].GetComponent<SpriteRenderer>().sortingOrder = 3;
-    //                generatedPixel[generatedPixel.Count - 1].transform.localScale *= 6.94444f;
-    //            }
-    //        }
-    //    }
-    //}
-
-    //[MyBox.ButtonMethod()]
-    //public void Delete()
-    //{
-    //    foreach (GameObject gO in generatedPixel)
-    //    {
-    //        DestroyImmediate(gO);
-    //    }
-    //    generatedPixel.Clear();
-    //}
 
 }
