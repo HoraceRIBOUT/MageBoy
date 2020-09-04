@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     }
 
     public Camera mainCamera;
-    public MovePixel movePixel;
+    public LevelManager movePixel;
     
     // Start is called before the first frame update
     void Start()

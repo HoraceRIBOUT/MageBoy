@@ -1558,8 +1558,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d75299e1ceb9341a1d5f2f5a3fc3fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
-  movePixel: {fileID: 0}
+  mainCamera: {fileID: 963194227}
+  movePixel: {fileID: 850890612}
 --- !u!4 &752114254
 Transform:
   m_ObjectHideFlags: 0
@@ -1890,6 +1890,7 @@ MonoBehaviour:
   - {fileID: 1579601829}
   - {fileID: 76127609}
   - {fileID: 1883957499}
+  currentShownLevel: 0
 --- !u!1 &865912733
 GameObject:
   m_ObjectHideFlags: 0
@@ -2014,6 +2015,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3dbd1261bc39b041be1ba44be97914b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entityName: 
+  gridPosition: {x: 2, y: 2}
+  prefabForInstanciation: {fileID: 0}
   ennemiAnimator: {fileID: 1380001901}
 --- !u!1 &953644037
 GameObject:
@@ -4105,6 +4109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2018740815}
   - component: {fileID: 2018740816}
+  - component: {fileID: 2018740814}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Untagged
@@ -4112,6 +4117,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2018740814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018740813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18dbe45979abae240af9a64a27e00ba8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entityName: Mage
+  gridPosition: {x: -1, y: -1}
+  prefabForInstanciation: {fileID: 0}
 --- !u!4 &2018740815
 Transform:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ennemie : MonoBehaviour
+public class Ennemie : GridEntity
 {
     public Animator ennemiAnimator;
 
