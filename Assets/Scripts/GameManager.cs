@@ -20,7 +20,9 @@ public class GameManager : MonoBehaviour
 
     public Camera mainCamera;
     public LevelManager movePixel;
-    
+    public UI_Input ui_input;
+    public CollisionManager collisionMng;
+
     // Start is called before the first frame update
     void Start()
     {

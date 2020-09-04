@@ -12,14 +12,37 @@ public class LevelManager : MonoBehaviour
     public GameObject caseGO;
     public List<GameObject> generatedCases = new List<GameObject>();
 
+
+
+    public enum gridEntityEnum
+    {
+        Mage,
+        Sort,
+        Blob,
+        Pierre,
+
+    }
+
+    [System.Serializable]
+    public struct prefabForEnum
+    {
+        public gridEntityEnum enumKey;
+        public GameObject prefabValue;
+    }
+
+    [Header("Entity part")]
+    public List<prefabForEnum> allEntity = new List<prefabForEnum>();
+
+    [System.Serializable]
     public struct GridElement
     {
         public string entityName;
+        public gridEntityEnum entityType;
         public Vector2 gridPosition;
         public GameObject theCorrespondingGameObject;
-        private GameObject prefabForInstanciation;
     }
 
+    [System.Serializable]
     public struct Level
     {
         public List<GridElement> entityOnThisLevel;
@@ -36,12 +59,13 @@ public class LevelManager : MonoBehaviour
     {
         if(memoryLevel != currentShownLevel)
         {
-            LoadLevel(currentShownLevel);
+            SaveLevel(memoryLevel);
+            LoadLevel(memoryLevel, currentShownLevel);
             memoryLevel = currentShownLevel;
         }
     }
 
-    public void LoadLevel(int levelId)
+    public void LoadLevel(int previousLevel, int levelId)
     {
         if(levelId >= levels.Count)
         {
@@ -49,18 +73,79 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            //Save current entity for later
+            int indexOfMage = -1;
+            for (int i = 0; i < levels[previousLevel].entityOnThisLevel.Count; i++)
+            {
+                if(levels[previousLevel].entityOnThisLevel[i].entityName == "Mage")
+                {
+                    //Don't destroy
+                    indexOfMage = i;
+                    continue;
+                }
+
+                DestroyImmediate(levels[previousLevel].entityOnThisLevel[i].theCorrespondingGameObject);
+
+                GridElement gridEl = levels[previousLevel].entityOnThisLevel[i];
+                gridEl.theCorrespondingGameObject = null;
+                levels[previousLevel].entityOnThisLevel[i] = gridEl;
+            }
+
+            Debug.Log("I have destroy level " + previousLevel);
+
+            for (int i = 0; i < levels[levelId].entityOnThisLevel.Count; i++)
+            {
+                if (levels[levelId].entityOnThisLevel[i].entityName == "Mage" && indexOfMage != -1)
+                {
+                    //Don't create
+                    GridElement mageEntity = levels[levelId].entityOnThisLevel[i];
+                    mageEntity.theCorrespondingGameObject = levels[previousLevel].entityOnThisLevel[indexOfMage].theCorrespondingGameObject;
+                    mageEntity.theCorrespondingGameObject.transform.position = PixelUtils.gridToWorld(levels[levelId].entityOnThisLevel[i].gridPosition);
+                    levels[levelId].entityOnThisLevel[i] = mageEntity;
+                    continue;
+                }
+                GameObject prefab = getPrefabOfThisEntity(levels[levelId].entityOnThisLevel[i].entityType);
+                Vector3 positionInWorld = PixelUtils.gridToWorld(levels[levelId].entityOnThisLevel[i].gridPosition);
+                GameObject resultGameObject = Instantiate(prefab, positionInWorld, Quaternion.identity);
+
+                GridElement gridEl = levels[levelId].entityOnThisLevel[i];
+                gridEl.theCorrespondingGameObject = resultGameObject;
+                levels[levelId].entityOnThisLevel[i] = gridEl;
+            }
+
+            Debug.Log("I have load level " + levelId);
+
         }
     }
 
     [MyBox.ButtonMethod()]
     public void SaveLevel()
     {
-        foreach(GridEntity gridEnt in FindObjectsOfType<GridEntity>())
+        SaveLevel(currentShownLevel);
+    }
+
+    public void SaveLevel(int levelId)
+    {
+        if (levelId < 0 || levelId >= levels.Count)
+        {
+            Debug.LogError("Wrong level id");
+            return;
+        }
+
+        levels[levelId].entityOnThisLevel.Clear();
+        foreach (GridEntity gridEnt in FindObjectsOfType<GridEntity>())
         {
             ReplaceEntityExactlyOnTile(gridEnt);
 
+            GridElement thisElement;
+            thisElement.entityName = gridEnt.name;
+            thisElement.theCorrespondingGameObject = gridEnt.gameObject;
+            thisElement.gridPosition = gridEnt.gridPosition;
+            thisElement.entityType = gridEnt.entityType;
+
+            levels[levelId].entityOnThisLevel.Add(thisElement);
         }
+
+        Debug.Log("I have save level " + levelId);
     }
 
     public void ReplaceEntityExactlyOnTile(GridEntity entityToReplace)
@@ -82,14 +167,11 @@ public class LevelManager : MonoBehaviour
                 distMin = dist;
             }
         }
-        // i * 26 + 13 + 7 = x
-        // x - 20 = i * 26
-        int x = ((int)closestGrid.transform.position.x - 7 - 13)/26;//7 = bordure | 13 = half case Size
-        int y = ((int)closestGrid.transform.position.y - 7 - 13)/26;
+
 
         entityToAnalyse.transform.position = closestGrid.transform.position;
 
-        return new Vector2(x, y);
+        return PixelUtils.worldToGrid(closestGrid.transform.position);
     }
 
 
@@ -121,5 +203,13 @@ public class LevelManager : MonoBehaviour
         generatedCases.Clear();
     }
     
-
+    public GameObject getPrefabOfThisEntity(gridEntityEnum key)
+    {
+        foreach (prefabForEnum prefEnu in allEntity)
+        {
+            if (key == prefEnu.enumKey)
+                return prefEnu.prefabValue;
+        }
+        return null;
+    }
 }

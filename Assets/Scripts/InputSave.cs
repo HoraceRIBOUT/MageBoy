@@ -118,13 +118,13 @@ public class InputSave : MonoBehaviour
             FinishLaunchingSort();
             finishEnteringSort = false;
         }
-        VisualUpdate();
+        GameManager.instance.ui_input.VisualUpdate(listInputToRemake);
     }
 
     void SpawnSort()
     {
         //create a gameObject SORT  
-        GameObject sortGO = Instantiate(sortPrefab, startPosition.position, Quaternion.identity);
+        GameObject sortGO = Instantiate(sortPrefab, this.transform.position + (Vector3.left * PixelUtils.caseSize.x), Quaternion.identity);
         Sort sortCpt = sortGO.GetComponent<Sort>();
         sortCpt.listInput.Clear();
         foreach (enumInput inp in listInputToRemake)
@@ -171,26 +171,9 @@ public class InputSave : MonoBehaviour
             listInputToRemake.Add(enumEquivalent);
             mageAnimator.SetTrigger(triggerAnimatorName);
 
-            VisualUpdate();
+            GameManager.instance.ui_input.VisualUpdate(listInputToRemake);
         }
     }
 
-    public List<SpriteRenderer> inputsSprite = new List<SpriteRenderer>();
-    [Tooltip("Up Down Left Right A B")]
-    public List<Sprite> spriteForInput = new List<Sprite>();
     
-    void VisualUpdate()
-    {
-        for (int i = 0; i < inputsSprite.Count; i++)
-        {
-            if (i < listInputToRemake.Count)
-            {
-                inputsSprite[i].sprite = spriteForInput[(int)listInputToRemake[i]];
-            }
-            else
-            {
-                inputsSprite[i].sprite = null;
-            }
-        }
-    }
 }

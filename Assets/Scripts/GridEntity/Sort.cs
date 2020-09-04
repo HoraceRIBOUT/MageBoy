@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MyBox;
 
-public class Sort : GridEntity
+public class Sort : MonoBehaviour
 {
     public List<InputSave.enumInput> listInput = new List<InputSave.enumInput>();
 
