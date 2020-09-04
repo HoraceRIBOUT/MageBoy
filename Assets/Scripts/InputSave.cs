@@ -127,11 +127,13 @@ public class InputSave : MonoBehaviour
         GameObject sortGO = Instantiate(sortPrefab, this.transform.position + (Vector3.left * PixelUtils.caseSize.x), Quaternion.identity);
         Sort sortCpt = sortGO.GetComponent<Sort>();
         sortCpt.listInput.Clear();
+        sortCpt.gridPosition = PixelUtils.worldToGrid(sortGO.transform.position);
         foreach (enumInput inp in listInputToRemake)
         {
             sortCpt.listInput.Add(inp);
         }
         
+        GameManager.instance.collisionMng.AddAnObject(sortCpt);
     }
 
     void DeletePart()

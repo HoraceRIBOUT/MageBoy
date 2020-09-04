@@ -144,5 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8458566c642395642bd4d590a1ea948b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entityName: Nadette
+  entityType: 1
+  gridPosition: {x: -1, y: -1}
   listInput: 
   moveEveryXSeconds: 2
+  positionEnnemi: {x: 3, y: 3}

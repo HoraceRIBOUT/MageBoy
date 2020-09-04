@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     }
 
     public Camera mainCamera;
-    public LevelManager movePixel;
+    public LevelManager lvlManager;
     public UI_Input ui_input;
     public CollisionManager collisionMng;
 
@@ -30,6 +30,16 @@ public class GameManager : MonoBehaviour
         mainCamera.aspect = 160.0f / 144.0f;
         float width = Screen.width * (160.0f / 144.0f);
         Screen.SetResolution(Screen.height, (int)width, true);
+
+#if UNITY_EDITOR
+        lvlManager.currentShownLevel = 0;
+        lvlManager.SaveAndLoad();
+
+        Mage mage = FindObjectOfType<Mage>();
+        mage.gridPosition = PixelUtils.worldToGrid(mage.transform.position);
+        collisionMng.AddAnObject(mage);
+#endif
+
     }
 
     // Update is called once per frame

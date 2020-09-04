@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MyBox;
 
-public class Sort : MonoBehaviour
+public class Sort : GridEntity
 {
     public List<InputSave.enumInput> listInput = new List<InputSave.enumInput>();
 
@@ -43,22 +43,22 @@ public class Sort : MonoBehaviour
             case InputSave.enumInput.Up:
                 Vector2 movement = Vector2.up * PixelUtils.caseSize;
                 this.transform.Translate(movement);
-                currentPosition.y++;
+                gridPosition.y++;
                 break;
             case InputSave.enumInput.Down:
                 movement = Vector2.down * PixelUtils.caseSize;
                 this.transform.Translate(movement);
-                currentPosition.y--;
+                gridPosition.y--;
                 break;
             case InputSave.enumInput.Left:
                 movement = Vector2.left * PixelUtils.caseSize;
                 this.transform.Translate(movement);
-                currentPosition.x--;
+                gridPosition.x--;
                 break;
             case InputSave.enumInput.Right:
                 movement = Vector2.right * PixelUtils.caseSize;
                 this.transform.Translate(movement);
-                currentPosition.x++;
+                gridPosition.x++;
                 break;
             case InputSave.enumInput.A:
                 break;
@@ -75,21 +75,22 @@ public class Sort : MonoBehaviour
 
 
         //Verify the collision :
-        if (currentPosition == positionEnnemi)
-        {
-            FindObjectOfType<Ennemie>().Dead();
-        }
+        GameManager.instance.collisionMng.TestEveryCollision();
 
         return true;
     }
 
-    public Vector2 positionEnnemi = new Vector2(3, 3);
-    private Vector2 currentPosition = new Vector2(4,3);
-
     public void EndSort()
     {
         FindObjectOfType<InputSave>().SortFinish();
+        GameManager.instance.collisionMng.RemoveAnObject(this);
         Destroy(this.gameObject);
+    }
+    
+    public override void Died()
+    {
+        //anim ? particule ? 
+        EndSort();
     }
 
 }

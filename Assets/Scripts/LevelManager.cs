@@ -52,22 +52,30 @@ public class LevelManager : MonoBehaviour
     public List<Level> levels = new List<Level>();
 
     public int currentShownLevel = 0;
-    private int memoryLevel = 0;
+    [Header("Dont touch that please")]
+    public int memoryLevel = 0;
 
 
     public void Update()
     {
         if(memoryLevel != currentShownLevel)
         {
-            SaveLevel(memoryLevel);
-            LoadLevel(memoryLevel, currentShownLevel);
-            memoryLevel = currentShownLevel;
+            SaveAndLoad();
         }
+    }
+    public void SaveAndLoad()
+    {
+        SaveLevel(memoryLevel);
+        LoadLevel(memoryLevel, currentShownLevel);
+        memoryLevel = currentShownLevel;
     }
 
     public void LoadLevel(int previousLevel, int levelId)
     {
-        if(levelId >= levels.Count)
+        if(levelId >= levels.Count || 
+            previousLevel >= levels.Count ||
+            levelId < 0 ||
+            previousLevel < 0)
         {
             Debug.Log("Victory screen");
         }
@@ -83,11 +91,18 @@ public class LevelManager : MonoBehaviour
                     continue;
                 }
 
+                if (GameManager.instance != null)
+                {
+                    //Remove it from the collision buffer
+                    GameManager.instance.collisionMng.RemoveAnObject(levels[previousLevel].entityOnThisLevel[i].theCorrespondingGameObject.GetComponent<GridEntity>());
+                }
+
                 DestroyImmediate(levels[previousLevel].entityOnThisLevel[i].theCorrespondingGameObject);
 
                 GridElement gridEl = levels[previousLevel].entityOnThisLevel[i];
                 gridEl.theCorrespondingGameObject = null;
                 levels[previousLevel].entityOnThisLevel[i] = gridEl;
+
             }
 
             Debug.Log("I have destroy level " + previousLevel);
@@ -106,10 +121,17 @@ public class LevelManager : MonoBehaviour
                 GameObject prefab = getPrefabOfThisEntity(levels[levelId].entityOnThisLevel[i].entityType);
                 Vector3 positionInWorld = PixelUtils.gridToWorld(levels[levelId].entityOnThisLevel[i].gridPosition);
                 GameObject resultGameObject = Instantiate(prefab, positionInWorld, Quaternion.identity);
+                resultGameObject.GetComponent<GridEntity>().gridPosition = levels[levelId].entityOnThisLevel[i].gridPosition;
 
                 GridElement gridEl = levels[levelId].entityOnThisLevel[i];
                 gridEl.theCorrespondingGameObject = resultGameObject;
                 levels[levelId].entityOnThisLevel[i] = gridEl;
+
+                if (GameManager.instance != null)
+                {
+                    //Add it from the collision buffer
+                    GameManager.instance.collisionMng.AddAnObject(levels[levelId].entityOnThisLevel[i].theCorrespondingGameObject.GetComponent<GridEntity>());
+                }
             }
 
             Debug.Log("I have load level " + levelId);
