@@ -215,7 +215,6 @@ public class Sort : GridEntity
 
     public override void Died()
     {
-        //anim ? particule ? 
         EndSort();
     }
 
