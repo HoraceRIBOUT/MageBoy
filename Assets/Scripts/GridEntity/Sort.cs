@@ -11,6 +11,8 @@ public class Sort : GridEntity
     private float secretTimer = 0;
     public float moveEveryXSeconds = 2f;
 
+    private bool inverseDirection = false;
+
 
     public void Start()
     {
@@ -37,6 +39,18 @@ public class Sort : GridEntity
             return false;
         }
         InputSave.enumInput currentInput = listInput[0];
+
+        if (inverseDirection)
+        {
+            if (currentInput == InputSave.enumInput.Up)
+                currentInput = InputSave.enumInput.Down;
+            else if (currentInput == InputSave.enumInput.Down)
+                currentInput = InputSave.enumInput.Up;
+            else if (currentInput == InputSave.enumInput.Left)
+                currentInput = InputSave.enumInput.Right;
+            else if (currentInput == InputSave.enumInput.Right)
+                currentInput = InputSave.enumInput.Left;
+        }
 
 
         //Do the rest
@@ -117,7 +131,16 @@ public class Sort : GridEntity
 
     public void DealWithB()
     {
+        Vector2 movement = Vector2.left * PixelUtils.caseSize * 2;
+        this.transform.Translate(movement);
+        gridPosition.x -= 2;
+    }
 
+
+    public void InverseDirection()
+    {
+        inverseDirection = !inverseDirection;
+        this.transform.GetChild(0).localScale = new Vector3(1, (inverseDirection ? -1 : 1), 1);
     }
 
 }
