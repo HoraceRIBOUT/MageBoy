@@ -61,8 +61,10 @@ public class Sort : GridEntity
                 gridPosition.x++;
                 break;
             case InputSave.enumInput.A:
+                DealWithA();
                 break;
             case InputSave.enumInput.B:
+                DealWithB();
                 break;
             default:
                 Debug.LogError("How ?");
@@ -91,6 +93,27 @@ public class Sort : GridEntity
     {
         //anim ? particule ? 
         EndSort();
+    }
+
+    public void  DealWithA()
+    {
+        foreach (GridEntity gridEntities in GameManager.instance.collisionMng.listOfObjectCurrentlyOnGrid)
+        {
+            if (gridEntities.entityType == LevelManager.gridEntityEnum.Pierre || gridEntities.entityType == LevelManager.gridEntityEnum.Sort)
+                continue;
+
+            if ((gridEntities.gridPosition - gridPosition).sqrMagnitude == 1)
+            {
+                Debug.Log("Yoloooooooo");
+                gridEntities.gridPosition += (gridEntities.gridPosition - gridPosition);
+                gridEntities.transform.position = PixelUtils.gridToWorld(gridEntities.gridPosition);
+            }
+        }
+    }
+
+    public void DealWithB()
+    {
+
     }
 
 }
