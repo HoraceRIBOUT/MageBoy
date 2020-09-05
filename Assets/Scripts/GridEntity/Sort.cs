@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MyBox;
+using DG.Tweening;
 
 public class Sort : GridEntity
 {
@@ -10,9 +11,12 @@ public class Sort : GridEntity
     private float secretTimer = 0;
     public float moveEveryXSeconds = 2f;
 
+    private Animator animator;
+
 
     public void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         secretTimer = 0;
     }
 
@@ -36,28 +40,37 @@ public class Sort : GridEntity
         }
         InputSave.enumInput currentInput = listInput[0];
 
-
+        Sequence movementSequence = DOTween.Sequence();
         //Do the rest
         switch (currentInput)
         {
             case InputSave.enumInput.Up:
                 Vector2 movement = Vector2.up * PixelUtils.caseSize;
-                this.transform.Translate(movement);
+               // this.transform.Translate(movement);
+                animator.SetTrigger("Move");
+                movementSequence.Append(transform.DORotate(new Vector3(0f, 0f, -90f), 0f));
+                movementSequence.Append(transform.DOMove((Vector2)transform.position + movement, 0.2f));
                 gridPosition.y++;
                 break;
             case InputSave.enumInput.Down:
                 movement = Vector2.down * PixelUtils.caseSize;
-                this.transform.Translate(movement);
+                movementSequence.Append(transform.DORotate(new Vector3(0f, 0f, 90f), 0f));
+                movementSequence.Append(transform.DOMove((Vector2)transform.position + movement, 0.2f));
+                animator.SetTrigger("Move");
                 gridPosition.y--;
                 break;
             case InputSave.enumInput.Left:
                 movement = Vector2.left * PixelUtils.caseSize;
-                this.transform.Translate(movement);
+                movementSequence.Append(transform.DORotate(new Vector3(0f, 0f, 0f), 0f));
+                movementSequence.Append(transform.DOMove((Vector2)transform.position + movement, 0.2f));
+                animator.SetTrigger("Move");
                 gridPosition.x--;
                 break;
             case InputSave.enumInput.Right:
                 movement = Vector2.right * PixelUtils.caseSize;
-                this.transform.Translate(movement);
+                movementSequence.Append(transform.DORotate(new Vector3(0f, 0f, 180f), 0f));
+                movementSequence.Append(transform.DOMove((Vector2)transform.position + movement, 0.2f));
+                animator.SetTrigger("Move");
                 gridPosition.x++;
                 break;
             case InputSave.enumInput.A:
@@ -68,7 +81,8 @@ public class Sort : GridEntity
                 Debug.LogError("How ?");
                 break;
         }
-
+        movementSequence.Append(transform.DORotate(new Vector3(0f, 0f, 0f), 0f));
+        movementSequence.Play();
         //Depile
         listInput.RemoveAt(0);
         //update visual

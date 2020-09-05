@@ -8,6 +8,13 @@ public class UI_Input : MonoBehaviour
     [Tooltip("Up Down Left Right A B")]
     public List<Sprite> spriteForInput = new List<Sprite>();
 
+    private Animator anim;
+
+    private void Awake()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
+
     public void VisualUpdate(List<InputSave.enumInput> listInputToRemake)
     {
         for (int i = 0; i < inputsSprite.Count; i++)
@@ -21,5 +28,10 @@ public class UI_Input : MonoBehaviour
                 inputsSprite[i].sprite = null;
             }
         }
+    }
+
+    public void FlashInputBar()
+    {
+        anim.SetTrigger("Flash");
     }
 }

@@ -172,7 +172,7 @@ public class InputSave : MonoBehaviour
             }
             listInputToRemake.Add(enumEquivalent);
             mageAnimator.SetTrigger(triggerAnimatorName);
-
+            GameManager.instance.ui_input.FlashInputBar();
             GameManager.instance.ui_input.VisualUpdate(listInputToRemake);
         }
     }
