@@ -7,6 +7,7 @@ public class Sort : GridEntity
 {
     public List<InputSave.enumInput> listInput = new List<InputSave.enumInput>();
 
+    private int secretIncrement = 0;
     private float secretTimer = 0;
     public float moveEveryXSeconds = 2f;
 
@@ -14,6 +15,7 @@ public class Sort : GridEntity
     public void Start()
     {
         secretTimer = 0;
+        secretIncrement = 0;
     }
 
 
@@ -74,7 +76,8 @@ public class Sort : GridEntity
         //Depile
         listInput.RemoveAt(0);
         //update visual
-
+        GameManager.instance.ui_input.CurrentlyActive(secretIncrement);
+        secretIncrement++;
 
         //Verify the collision :
         GameManager.instance.collisionMng.TestEveryCollision();
@@ -85,6 +88,7 @@ public class Sort : GridEntity
     public void EndSort()
     {
         FindObjectOfType<InputSave>().SortFinish();
+        GameManager.instance.ui_input.DeactiveAllInput();
         GameManager.instance.collisionMng.RemoveAnObject(this);
         Destroy(this.gameObject);
     }

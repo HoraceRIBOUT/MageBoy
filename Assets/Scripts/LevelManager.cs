@@ -193,7 +193,7 @@ public class LevelManager : MonoBehaviour
         }
 
 
-        entityToAnalyse.transform.position = closestGrid.transform.position + PixelUtils.yOffset * Vector3.up;
+        entityToAnalyse.transform.position = closestGrid.transform.position;
 
         return PixelUtils.worldToGrid(closestGrid.transform.position);
     }

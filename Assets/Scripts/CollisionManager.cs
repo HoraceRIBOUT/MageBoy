@@ -18,7 +18,7 @@ public class CollisionManager : MonoBehaviour
 
     public void Start()
     {
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         foreach (GridEntity gridEntities in FindObjectsOfType<GridEntity>())
         {
             AddAnObject(gridEntities);
@@ -30,7 +30,7 @@ public class CollisionManager : MonoBehaviour
     {
         for (int i = 0; i < listOfObjectCurrentlyOnGrid.Count; i++)
         {
-            for (int j = 0; j < listOfObjectCurrentlyOnGrid.Count; j++)
+            for (int j = i + 1; j < listOfObjectCurrentlyOnGrid.Count; j++)
             {
                 if (i == j)
                     continue;
@@ -46,7 +46,7 @@ public class CollisionManager : MonoBehaviour
 
     public void TreatCollision(GridEntity entiOne, GridEntity entiTwo)
     {
-        Debug.Log("Collisioooon");
+        Debug.Log("Collisioooon : " + entiOne.entityName + " on " + entiTwo.entityName);
         switch (entiOne.entityType)
         {
             case LevelManager.gridEntityEnum.Mage:

@@ -9,22 +9,18 @@ public class PixelUtils : MonoBehaviour
 
     public static Vector2 pixelSize = new Vector2(1.0f,1.0f);
     public static Vector2 caseSize = new Vector2(26, 26);
-
-    public static float yOffset = 7f;
-
-
+    
     public static Vector2 gridToWorld(Vector2 posOnGrid)
     {
         float x = posOnGrid.x * caseSize.x + 7 + (caseSize.x / 2);
         float y = posOnGrid.y * caseSize.y + 7 + (caseSize.y / 2);
-        y += yOffset;
         return new Vector2(x, y);
     }
 
     public static Vector2 worldToGrid(Vector2 posOnWorld)
     {
-        float x = (posOnWorld.x - 7 - (caseSize.x / 2)          ) / caseSize.x;
-        float y = (posOnWorld.y - 7 - (caseSize.y / 2) - yOffset) / caseSize.y;
+        float x = (posOnWorld.x - 7 - (caseSize.x / 2) ) / caseSize.x;
+        float y = (posOnWorld.y - 7 - (caseSize.y / 2) ) / caseSize.y;
 
         return new Vector2(x, y);
     }
