@@ -8,9 +8,12 @@ public class Sort : GridEntity
 {
     public List<InputSave.enumInput> listInput = new List<InputSave.enumInput>();
 
+    private int secretIncrement = 0;
     private float secretTimer = 0;
     public float moveEveryXSeconds = 2f;
 
+    private bool inverseDirection = false;
+    private InputSave.enumInput lastDirection = InputSave.enumInput.A;
     private Animator animator;
 
 
@@ -18,6 +21,7 @@ public class Sort : GridEntity
     {
         animator = GetComponentInChildren<Animator>();
         secretTimer = 0;
+        secretIncrement = 0;
     }
 
 
@@ -39,6 +43,21 @@ public class Sort : GridEntity
             return false;
         }
         InputSave.enumInput currentInput = listInput[0];
+
+        if (inverseDirection)
+        {
+            if (currentInput == InputSave.enumInput.Up)
+                currentInput = InputSave.enumInput.Down;
+            else if (currentInput == InputSave.enumInput.Down)
+                currentInput = InputSave.enumInput.Up;
+            else if (currentInput == InputSave.enumInput.Left)
+                currentInput = InputSave.enumInput.Right;
+            else if (currentInput == InputSave.enumInput.Right)
+                currentInput = InputSave.enumInput.Left;
+        }
+
+        if(currentInput != InputSave.enumInput.A && currentInput != InputSave.enumInput.B)
+            lastDirection = currentInput;
 
         Sequence movementSequence = DOTween.Sequence();
         //Do the rest
@@ -74,8 +93,10 @@ public class Sort : GridEntity
                 gridPosition.x++;
                 break;
             case InputSave.enumInput.A:
+                DealWithA();
                 break;
             case InputSave.enumInput.B:
+                DealWithB();
                 break;
             default:
                 Debug.LogError("How ?");
@@ -86,7 +107,8 @@ public class Sort : GridEntity
         //Depile
         listInput.RemoveAt(0);
         //update visual
-
+        GameManager.instance.ui_input.CurrentlyActive(secretIncrement);
+        secretIncrement++;
 
         //Verify the collision :
         GameManager.instance.collisionMng.TestEveryCollision();
@@ -97,6 +119,7 @@ public class Sort : GridEntity
     public void EndSort()
     {
         FindObjectOfType<InputSave>().SortFinish();
+        GameManager.instance.ui_input.DeactiveAllInput();
         GameManager.instance.collisionMng.RemoveAnObject(this);
         Destroy(this.gameObject);
     }
@@ -105,6 +128,65 @@ public class Sort : GridEntity
     {
         //anim ? particule ? 
         EndSort();
+    }
+
+    public void  DealWithA()
+    {
+        foreach (GridEntity gridEntities in GameManager.instance.collisionMng.listOfObjectCurrentlyOnGrid)
+        {
+            if (gridEntities.entityType == LevelManager.gridEntityEnum.Pierre || gridEntities.entityType == LevelManager.gridEntityEnum.Sort)
+                continue;
+
+            if ((gridEntities.gridPosition - gridPosition).sqrMagnitude == 1)
+            {
+                Debug.Log("Yoloooooooo");
+                gridEntities.gridPosition += (gridEntities.gridPosition - gridPosition);
+                gridEntities.transform.position = PixelUtils.gridToWorld(gridEntities.gridPosition);
+            }
+        }
+    }
+
+    public void DealWithB()
+    {
+        if(lastDirection == InputSave.enumInput.A)
+        {
+            lastDirection = InputSave.enumInput.Right;
+        }
+
+        Vector2 movement;
+        switch (lastDirection)
+        {
+            case InputSave.enumInput.Up:
+                movement = Vector2.up;
+                gridPosition.y += 2;
+                break;
+            case InputSave.enumInput.Down:
+                movement = Vector2.down;
+                gridPosition.y -= 2;
+                break;
+            case InputSave.enumInput.Left:
+                movement = Vector2.left;
+                gridPosition.x -= 2;
+                break;
+            case InputSave.enumInput.Right:
+                movement = Vector2.right;
+                gridPosition.x += 2;
+                break;
+            default:
+                Debug.LogError("!!! impossible memory !!!");
+                movement = Vector2.zero;
+                break;
+        }
+
+        movement *= PixelUtils.caseSize * 2;
+        this.transform.Translate(movement);
+    }
+
+
+    public void InverseDirection()
+    {
+        inverseDirection = !inverseDirection;
+        this.transform.GetChild(0).localScale = new Vector3(1, (inverseDirection ? -1 : 1), 1);
     }
 
 }

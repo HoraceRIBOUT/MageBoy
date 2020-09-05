@@ -31,12 +31,12 @@ public class GameManager : MonoBehaviour
         float width = Screen.width * (160.0f / 144.0f);
         Screen.SetResolution(Screen.height, (int)width, true);
 
-#if UNITY_EDITOR
-        lvlManager.currentShownLevel = 0;
-        lvlManager.SaveAndLoad();
-
         Mage mage = FindObjectOfType<Mage>();
         mage.gridPosition = PixelUtils.worldToGrid(mage.transform.position);
+#if !UNITY_EDITOR
+        lvlManager.currentShownLevel = 0;
+        lvlManager.SaveAndLoad();
+        
         collisionMng.AddAnObject(mage);
 #endif
 

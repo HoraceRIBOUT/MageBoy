@@ -5,7 +5,10 @@ using MyBox;
 
 [ExecuteAlways]
 public class LevelManager : MonoBehaviour
-{  
+{
+    [Header("Dont touch that please")]
+    public int memoryLevel = 0;
+
     [Header("Grid Creation")]
     public Vector2 gridSize = new Vector2(5, 5);
 
@@ -20,7 +23,8 @@ public class LevelManager : MonoBehaviour
         Sort,
         Blob,
         Pierre,
-
+        Incubateur,
+        Inverseur,
     }
 
     [System.Serializable]
@@ -52,8 +56,6 @@ public class LevelManager : MonoBehaviour
     public List<Level> levels = new List<Level>();
 
     public int currentShownLevel = 0;
-    [Header("Dont touch that please")]
-    public int memoryLevel = 0;
 
 
     public void Update()
