@@ -49,19 +49,19 @@ public class CollisionManager : MonoBehaviour
         Debug.Log("Collisioooon : " + entiOne.entityName + " on " + entiTwo.entityName);
         switch (entiOne.entityType)
         {
-            case LevelManager.gridEntityEnum.Mage:
+            case GridEntity.gridEntityEnum.Mage:
                 switch (entiTwo.entityType)
                 {
-                    case LevelManager.gridEntityEnum.Sort:
+                    case GridEntity.gridEntityEnum.Sort:
                         //darken because burned ? lol
                         entiOne.Died();
                         break;
-                    case LevelManager.gridEntityEnum.Blob:
-                    case LevelManager.gridEntityEnum.Inverseur:
+                    case GridEntity.gridEntityEnum.Blob:
+                    case GridEntity.gridEntityEnum.Inverseur:
                         //Mage died 
                         entiOne.Died();
                         break;
-                    case LevelManager.gridEntityEnum.Pierre:
+                    case GridEntity.gridEntityEnum.Pierre:
                         //Mage died
                         entiOne.Died();
                         break;
@@ -69,19 +69,19 @@ public class CollisionManager : MonoBehaviour
                         break;
                 }
                 break;
-            case LevelManager.gridEntityEnum.Sort:
+            case GridEntity.gridEntityEnum.Sort:
                 switch (entiTwo.entityType)
                 {
-                    case LevelManager.gridEntityEnum.Mage:
+                    case GridEntity.gridEntityEnum.Mage:
                         //darken because burned ? lol
                         entiOne.Died();
                         break;
-                    case LevelManager.gridEntityEnum.Blob:
-                    case LevelManager.gridEntityEnum.Inverseur:
+                    case GridEntity.gridEntityEnum.Blob:
+                    case GridEntity.gridEntityEnum.Inverseur:
                         //Blob die
                         entiTwo.Died();
                         break;
-                    case LevelManager.gridEntityEnum.Pierre:
+                    case GridEntity.gridEntityEnum.Pierre:
                         //Sort die
                         entiOne.Died();
                         break;
@@ -89,24 +89,24 @@ public class CollisionManager : MonoBehaviour
                         break;
                 }
                 break;
-            case LevelManager.gridEntityEnum.Blob:
+            case GridEntity.gridEntityEnum.Blob:
                 switch (entiTwo.entityType)
                 {
-                    case LevelManager.gridEntityEnum.Mage:
+                    case GridEntity.gridEntityEnum.Mage:
                         //Mage die
                         entiTwo.Died();
                         break;
-                    case LevelManager.gridEntityEnum.Sort:
+                    case GridEntity.gridEntityEnum.Sort:
                         //Blob die
                         entiOne.Died();
                         break;
-                    case LevelManager.gridEntityEnum.Blob:
-                    case LevelManager.gridEntityEnum.Inverseur:
+                    case GridEntity.gridEntityEnum.Blob:
+                    case GridEntity.gridEntityEnum.Inverseur:
                         //Both blob die
                         entiOne.Died();
                         entiTwo.Died();
                         break;
-                    case LevelManager.gridEntityEnum.Pierre:
+                    case GridEntity.gridEntityEnum.Pierre:
                         //Blob die
                         entiOne.Died();
                         break;
@@ -115,24 +115,24 @@ public class CollisionManager : MonoBehaviour
                 }
                 break;
 
-            case LevelManager.gridEntityEnum.Inverseur:
+            case GridEntity.gridEntityEnum.Inverseur:
                 switch (entiTwo.entityType)
                 {
-                    case LevelManager.gridEntityEnum.Mage:
+                    case GridEntity.gridEntityEnum.Mage:
                         //Mage die
                         entiTwo.Died();
                         break;
-                    case LevelManager.gridEntityEnum.Sort:
+                    case GridEntity.gridEntityEnum.Sort:
                         //Blob die
                         entiOne.Died();
                         break;
-                    case LevelManager.gridEntityEnum.Blob:
-                    case LevelManager.gridEntityEnum.Inverseur:
+                    case GridEntity.gridEntityEnum.Blob:
+                    case GridEntity.gridEntityEnum.Inverseur:
                         //Both blob die
                         entiOne.Died();
                         entiTwo.Died();
                         break;
-                    case LevelManager.gridEntityEnum.Pierre:
+                    case GridEntity.gridEntityEnum.Pierre:
                         //Blob die
                         entiOne.Died();
                         break;
@@ -140,23 +140,23 @@ public class CollisionManager : MonoBehaviour
                         break;
                 }
                 break;
-            case LevelManager.gridEntityEnum.Pierre:
+            case GridEntity.gridEntityEnum.Pierre:
                 switch (entiTwo.entityType)
                 {
-                    case LevelManager.gridEntityEnum.Mage:
+                    case GridEntity.gridEntityEnum.Mage:
                         //Mage die
                         entiTwo.Died();
                         break;
-                    case LevelManager.gridEntityEnum.Sort:
+                    case GridEntity.gridEntityEnum.Sort:
                         //Sort die
                         entiTwo.Died();
                         break;
-                    case LevelManager.gridEntityEnum.Blob:
-                    case LevelManager.gridEntityEnum.Inverseur:
+                    case GridEntity.gridEntityEnum.Blob:
+                    case GridEntity.gridEntityEnum.Inverseur:
                         //Blob died 
                         entiTwo.Died();
                         break;
-                    case LevelManager.gridEntityEnum.Pierre:
+                    case GridEntity.gridEntityEnum.Pierre:
                         //Both break ?
                         entiOne.Died();
                         entiTwo.Died();

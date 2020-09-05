@@ -9,6 +9,12 @@ public class Ennemie : GridEntity
 
     public override void Died()
     {
+        Sort sort = FindObjectOfType<Sort>();
+        if (sort.gridPosition == gridPosition)
+        {
+            sort.GoOneStepFurther();
+        }
+
         Dead();
     }
 

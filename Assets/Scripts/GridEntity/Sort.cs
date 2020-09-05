@@ -7,7 +7,7 @@ using DG.Tweening;
 public class Sort : GridEntity
 {
     public List<InputSave.enumInput> listInput = new List<InputSave.enumInput>();
-
+    
     private int secretIncrement = 0;
     private float secretTimer = 0;
     public float moveEveryXSeconds = 2f;
@@ -16,6 +16,8 @@ public class Sort : GridEntity
     private InputSave.enumInput lastDirection = InputSave.enumInput.A;
     private Animator animator;
 
+    private Sequence currentSequence = null;
+    private List<Sequence> sequenceToDoNext = new List<Sequence>();//not good but I cannot append movement on an executing sequence
 
     public void Start()
     {
@@ -23,7 +25,7 @@ public class Sort : GridEntity
         secretTimer = 0;
         secretIncrement = 0;
     }
-
+    
 
     public void Update()
     {
@@ -59,38 +61,20 @@ public class Sort : GridEntity
         if(currentInput != InputSave.enumInput.A && currentInput != InputSave.enumInput.B)
             lastDirection = currentInput;
 
-        Sequence movementSequence = DOTween.Sequence();
         //Do the rest
         switch (currentInput)
         {
             case InputSave.enumInput.Up:
-                Vector2 movement = Vector2.up * PixelUtils.caseSize;
-               // this.transform.Translate(movement);
-                animator.SetTrigger("Move");
-                movementSequence.Append(transform.DORotate(new Vector3(0f, 0f, -90f), 0f));
-                movementSequence.Append(transform.DOMove((Vector2)transform.position + movement, 0.2f));
-                gridPosition.y++;
+                Move(Vector2.up);
                 break;
             case InputSave.enumInput.Down:
-                movement = Vector2.down * PixelUtils.caseSize;
-                movementSequence.Append(transform.DORotate(new Vector3(0f, 0f, 90f), 0f));
-                movementSequence.Append(transform.DOMove((Vector2)transform.position + movement, 0.2f));
-                animator.SetTrigger("Move");
-                gridPosition.y--;
+                Move(Vector2.down);
                 break;
             case InputSave.enumInput.Left:
-                movement = Vector2.left * PixelUtils.caseSize;
-                movementSequence.Append(transform.DORotate(new Vector3(0f, 0f, 0f), 0f));
-                movementSequence.Append(transform.DOMove((Vector2)transform.position + movement, 0.2f));
-                animator.SetTrigger("Move");
-                gridPosition.x--;
+                Move(Vector2.left);
                 break;
             case InputSave.enumInput.Right:
-                movement = Vector2.right * PixelUtils.caseSize;
-                movementSequence.Append(transform.DORotate(new Vector3(0f, 0f, 180f), 0f));
-                movementSequence.Append(transform.DOMove((Vector2)transform.position + movement, 0.2f));
-                animator.SetTrigger("Move");
-                gridPosition.x++;
+                Move(Vector2.right);
                 break;
             case InputSave.enumInput.A:
                 DealWithA();
@@ -102,8 +86,6 @@ public class Sort : GridEntity
                 Debug.LogError("How ?");
                 break;
         }
-        movementSequence.Append(transform.DORotate(new Vector3(0f, 0f, 0f), 0f));
-        movementSequence.Play();
         //Depile
         listInput.RemoveAt(0);
         //update visual
@@ -114,6 +96,88 @@ public class Sort : GridEntity
         GameManager.instance.collisionMng.TestEveryCollision();
 
         return true;
+    }
+
+    public void GoOneStepFurther()
+    {
+        if (lastDirection == InputSave.enumInput.A)
+            lastDirection = InputSave.enumInput.Right;
+
+        Move(GetDirectionForThisInput(lastDirection));
+    }
+
+    public void Move(Vector2 directionToMove)
+    {
+        Sequence movementSequence = DOTween.Sequence();
+        
+        Vector2 movement = directionToMove * PixelUtils.caseSize;
+        movementSequence.Append(transform.DORotate(GetRotationForThisDirection(directionToMove), 0f));
+        movementSequence.Append(transform.DOMove(PixelUtils.gridToWorld(gridPosition) + movement, 0.2f));
+        gridPosition += directionToMove;
+
+
+        animator.SetTrigger("Move");
+        movementSequence.Append(transform.DORotate(new Vector3(0f, 0f, 0f), 0f));
+
+        if (currentSequence == null)
+        {
+            currentSequence = movementSequence;
+            currentSequence.Play().OnComplete(() => CurrentSequenceFinish());
+        }
+        else
+        {
+            sequenceToDoNext.Add(movementSequence);
+        }
+
+        Debug.Log("Goal is : " + ((Vector2)transform.position + movement));
+    }
+
+    public void CurrentSequenceFinish()
+    {
+        Debug.Log("Finish sequence...");
+        if(sequenceToDoNext.Count == 0)
+        {
+            Debug.Log("... for real !");
+            currentSequence = null;
+        }
+        else
+        {
+            Debug.Log("... for a new one !");
+            currentSequence = sequenceToDoNext[0];
+            sequenceToDoNext.RemoveAt(0);
+            
+            currentSequence.Play().OnComplete(() => CurrentSequenceFinish());
+        }
+    }
+
+    public Vector3 GetRotationForThisDirection(Vector2 direction)
+    {
+        if (direction == Vector2.up)
+            return new Vector3(0f, 0f, -90f);
+        else if (direction == Vector2.down)
+            return new Vector3(0f, 0f, 90f);
+        else if (direction == Vector2.left)
+            return new Vector3(0f, 0f, 0f);
+        else if (direction == Vector2.right)
+            return new Vector3(0f, 0f, 180f);
+
+        return Vector3.zero;
+    }
+
+    public Vector2 GetDirectionForThisInput(InputSave.enumInput input)
+    {
+        switch (input)
+        {
+            case InputSave.enumInput.Up:
+                return Vector2.up;
+            case InputSave.enumInput.Down:
+                return Vector2.down;
+            case InputSave.enumInput.Left:
+                return Vector2.left;
+            case InputSave.enumInput.Right:
+                return Vector2.right;
+        }
+        return Vector2.zero;
     }
 
     public void EndSort()
@@ -134,7 +198,7 @@ public class Sort : GridEntity
     {
         foreach (GridEntity gridEntities in GameManager.instance.collisionMng.listOfObjectCurrentlyOnGrid)
         {
-            if (gridEntities.entityType == LevelManager.gridEntityEnum.Pierre || gridEntities.entityType == LevelManager.gridEntityEnum.Sort)
+            if (gridEntities.entityType == GridEntity.gridEntityEnum.Pierre || gridEntities.entityType == GridEntity.gridEntityEnum.Sort)
                 continue;
 
             if ((gridEntities.gridPosition - gridPosition).sqrMagnitude == 1)
@@ -152,7 +216,7 @@ public class Sort : GridEntity
         {
             lastDirection = InputSave.enumInput.Right;
         }
-
+        //TO DO : use move and not this
         Vector2 movement;
         switch (lastDirection)
         {
