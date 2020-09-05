@@ -1,0 +1,342 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Horace-MyEntityList
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: ed3379ead81f4264b8a18ec5d57704a7,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: memoryLevel
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: gridSize.x
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: gridSize.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: caseGO
+    value: 
+    objectReference: {fileID: 5749905270474015117, guid: 0f82173982d493d45bb204e90895e15e,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.size
+    value: 25
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[0]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[1]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[2]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[3]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[4]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[5]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[6]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[7]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[8]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[9]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[10]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[11]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[12]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[13]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[14]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[15]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[16]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[17]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[18]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[19]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[20]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[21]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[22]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[23]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: generatedCases.Array.data[24]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allEntity.Array.size
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allEntity.Array.data[0].enumKey
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allEntity.Array.data[0].prefabValue
+    value: 
+    objectReference: {fileID: 1205803841024279135, guid: 1ff754174ade03947b0a52000e8174f2,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: allEntity.Array.data[1].enumKey
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allEntity.Array.data[1].prefabValue
+    value: 
+    objectReference: {fileID: 5177838744307614139, guid: a78c2cd18b5f4c0488d587523f6242cb,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: allEntity.Array.data[2].enumKey
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allEntity.Array.data[2].prefabValue
+    value: 
+    objectReference: {fileID: 7458458191671758191, guid: dde352150d2a4fb4fb6270d995d15dd2,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: allEntity.Array.data[3].enumKey
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allEntity.Array.data[3].prefabValue
+    value: 
+    objectReference: {fileID: 3300156567298954509, guid: 509e04b06cff44a489dc4a7ca0e8111a,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: allEntity.Array.data[4].enumKey
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allEntity.Array.data[4].prefabValue
+    value: 
+    objectReference: {fileID: 1791918582949142122, guid: b3b6c499fda86cb499d89bbf6b6014a9,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: allEntity.Array.data[5].enumKey
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: allEntity.Array.data[5].prefabValue
+    value: 
+    objectReference: {fileID: 5999024967669340591, guid: 9c49b2b7d480b8546a9c034cd7bcf91e,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.size
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.size
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[0].entityName
+    value: Pierre(Clone) (1)
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[0].entityType
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[0].gridPosition.x
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[0].gridPosition.y
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[0].theCorrespondingGameObject
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[1].entityName
+    value: Pierre(Clone)
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[1].entityType
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[1].gridPosition.x
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[1].gridPosition.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[1].theCorrespondingGameObject
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[2].entityName
+    value: Blob(Clone)
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[2].entityType
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[2].gridPosition.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[2].gridPosition.y
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[2].theCorrespondingGameObject
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[3].entityName
+    value: Blob(Clone)
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[3].entityType
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[3].gridPosition.x
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[3].gridPosition.y
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[3].theCorrespondingGameObject
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[4].entityName
+    value: Mage
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[4].entityType
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[4].gridPosition.x
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[4].gridPosition.y
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[0].entityOnThisLevel.Array.data[4].theCorrespondingGameObject
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[1].entityOnThisLevel.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[1].entityOnThisLevel.Array.data[0].entityName
+    value: Mage
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[1].entityOnThisLevel.Array.data[0].entityType
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[1].entityOnThisLevel.Array.data[0].gridPosition.x
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[1].entityOnThisLevel.Array.data[0].gridPosition.y
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levels.Array.data[1].entityOnThisLevel.Array.data[0].theCorrespondingGameObject
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: currentShownLevel
+    value: 0
+    objectReference: {fileID: 0}
