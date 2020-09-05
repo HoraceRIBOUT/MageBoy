@@ -1,16 +1,25 @@
 fileFormatVersion: 2
-guid: aaf6fd31cbbc8784d8539faf51c1aa5c
+guid: 103476b8cd226ed49b263c2be144e37a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1463874755805637631
-    second: Incubateur_0
+      213: -1328139976232024759
+    second: BlobIdle_0
   - first:
-      213: 6889707765133086515
-    second: Incubateur_1
+      213: 1462189311115305233
+    second: BlobIdle_1
   - first:
-      213: -1904183417487511002
-    second: Incubateur_2
+      213: 4334953243076050239
+    second: BlobIdle_2
+  - first:
+      213: 2547919144766428185
+    second: BlobIdle_3
+  - first:
+      213: 2930923564252338323
+    second: BlobIdle_4
+  - first:
+      213: 131096075810827486
+    second: BlobIdle_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -43,9 +52,9 @@ TextureImporter:
     filterMode: 0
     aniso: -1
     mipBias: -100
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -92,7 +101,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -104,7 +113,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -119,13 +128,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Incubateur_0
+      name: BlobIdle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 26
-        height: 26
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,20 +142,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e5861bab6d923545a6697768fcd094b
-      internalID: -1463874755805637631
+      spriteID: e283ffaa1c9bcfb4f87d77b923aff095
+      internalID: -1328139976232024759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Incubateur_1
+      name: BlobIdle_1
       rect:
         serializedVersion: 2
-        x: 26
+        x: 24
         y: 0
-        width: 26
-        height: 26
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,20 +163,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e2d92ba076efcc459b86d7fbd915cfb
-      internalID: 6889707765133086515
+      spriteID: c228fbaa28b23dd42883c90b8a12a56e
+      internalID: 1462189311115305233
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Incubateur_2
+      name: BlobIdle_2
       rect:
         serializedVersion: 2
-        x: 52
+        x: 48
         y: 0
-        width: 26
-        height: 26
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,8 +184,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44a80e27e7430354eadc58b9ef55d735
-      internalID: -1904183417487511002
+      spriteID: ea9eb34536adb7d48a9abd3ad8cbc42a
+      internalID: 4334953243076050239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlobIdle_3
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29f6892421a80884688b5e9abd661eb6
+      internalID: 2547919144766428185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlobIdle_4
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 328809e4c67a8ff43876be8afc5a79b5
+      internalID: 2930923564252338323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlobIdle_5
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11989e064ceda51469742434d37a9ca1
+      internalID: 131096075810827486
       vertices: []
       indices: 
       edges: []
@@ -184,7 +256,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: d5a71b19d0711a240aabcf42e7c7c50e
     internalID: 0
     vertices: []
     indices: 

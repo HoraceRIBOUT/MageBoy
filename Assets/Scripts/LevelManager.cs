@@ -14,42 +14,24 @@ public class LevelManager : MonoBehaviour
 
     public GameObject caseGO;
     public List<GameObject> generatedCases = new List<GameObject>();
-
-
-
-    public enum gridEntityEnum
-    {
-        Mage,
-        Sort,
-        Blob,
-        Pierre,
-        Incubateur,
-        Inverseur,
-    }
+    
 
     [System.Serializable]
     public struct prefabForEnum
     {
-        public gridEntityEnum enumKey;
+        public GridEntity.gridEntityEnum enumKey;
+        public int versionKey;
         public GameObject prefabValue;
     }
 
     [Header("Entity part")]
     public List<prefabForEnum> allEntity = new List<prefabForEnum>();
 
-    [System.Serializable]
-    public struct GridElement
-    {
-        public string entityName;
-        public gridEntityEnum entityType;
-        public Vector2 gridPosition;
-        public GameObject theCorrespondingGameObject;
-    }
-
+    
     [System.Serializable]
     public struct Level
     {
-        public List<GridElement> entityOnThisLevel;
+        public List<GridEntity.GridElement> entityOnThisLevel;
     }
 
     [Header("Level manager")]
@@ -101,20 +83,20 @@ public class LevelManager : MonoBehaviour
 
                 DestroyImmediate(levels[previousLevel].entityOnThisLevel[i].theCorrespondingGameObject);
 
-                GridElement gridEl = levels[previousLevel].entityOnThisLevel[i];
+                GridEntity.GridElement gridEl = levels[previousLevel].entityOnThisLevel[i];
                 gridEl.theCorrespondingGameObject = null;
                 levels[previousLevel].entityOnThisLevel[i] = gridEl;
 
             }
 
-            Debug.Log("I have destroy level " + previousLevel);
+//            Debug.Log("I have destroy level " + previousLevel);
 
             for (int i = 0; i < levels[levelId].entityOnThisLevel.Count; i++)
             {
                 if (levels[levelId].entityOnThisLevel[i].entityName == "Mage" && indexOfMage != -1)
                 {
                     //Don't create
-                    GridElement mageEntity = levels[levelId].entityOnThisLevel[i];
+                    GridEntity.GridElement mageEntity = levels[levelId].entityOnThisLevel[i];
                     mageEntity.theCorrespondingGameObject = levels[previousLevel].entityOnThisLevel[indexOfMage].theCorrespondingGameObject;
                     mageEntity.theCorrespondingGameObject.transform.position = PixelUtils.gridToWorld(levels[levelId].entityOnThisLevel[i].gridPosition);
                     levels[levelId].entityOnThisLevel[i] = mageEntity;
@@ -124,8 +106,9 @@ public class LevelManager : MonoBehaviour
                 Vector3 positionInWorld = PixelUtils.gridToWorld(levels[levelId].entityOnThisLevel[i].gridPosition);
                 GameObject resultGameObject = Instantiate(prefab, positionInWorld, Quaternion.identity);
                 resultGameObject.GetComponent<GridEntity>().gridPosition = levels[levelId].entityOnThisLevel[i].gridPosition;
+                resultGameObject.GetComponent<GridEntity>().version = levels[levelId].entityOnThisLevel[i].versionOfThisElement;
 
-                GridElement gridEl = levels[levelId].entityOnThisLevel[i];
+                GridEntity.GridElement gridEl = levels[levelId].entityOnThisLevel[i];
                 gridEl.theCorrespondingGameObject = resultGameObject;
                 levels[levelId].entityOnThisLevel[i] = gridEl;
 
@@ -136,7 +119,7 @@ public class LevelManager : MonoBehaviour
                 }
             }
 
-            Debug.Log("I have load level " + levelId);
+//            Debug.Log("I have load level " + levelId);
 
         }
     }
@@ -160,16 +143,17 @@ public class LevelManager : MonoBehaviour
         {
             ReplaceEntityExactlyOnTile(gridEnt);
 
-            GridElement thisElement;
+            GridEntity.GridElement thisElement;
             thisElement.entityName = gridEnt.name;
             thisElement.theCorrespondingGameObject = gridEnt.gameObject;
             thisElement.gridPosition = gridEnt.gridPosition;
             thisElement.entityType = gridEnt.entityType;
+            thisElement.versionOfThisElement = gridEnt.version;
 
             levels[levelId].entityOnThisLevel.Add(thisElement);
         }
 
-        Debug.Log("I have save level " + levelId);
+//        Debug.Log("I have save level " + levelId);
     }
 
     public void ReplaceEntityExactlyOnTile(GridEntity entityToReplace)
@@ -227,12 +211,14 @@ public class LevelManager : MonoBehaviour
         generatedCases.Clear();
     }
     
-    public GameObject getPrefabOfThisEntity(gridEntityEnum key)
+    public GameObject getPrefabOfThisEntity(GridEntity.gridEntityEnum key)
     {
         foreach (prefabForEnum prefEnu in allEntity)
         {
             if (key == prefEnu.enumKey)
+            {
                 return prefEnu.prefabValue;
+            }
         }
         return null;
     }
