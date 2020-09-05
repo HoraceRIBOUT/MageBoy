@@ -12,6 +12,7 @@ public class Sort : GridEntity
     public float moveEveryXSeconds = 2f;
 
     private bool inverseDirection = false;
+    private InputSave.enumInput lastDirection = InputSave.enumInput.A;
 
 
     public void Start()
@@ -52,6 +53,8 @@ public class Sort : GridEntity
                 currentInput = InputSave.enumInput.Left;
         }
 
+        if(currentInput != InputSave.enumInput.A && currentInput != InputSave.enumInput.B)
+            lastDirection = currentInput;
 
         //Do the rest
         switch (currentInput)
@@ -131,9 +134,38 @@ public class Sort : GridEntity
 
     public void DealWithB()
     {
-        Vector2 movement = Vector2.left * PixelUtils.caseSize * 2;
+        if(lastDirection == InputSave.enumInput.A)
+        {
+            lastDirection = InputSave.enumInput.Right;
+        }
+
+        Vector2 movement;
+        switch (lastDirection)
+        {
+            case InputSave.enumInput.Up:
+                movement = Vector2.up;
+                gridPosition.y += 2;
+                break;
+            case InputSave.enumInput.Down:
+                movement = Vector2.down;
+                gridPosition.y -= 2;
+                break;
+            case InputSave.enumInput.Left:
+                movement = Vector2.left;
+                gridPosition.x -= 2;
+                break;
+            case InputSave.enumInput.Right:
+                movement = Vector2.right;
+                gridPosition.x += 2;
+                break;
+            default:
+                Debug.LogError("!!! impossible memory !!!");
+                movement = Vector2.zero;
+                break;
+        }
+
+        movement *= PixelUtils.caseSize * 2;
         this.transform.Translate(movement);
-        gridPosition.x -= 2;
     }
 
 
