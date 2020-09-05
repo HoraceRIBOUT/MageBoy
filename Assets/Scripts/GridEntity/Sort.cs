@@ -19,11 +19,17 @@ public class Sort : GridEntity
     private Sequence currentSequence = null;
     private List<Sequence> sequenceToDoNext = new List<Sequence>();//not good but I cannot append movement on an executing sequence
 
+    public ParticleSystem partSys;
+    public ParticleSystem.EmissionModule emissionModule;
+    public ParticleSystem.MainModule mainModule;
+
     public void Start()
     {
         animator = GetComponentInChildren<Animator>();
         secretTimer = 0;
         secretIncrement = 0;
+        emissionModule = partSys.emission;
+        mainModule = partSys.main;
     }
     
 
@@ -137,12 +143,10 @@ public class Sort : GridEntity
         Debug.Log("Finish sequence...");
         if(sequenceToDoNext.Count == 0)
         {
-            Debug.Log("... for real !");
             currentSequence = null;
         }
         else
         {
-            Debug.Log("... for a new one !");
             currentSequence = sequenceToDoNext[0];
             sequenceToDoNext.RemoveAt(0);
             
@@ -185,17 +189,39 @@ public class Sort : GridEntity
         FindObjectOfType<InputSave>().SortFinish();
         GameManager.instance.ui_input.DeactiveAllInput();
         GameManager.instance.collisionMng.RemoveAnObject(this);
+        animator.SetTrigger("Death");
+
+
+        Sequence seqForParticle = DOTween.Sequence();
+        seqForParticle.Join(DOTween.To(
+            () => mainModule.startSpeed.constantMin,
+            x => mainModule.startSpeed = x,
+            mainModule.startSpeed.constantMin * 10,
+            0.5f));
+        seqForParticle.Append(DOTween.To(
+            () => emissionModule.rateMultiplier,
+            x => emissionModule.rateMultiplier = x,
+            0,
+            2));
+        
+        seqForParticle.Play().OnComplete(()=> DestroyThisSort());
+    }
+
+    public void DestroyThisSort()
+    {
         Destroy(this.gameObject);
     }
-    
+
+
     public override void Died()
     {
         //anim ? particule ? 
         EndSort();
     }
 
-    public void  DealWithA()
+    public void DealWithA()
     {
+        Sequence moveOtherSequence = DOTween.Sequence();
         foreach (GridEntity gridEntities in GameManager.instance.collisionMng.listOfObjectCurrentlyOnGrid)
         {
             if (gridEntities.entityType == GridEntity.gridEntityEnum.Pierre || gridEntities.entityType == GridEntity.gridEntityEnum.Sort)
@@ -203,12 +229,16 @@ public class Sort : GridEntity
 
             if ((gridEntities.gridPosition - gridPosition).sqrMagnitude == 1)
             {
-                Debug.Log("Yoloooooooo");
                 gridEntities.gridPosition += (gridEntities.gridPosition - gridPosition);
-                gridEntities.transform.position = PixelUtils.gridToWorld(gridEntities.gridPosition);
+
+                moveOtherSequence.Join(gridEntities.transform.DOMove(PixelUtils.gridToWorld(gridEntities.gridPosition), 0.2f));
             }
         }
+        moveOtherSequence.Play();
+
+
     }
+
 
     public void DealWithB()
     {
