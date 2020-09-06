@@ -43,6 +43,13 @@ public class CollisionManager : MonoBehaviour
 
     public void TestEveryCollision()
     {
+        foreach(GridEntity entity in listOfObjectCurrentlyOnGrid)
+        {
+            if(IsOutOfBounce(entity))
+            {
+                entity.Died();
+            }
+        }
         for (int i = 0; i < listOfObjectCurrentlyOnGrid.Count; i++)
         {
             for (int j = i + 1; j < listOfObjectCurrentlyOnGrid.Count; j++)
@@ -69,7 +76,9 @@ public class CollisionManager : MonoBehaviour
                 {
                     case GridEntity.gridEntityEnum.Sort:
                         //darken because burned ? lol
-                        entiOne.Died();
+                        Sort sort = (Sort)entiTwo;
+                        if (!sort.IsFirstMove)
+                            entiOne.Died();
                         break;
                     case GridEntity.gridEntityEnum.Blob:
                     case GridEntity.gridEntityEnum.Inverseur:
@@ -89,7 +98,9 @@ public class CollisionManager : MonoBehaviour
                 {
                     case GridEntity.gridEntityEnum.Mage:
                         //darken because burned ? lol
-                        entiOne.Died();
+                        Sort sort = (Sort)entiOne;
+                        if(!sort.IsFirstMove)
+                            entiOne.Died();
                         break;
                     case GridEntity.gridEntityEnum.Blob:
                     case GridEntity.gridEntityEnum.Inverseur:
@@ -184,6 +195,11 @@ public class CollisionManager : MonoBehaviour
                 Debug.LogError("Type not taken in account !!! need to be code : "+ entiOne.entityType);
                 break;
         }
+    }
+
+    public void PushOutOfBounds(GridEntity gridEntity)
+    {
+
     }
 
     public bool HasFinishLevel()
