@@ -224,7 +224,11 @@ public class Sort : GridEntity
 
     public override void Died()
     {
+        listInput.Clear();
         EndSort();
+        float timer = 0f;
+        DOTween.To(() => timer, x => timer = x, 1f, 1f)
+            .OnComplete(()=> GameManager.instance.lvlManager.ReloadLevel());
     }
 
     public void DealWithA()

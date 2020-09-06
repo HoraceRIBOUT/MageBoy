@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MyBox;
+using DG.Tweening;
 
 [ExecuteAlways]
 public class LevelManager : MonoBehaviour
@@ -122,6 +123,28 @@ public class LevelManager : MonoBehaviour
 //            Debug.Log("I have load level " + levelId);
 
         }
+    }
+
+    public void ReloadLevel()
+    {
+        Debug.Log("reload");
+        float timer = 0f;
+        DOTween.To(() => timer, x => timer = x, 1f, 1.5f)
+            .OnComplete(() =>LoadLevel(currentShownLevel, currentShownLevel));
+    }
+
+    public void LoadNextLevel()
+    {
+        Debug.Log("reload");
+        float timer = 0f;
+        DOTween.To(() => timer, x => timer = x, 1f, 1.5f)
+            .OnComplete(() => LoadNext());
+    }
+
+    private void LoadNext()
+    {
+        currentShownLevel++;
+        LoadLevel(currentShownLevel, currentShownLevel);
     }
 
     [MyBox.ButtonMethod()]

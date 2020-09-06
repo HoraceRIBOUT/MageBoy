@@ -14,6 +14,10 @@ public class CollisionManager : MonoBehaviour
     public void RemoveAnObject(GridEntity entityToRemove)
     {
         listOfObjectCurrentlyOnGrid.Remove(entityToRemove);
+        if(HasFinishLevel())
+        {
+            GameManager.instance.EndLevel();
+        }
     }
 
     public void Start()
@@ -171,7 +175,16 @@ public class CollisionManager : MonoBehaviour
         }
     }
 
-
+    public bool HasFinishLevel()
+    {
+        bool result = true;
+        foreach(GridEntity grid in listOfObjectCurrentlyOnGrid)
+        {
+            if (grid.entityType == GridEntity.gridEntityEnum.Blob || grid.entityType == GridEntity.gridEntityEnum.Inverseur)
+                result = false;
+        }
+        return result;
+    }
 
 
 

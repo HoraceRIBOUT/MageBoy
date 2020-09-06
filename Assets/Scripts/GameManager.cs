@@ -62,4 +62,10 @@ public class GameManager : MonoBehaviour
             FindObjectOfType<ChangePalette>().currentPalette--;
         }
     }
+
+    public void EndLevel()
+    {
+
+        lvlManager.LoadNextLevel();
+    }
 }
