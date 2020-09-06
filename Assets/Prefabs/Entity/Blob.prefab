@@ -47,6 +47,7 @@ MonoBehaviour:
   entityName: Bob
   entityType: 2
   gridPosition: {x: -1, y: -1}
+  version: 0
   ennemiAnimator: {fileID: 5177838745966894484}
 --- !u!1 &5177838745966894483
 GameObject:
@@ -121,7 +122,7 @@ SpriteRenderer:
   m_Sprite: {fileID: -411495242425426044, guid: fbbdda2cb37bd9a419adf189b87b5af9,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.24, y: 0.24}

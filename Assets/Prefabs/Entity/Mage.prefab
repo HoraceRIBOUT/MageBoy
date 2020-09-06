@@ -154,6 +154,7 @@ MonoBehaviour:
   durationToFinishSort: 2
   durationToEraseInput: 1
   mageAnimator: {fileID: 1205803840216790108}
+  sprite: {fileID: 1205803840216790111}
 --- !u!114 &1205803841024279132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,3 +170,4 @@ MonoBehaviour:
   entityName: Mage
   entityType: 0
   gridPosition: {x: -1, y: -1}
+  version: 0

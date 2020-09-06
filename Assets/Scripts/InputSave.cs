@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MyBox;
+using FafaTools.Audio;
 
 public class InputSave : MonoBehaviour
 {
@@ -37,6 +38,7 @@ public class InputSave : MonoBehaviour
 
     [Header("Visual")]
     public Animator mageAnimator;
+    public SpriteRenderer sprite;
 
     public void Start()
     {
@@ -69,8 +71,8 @@ public class InputSave : MonoBehaviour
         //Management of input 
         InputListManagement(KeyCode.A, enumInput.A, "A");
         InputListManagement(KeyCode.B, enumInput.B, "B");
-        InputListManagement(KeyCode.LeftArrow, enumInput.Left, "Left");
-        InputListManagement(KeyCode.RightArrow, enumInput.Right, "Right");
+        InputListManagement(KeyCode.LeftArrow, enumInput.Left, sprite.flipX ?"Right" : "Left");
+        InputListManagement(KeyCode.RightArrow, enumInput.Right, sprite.flipX? "Left" : "Right");
         InputListManagement(KeyCode.UpArrow, enumInput.Up, "Up");
         InputListManagement(KeyCode.DownArrow, enumInput.Down, "Down");
     }
@@ -124,7 +126,7 @@ public class InputSave : MonoBehaviour
     void SpawnSort()
     {
         //create a gameObject SORT  
-        GameObject sortGO = Instantiate(sortPrefab, this.transform.position + (Vector3.left * PixelUtils.caseSize.x), Quaternion.identity);
+        GameObject sortGO = Instantiate(sortPrefab, this.transform.position, Quaternion.identity);
         Sort sortCpt = sortGO.GetComponent<Sort>();
         sortCpt.listInput.Clear();
         sortCpt.gridPosition = PixelUtils.worldToGrid(sortGO.transform.position);
@@ -172,6 +174,7 @@ public class InputSave : MonoBehaviour
             }
             listInputToRemake.Add(enumEquivalent);
             mageAnimator.SetTrigger(triggerAnimatorName);
+            SoundManager.Instance.PlaySound(AudioFieldEnum.INPUT);
             GameManager.instance.ui_input.FlashInputBar();
             GameManager.instance.ui_input.VisualUpdate(listInputToRemake);
         }

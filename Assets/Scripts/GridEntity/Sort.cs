@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MyBox;
 using DG.Tweening;
+using FafaTools.Audio;
 
 public class Sort : GridEntity
 {
@@ -72,21 +73,27 @@ public class Sort : GridEntity
         {
             case InputSave.enumInput.Up:
                 Move(Vector2.up);
+                SoundManager.Instance.PlaySound(AudioFieldEnum.SPELL_MOVE);
                 break;
             case InputSave.enumInput.Down:
                 Move(Vector2.down);
+                SoundManager.Instance.PlaySound(AudioFieldEnum.SPELL_MOVE);
                 break;
             case InputSave.enumInput.Left:
                 Move(Vector2.left);
+                SoundManager.Instance.PlaySound(AudioFieldEnum.SPELL_MOVE);
                 break;
             case InputSave.enumInput.Right:
                 Move(Vector2.right);
+                SoundManager.Instance.PlaySound(AudioFieldEnum.SPELL_MOVE);
                 break;
             case InputSave.enumInput.A:
                 DealWithA();
+                SoundManager.Instance.PlaySound(AudioFieldEnum.SPELL_A);
                 break;
             case InputSave.enumInput.B:
                 DealWithB();
+                SoundManager.Instance.PlaySound(AudioFieldEnum.SPELL_B);
                 break;
             default:
                 Debug.LogError("How ?");
@@ -123,6 +130,8 @@ public class Sort : GridEntity
 
 
         animator.SetTrigger("Move");
+        float timer = 0f;
+        movementSequence.Append(DOTween.To(() => timer, x => timer = x, 1f, 0.1f));
         movementSequence.Append(transform.DORotate(new Vector3(0f, 0f, 0f), 0f));
 
         if (currentSequence == null)
