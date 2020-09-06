@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         if (IsLevelFinish)
             return;
         IsLevelFinish = true;
-        StartCoroutine(EndLevelCoroutine(true));
+        StartCoroutine(EndLevelCoroutine(!testingLevel));
         levelTransition.SetTrigger("Win");
     }
 
@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.6f);
         if (needToUpLevel)
         {
-            lvlManager.currentShownLevel++;
+                lvlManager.currentShownLevel++;
             //Dont need : the levelManager will detect the change in levelIndexlvlManager.LoadDontSave();
         }
         else
