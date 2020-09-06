@@ -246,7 +246,6 @@ public class Sort : GridEntity
 
             if ((gridEntities.gridPosition - gridPosition).sqrMagnitude == 1)
             {
-                Debug.Log("name:"+gridEntities.entityName);
                 gridEntities.gridPosition += (gridEntities.gridPosition - gridPosition);
                 moveOtherSequence.Join(gridEntities.transform.DOMove(PixelUtils.gridToWorld(gridEntities.gridPosition), 0.2f));
             }
@@ -291,6 +290,19 @@ public class Sort : GridEntity
         this.transform.Translate(movement);
     }
 
+    public void TeleportAction(Vector2 newPosition)
+    {
+        if(currentSequence!=null)
+        {
+            Debug.Log(currentSequence);
+            currentSequence.Kill();
+            currentSequence = null;
+        }
+        transform.position = newPosition;
+        // Sequence movementSequence = DOTween.Sequence();
+        // movementSequence.Append(transform.DOMove(newPosition, 0.01f));
+        // sequenceToDoNext.Add(movementSequence);
+    }
 
     public void InverseDirection()
     {

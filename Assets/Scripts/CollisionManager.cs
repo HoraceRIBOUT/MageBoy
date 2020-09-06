@@ -86,6 +86,7 @@ public class CollisionManager : MonoBehaviour
                         entiOne.Died();
                         break;
                     case GridEntity.gridEntityEnum.Pierre:
+                    case GridEntity.gridEntityEnum.Incubateur:
                         //Mage died
                         entiOne.Died();
                         break;
@@ -111,6 +112,10 @@ public class CollisionManager : MonoBehaviour
                         //Sort die
                         entiOne.Died();
                         break;
+                    case GridEntity.gridEntityEnum.Incubateur:
+                        Incubateur incub = (Incubateur)entiTwo;
+                        incub.TeleportAction(entiOne);
+                        break;
                     default:
                         break;
                 }
@@ -133,6 +138,7 @@ public class CollisionManager : MonoBehaviour
                         entiTwo.Died();
                         break;
                     case GridEntity.gridEntityEnum.Pierre:
+                    case GridEntity.gridEntityEnum.Incubateur:
                         //Blob die
                         entiOne.Died();
                         break;
@@ -159,6 +165,7 @@ public class CollisionManager : MonoBehaviour
                         entiTwo.Died();
                         break;
                     case GridEntity.gridEntityEnum.Pierre:
+                    case GridEntity.gridEntityEnum.Incubateur:
                         //Blob die
                         entiOne.Died();
                         break;
@@ -175,6 +182,32 @@ public class CollisionManager : MonoBehaviour
                         break;
                     case GridEntity.gridEntityEnum.Sort:
                         //Sort die
+                        entiTwo.Died();
+                        break;
+                    case GridEntity.gridEntityEnum.Blob:
+                    case GridEntity.gridEntityEnum.Inverseur:
+                        //Blob died 
+                        entiTwo.Died();
+                        break;
+                    case GridEntity.gridEntityEnum.Pierre:
+                        //Both break ?
+                        entiOne.Died();
+                        entiTwo.Died();
+                        break;
+                    default:
+                        break;
+                }
+                break;
+
+            case GridEntity.gridEntityEnum.Incubateur:
+                switch (entiTwo.entityType)
+                {
+                    case GridEntity.gridEntityEnum.Sort:
+                        Incubateur incub = (Incubateur)entiOne;
+                        incub.TeleportAction(entiTwo);
+                        break;
+                    case GridEntity.gridEntityEnum.Mage:
+                        //Mage die
                         entiTwo.Died();
                         break;
                     case GridEntity.gridEntityEnum.Blob:
