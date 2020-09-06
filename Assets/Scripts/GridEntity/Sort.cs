@@ -48,7 +48,7 @@ public class Sort : GridEntity
     {
         if(listInput.Count == 0)
         {
-            EndSort();
+            Died();
             return false;
         }
         InputSave.enumInput currentInput = listInput[0];
@@ -105,6 +105,11 @@ public class Sort : GridEntity
         GameManager.instance.ui_input.CurrentlyActive(secretIncrement);
         secretIncrement++;
 
+        if (GameManager.instance.collisionMng.IsOutOfBounce(this))
+        {
+            Died();
+            return false;
+        }
         //Verify the collision :
         GameManager.instance.collisionMng.TestEveryCollision();
 
@@ -144,12 +149,12 @@ public class Sort : GridEntity
             sequenceToDoNext.Add(movementSequence);
         }
 
-        Debug.Log("Goal is : " + ((Vector2)transform.position + movement));
+       // Debug.Log("Goal is : " + ((Vector2)transform.position + movement));
     }
 
     public void CurrentSequenceFinish()
     {
-        Debug.Log("Finish sequence...");
+       // Debug.Log("Finish sequence...");
         if(sequenceToDoNext.Count == 0)
         {
             currentSequence = null;
@@ -200,7 +205,6 @@ public class Sort : GridEntity
         GameManager.instance.collisionMng.RemoveAnObject(this);
         animator.SetTrigger("Death");
 
-
         Sequence seqForParticle = DOTween.Sequence();
         seqForParticle.Join(DOTween.To(
             () => mainModule.startSpeed.constantMin,
@@ -224,11 +228,12 @@ public class Sort : GridEntity
 
     public override void Died()
     {
+        if (GameManager.instance.IsLevelFinish)
+            return;
+        Debug.Log("dead");
         listInput.Clear();
         EndSort();
-        float timer = 0f;
-        DOTween.To(() => timer, x => timer = x, 1f, 1f)
-            .OnComplete(()=> GameManager.instance.lvlManager.ReloadLevel());
+        GameManager.instance.EndLevelLose();
     }
 
     public void DealWithA()

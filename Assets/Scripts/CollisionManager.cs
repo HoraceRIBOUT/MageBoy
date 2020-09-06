@@ -11,12 +11,15 @@ public class CollisionManager : MonoBehaviour
         listOfObjectCurrentlyOnGrid.Add(entityToAdd);
     }
 
-    public void RemoveAnObject(GridEntity entityToRemove)
+    public void RemoveAnObject(GridEntity entityToRemove, bool needTestEndGame=false)
     {
         listOfObjectCurrentlyOnGrid.Remove(entityToRemove);
-        if(HasFinishLevel())
+        if(needTestEndGame)
         {
-            GameManager.instance.EndLevel();
+            if(HasFinishLevel() && !GameManager.instance.IsLevelFinish)
+            {
+                GameManager.instance.EndLevel();
+            }
         }
     }
 
@@ -28,6 +31,14 @@ public class CollisionManager : MonoBehaviour
             AddAnObject(gridEntities);
         }
 #endif
+    }
+
+    public bool IsOutOfBounce(GridEntity entity)
+    {
+        bool result = false;
+        if (entity.gridPosition.x >= 5 || entity.gridPosition.x < 0 || entity.gridPosition.y >= 5 || entity.gridPosition.y < 0)
+                result = true;
+        return result;
     }
 
     public void TestEveryCollision()

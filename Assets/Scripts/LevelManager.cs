@@ -121,30 +121,35 @@ public class LevelManager : MonoBehaviour
             }
 
 //            Debug.Log("I have load level " + levelId);
-
         }
     }
 
     public void ReloadLevel()
     {
+
         Debug.Log("reload");
         float timer = 0f;
         DOTween.To(() => timer, x => timer = x, 1f, 1.5f)
-            .OnComplete(() =>LoadLevel(currentShownLevel, currentShownLevel));
+            .OnComplete(() =>
+        LoadLevel(currentShownLevel, currentShownLevel));
     }
 
     public void LoadNextLevel()
     {
-        Debug.Log("reload");
+        currentShownLevel++;
+        /*
+        Debug.Log("next level");
         float timer = 0f;
         DOTween.To(() => timer, x => timer = x, 1f, 1.5f)
             .OnComplete(() => LoadNext());
+            */
     }
 
     private void LoadNext()
     {
+        int previous = currentShownLevel;
         currentShownLevel++;
-        LoadLevel(currentShownLevel, currentShownLevel);
+        LoadLevel(previous, currentShownLevel);
     }
 
     [MyBox.ButtonMethod()]

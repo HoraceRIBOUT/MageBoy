@@ -14,14 +14,13 @@ public class Inverseur : GridEntity
         }
 
         Dead();
-
     }
 
     public void Dead()
     {
         //ennemiAnimator.SetTrigger("Death");
         //And after that destroy him self. maybe saying it to the LevelManager
-        GameManager.instance.collisionMng.RemoveAnObject(this);
+        GameManager.instance.collisionMng.RemoveAnObject(this, true);
         Destroy(this.gameObject);
     }
 
