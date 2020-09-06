@@ -26,10 +26,10 @@ public class CollisionManager : MonoBehaviour
     public void Start()
     {
 #if UNITY_EDITOR
-        foreach (GridEntity gridEntities in FindObjectsOfType<GridEntity>())
-        {
-            AddAnObject(gridEntities);
-        }
+        //foreach (GridEntity gridEntities in FindObjectsOfType<GridEntity>())
+        //{
+        //    AddAnObject(gridEntities);
+        //}
 #endif
     }
 

@@ -44,7 +44,21 @@ public class GameManager : MonoBehaviour
         
         collisionMng.AddAnObject(mage);
 #endif
+        HardFirstLoad();
     }
+
+    public void HardFirstLoad()
+    {
+        //GameObject mage = null;
+        foreach (GridEntity gridEntities in FindObjectsOfType<GridEntity>())
+        {
+            collisionMng.RemoveAnObject(gridEntities);
+            Destroy(gridEntities.gameObject);
+        }
+
+        lvlManager.CreateLevel(lvlManager.currentShownLevel, null);
+    }
+
 
     // Update is called once per frame
     void Update()

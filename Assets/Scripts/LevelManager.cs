@@ -80,63 +80,79 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            int indexOfMage = -1;
-            for (int i = 0; i < levels[previousLevel].entityOnThisLevel.Count; i++)
-            {
-                if(levels[previousLevel].entityOnThisLevel[i].entityName == "Mage")
-                {
-                    //Don't destroy
-                    indexOfMage = i;
-                    continue;
-                }
-
-                if (GameManager.instance != null)
-                {
-                    //Remove it from the collision buffer
-                    GameManager.instance.collisionMng.RemoveAnObject(levels[previousLevel].entityOnThisLevel[i].theCorrespondingGameObject.GetComponent<GridEntity>());
-                }
-
-                DestroyImmediate(levels[previousLevel].entityOnThisLevel[i].theCorrespondingGameObject);
-
-                GridEntity.GridElement gridEl = levels[previousLevel].entityOnThisLevel[i];
-                gridEl.theCorrespondingGameObject = null;
-                levels[previousLevel].entityOnThisLevel[i] = gridEl;
-
-            }
-
+            int indexOfMage = UnloadLevel(previousLevel);
             Debug.Log("I have destroy level " + previousLevel);
 
-            for (int i = 0; i < levels[levelId].entityOnThisLevel.Count; i++)
-            {
-                if (levels[levelId].entityOnThisLevel[i].entityName == "Mage" && indexOfMage != -1)
-                {
-                    //Don't create
-                    GridEntity.GridElement mageEntity = levels[levelId].entityOnThisLevel[i];
-                    mageEntity.theCorrespondingGameObject = levels[previousLevel].entityOnThisLevel[indexOfMage].theCorrespondingGameObject;
-                    mageEntity.theCorrespondingGameObject.transform.position = PixelUtils.gridToWorld(levels[levelId].entityOnThisLevel[i].gridPosition);
-                    levels[levelId].entityOnThisLevel[i] = mageEntity;
-                    mageEntity.theCorrespondingGameObject.GetComponent<Mage>().Reload();
-                    continue;
-                }
-                GameObject prefab = getPrefabOfThisEntity(levels[levelId].entityOnThisLevel[i].entityType);
-                Vector3 positionInWorld = PixelUtils.gridToWorld(levels[levelId].entityOnThisLevel[i].gridPosition);
-                GameObject resultGameObject = Instantiate(prefab, positionInWorld, Quaternion.identity);
-                resultGameObject.GetComponent<GridEntity>().gridPosition = levels[levelId].entityOnThisLevel[i].gridPosition;
-                resultGameObject.GetComponent<GridEntity>().version = levels[levelId].entityOnThisLevel[i].versionOfThisElement;
-
-                GridEntity.GridElement gridEl = levels[levelId].entityOnThisLevel[i];
-                gridEl.theCorrespondingGameObject = resultGameObject;
-                levels[levelId].entityOnThisLevel[i] = gridEl;
-
-                if (GameManager.instance != null)
-                {
-                    //Add it from the collision buffer
-                    GameManager.instance.collisionMng.AddAnObject(levels[levelId].entityOnThisLevel[i].theCorrespondingGameObject.GetComponent<GridEntity>());
-                }
-            }
-
+            CreateLevel(levelId, levels[previousLevel].entityOnThisLevel[indexOfMage].theCorrespondingGameObject);
             Debug.Log("I have load level " + levelId);
         }
+    }
+
+    public int UnloadLevel(int previousLevel)
+    {
+        int indexOfMage = -1;
+        for (int i = 0; i < levels[previousLevel].entityOnThisLevel.Count; i++)
+        {
+            if (levels[previousLevel].entityOnThisLevel[i].entityName == "Mage")
+            {
+                //Don't destroy
+                indexOfMage = i;
+                continue;
+            }
+
+            if (GameManager.instance != null)
+            {
+                //Remove it from the collision buffer
+                //Ok so : 
+                GridEntity.GridElement gridGrid = levels[previousLevel].entityOnThisLevel[i];
+                GameObject gridObject = gridGrid.theCorrespondingGameObject;
+                GridEntity gridgridgridEnttity = gridObject.GetComponent<GridEntity>();
+                GameManager.instance.collisionMng.RemoveAnObject(gridgridgridEnttity);
+            }
+
+            DestroyImmediate(levels[previousLevel].entityOnThisLevel[i].theCorrespondingGameObject);
+
+            GridEntity.GridElement gridEl = levels[previousLevel].entityOnThisLevel[i];
+            gridEl.theCorrespondingGameObject = null;
+            levels[previousLevel].entityOnThisLevel[i] = gridEl;
+
+        }
+        return indexOfMage;
+    }
+
+    public void CreateLevel(int levelId, GameObject mageGO)
+    {
+        for (int i = 0; i < levels[levelId].entityOnThisLevel.Count; i++)
+        {
+            if (levels[levelId].entityOnThisLevel[i].entityName == "Mage" && mageGO != null)
+            {
+                //Don't create
+                GridEntity.GridElement mageEntity = levels[levelId].entityOnThisLevel[i];
+                mageEntity.theCorrespondingGameObject = mageGO;
+                mageEntity.theCorrespondingGameObject.transform.position = PixelUtils.gridToWorld(levels[levelId].entityOnThisLevel[i].gridPosition);
+                Debug.Log("Wat ?");
+                mageEntity.gridPosition = levels[levelId].entityOnThisLevel[i].gridPosition;
+                levels[levelId].entityOnThisLevel[i] = mageEntity;
+                mageEntity.theCorrespondingGameObject.GetComponent<Mage>().Reload();
+                continue;
+            }
+            GameObject prefab = getPrefabOfThisEntity(levels[levelId].entityOnThisLevel[i].entityType);
+            Vector3 positionInWorld = PixelUtils.gridToWorld(levels[levelId].entityOnThisLevel[i].gridPosition);
+            GameObject resultGameObject = Instantiate(prefab, positionInWorld, Quaternion.identity);
+            resultGameObject.GetComponent<GridEntity>().gridPosition = levels[levelId].entityOnThisLevel[i].gridPosition;
+            resultGameObject.GetComponent<GridEntity>().version = levels[levelId].entityOnThisLevel[i].versionOfThisElement;
+
+            GridEntity.GridElement gridEl = levels[levelId].entityOnThisLevel[i];
+            gridEl.theCorrespondingGameObject = resultGameObject;
+            levels[levelId].entityOnThisLevel[i] = gridEl;
+
+            if (GameManager.instance != null)
+            {
+                //Add it from the collision buffer
+                GameManager.instance.collisionMng.AddAnObject(levels[levelId].entityOnThisLevel[i].theCorrespondingGameObject.GetComponent<GridEntity>());
+            }
+        }
+
     }
 
     //public void ReloadLevel()
