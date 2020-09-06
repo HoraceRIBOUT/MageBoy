@@ -22,9 +22,14 @@ public class Mage : GridEntity
 
     public override void Died()
     {
-        this.transform.GetChild(0).localScale = new Vector3(1, -1, 1);
+        this.transform.GetChild(0).localScale = new Vector3(100, -100, 100);
 
         GameManager.instance.collisionMng.RemoveAnObject(this);
+    }
+
+    public void Reload()
+    {
+        this.transform.GetChild(0).localScale = new Vector3(100, 100, 100);
     }
 
 }

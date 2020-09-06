@@ -26,7 +26,7 @@ public abstract class GridEntity : MonoBehaviour
 
     public string entityName = "";
     public gridEntityEnum entityType = gridEntityEnum.Blob;
-    public Vector2 gridPosition = new Vector2(-1,-1);
+    public Vector2 gridPosition = new Vector2(-1, -1);
     public int version = 0;
 
     public abstract void Died();

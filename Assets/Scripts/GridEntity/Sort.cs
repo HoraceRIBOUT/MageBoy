@@ -201,9 +201,7 @@ public class Sort : GridEntity
 
     public void EndSort()
     {
-        FindObjectOfType<InputSave>().SortFinish();
-        GameManager.instance.ui_input.DeactiveAllInput();
-        GameManager.instance.collisionMng.RemoveAnObject(this);
+        ReleaseInputManagerAndUI();
         animator.SetTrigger("Death");
 
         Sequence seqForParticle = DOTween.Sequence();
@@ -219,6 +217,13 @@ public class Sort : GridEntity
             2));
         
         seqForParticle.Play().OnComplete(()=> DestroyThisSort());
+    }
+
+    public void ReleaseInputManagerAndUI()
+    {
+        FindObjectOfType<InputSave>().SortFinish();
+        GameManager.instance.ui_input.DeactiveAllInput();
+        GameManager.instance.collisionMng.RemoveAnObject(this);
     }
 
     public void DestroyThisSort()
