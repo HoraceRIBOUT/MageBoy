@@ -8,11 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public bool testingLevel = true;
     public static GameManager instance = null;
-    private GameObject endLevelPanel;
     public bool IsLevelFinish { get; set; } = false;
-
-    public static int CurrentLevelIndex=0;
-
+    
     public void Awake()
     {
         if(instance == null)
@@ -29,6 +26,7 @@ public class GameManager : MonoBehaviour
     public LevelManager lvlManager;
     public UI_Input ui_input;
     public CollisionManager collisionMng;
+    public Animator levelTransition;
 
     // Start is called before the first frame update
     void Start()
@@ -46,10 +44,6 @@ public class GameManager : MonoBehaviour
         
         collisionMng.AddAnObject(mage);
 #endif
-        endLevelPanel = GetComponentInChildren<SpriteRenderer>().gameObject;
-        endLevelPanel.transform.DOMoveY(72f, 0f)
-            .OnComplete(() => endLevelPanel.transform.DOMoveY(220f, 0.5f));
-
     }
 
     // Update is called once per frame
@@ -76,10 +70,6 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         IsLevelFinish = false;
-        if (testingLevel)
-            CurrentLevelIndex = lvlManager.currentShownLevel;
-        else
-            lvlManager.currentShownLevel = CurrentLevelIndex;
     }
 
     public void EndLevel()
@@ -88,6 +78,7 @@ public class GameManager : MonoBehaviour
             return;
         IsLevelFinish = true;
         StartCoroutine(EndLevelCoroutine(true));
+        levelTransition.SetTrigger("Win");
     }
 
     public void EndLevelLose()
@@ -97,16 +88,28 @@ public class GameManager : MonoBehaviour
             return;
         IsLevelFinish = true;
         StartCoroutine(EndLevelCoroutine());
+        levelTransition.SetTrigger("Lose");
     }
     private IEnumerator EndLevelCoroutine(bool needToUpLevel = false)
     {
         yield return new WaitForSeconds(0.5f);
-        endLevelPanel.transform.DOMoveY(72f, 0.5f);
         Sort sort = FindObjectOfType<Sort>();
         sort.partSys.Stop();
         yield return new WaitForSeconds(0.6f);
         if (needToUpLevel)
-            CurrentLevelIndex++;
-        SceneManager.LoadScene(0);
+        {
+            lvlManager.currentShownLevel++;
+            //Dont need : the levelManager will detect the change in levelIndexlvlManager.LoadDontSave();
+        }
+        else
+        {
+            lvlManager.ReloadLevel();
+        }
+        yield return new WaitForSeconds(0.1f);
+        sort.ReleaseInputManagerAndUI();
+        sort.DestroyThisSort();
+        levelTransition.SetTrigger("Load");
+
+        IsLevelFinish = false;
     }
 }

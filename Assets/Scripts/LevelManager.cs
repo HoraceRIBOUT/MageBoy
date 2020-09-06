@@ -45,7 +45,10 @@ public class LevelManager : MonoBehaviour
     {
         if(memoryLevel != currentShownLevel)
         {
-            SaveAndLoad();
+            if (!Application.isPlaying)
+                SaveAndLoad();
+            else
+                LoadDontSave();
         }
     }
     public void SaveAndLoad()
@@ -53,6 +56,17 @@ public class LevelManager : MonoBehaviour
         SaveLevel(memoryLevel);
         LoadLevel(memoryLevel, currentShownLevel);
         memoryLevel = currentShownLevel;
+    }
+
+    public void LoadDontSave()
+    {
+        LoadLevel(memoryLevel, currentShownLevel);
+        memoryLevel = currentShownLevel;
+    }
+
+    public void ReloadLevel()
+    {
+        LoadLevel(currentShownLevel, currentShownLevel);
     }
 
     public void LoadLevel(int previousLevel, int levelId)
@@ -90,7 +104,7 @@ public class LevelManager : MonoBehaviour
 
             }
 
-//            Debug.Log("I have destroy level " + previousLevel);
+            Debug.Log("I have destroy level " + previousLevel);
 
             for (int i = 0; i < levels[levelId].entityOnThisLevel.Count; i++)
             {
@@ -101,6 +115,7 @@ public class LevelManager : MonoBehaviour
                     mageEntity.theCorrespondingGameObject = levels[previousLevel].entityOnThisLevel[indexOfMage].theCorrespondingGameObject;
                     mageEntity.theCorrespondingGameObject.transform.position = PixelUtils.gridToWorld(levels[levelId].entityOnThisLevel[i].gridPosition);
                     levels[levelId].entityOnThisLevel[i] = mageEntity;
+                    mageEntity.theCorrespondingGameObject.GetComponent<Mage>().Reload();
                     continue;
                 }
                 GameObject prefab = getPrefabOfThisEntity(levels[levelId].entityOnThisLevel[i].entityType);
@@ -120,19 +135,18 @@ public class LevelManager : MonoBehaviour
                 }
             }
 
-//            Debug.Log("I have load level " + levelId);
+            Debug.Log("I have load level " + levelId);
         }
     }
 
-    public void ReloadLevel()
-    {
-
-        Debug.Log("reload");
-        float timer = 0f;
-        DOTween.To(() => timer, x => timer = x, 1f, 1.5f)
-            .OnComplete(() =>
-        LoadLevel(currentShownLevel, currentShownLevel));
-    }
+    //public void ReloadLevel()
+    //{
+    //    Debug.Log("reload");
+    //    float timer = 0f;
+    //    DOTween.To(() => timer, x => timer = x, 1f, 1.5f)
+    //        .OnComplete(() =>
+    //    LoadLevel(currentShownLevel, currentShownLevel));
+    //}
 
     public void LoadNextLevel()
     {
@@ -181,7 +195,7 @@ public class LevelManager : MonoBehaviour
             levels[levelId].entityOnThisLevel.Add(thisElement);
         }
 
-//        Debug.Log("I have save level " + levelId);
+        Debug.Log("I have save level " + levelId);
     }
 
     public void ReplaceEntityExactlyOnTile(GridEntity entityToReplace)
