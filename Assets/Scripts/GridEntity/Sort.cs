@@ -120,7 +120,7 @@ public class Sort : GridEntity
     {
         if (lastDirection == InputSave.enumInput.A)
             lastDirection = InputSave.enumInput.Right;
-
+        Debug.Log(lastDirection);
         Move(GetDirectionForThisInput(lastDirection));
     }
 
@@ -147,6 +147,7 @@ public class Sort : GridEntity
         else
         {
             sequenceToDoNext.Add(movementSequence);
+            CurrentSequenceFinish();
         }
 
        // Debug.Log("Goal is : " + ((Vector2)transform.position + movement));
@@ -154,8 +155,9 @@ public class Sort : GridEntity
 
     public void CurrentSequenceFinish()
     {
-       // Debug.Log("Finish sequence...");
-        if(sequenceToDoNext.Count == 0)
+        //Debug.Log("Finish sequence...");
+        GameManager.instance.collisionMng.TestEveryCollision();
+        if (sequenceToDoNext.Count == 0)
         {
             currentSequence = null;
         }

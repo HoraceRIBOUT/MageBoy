@@ -75,7 +75,6 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("enable");
         IsLevelFinish = false;
         if (testingLevel)
             CurrentLevelIndex = lvlManager.currentShownLevel;
@@ -85,7 +84,6 @@ public class GameManager : MonoBehaviour
 
     public void EndLevel()
     {
-        Debug.Log("end level");
         if (IsLevelFinish)
             return;
         IsLevelFinish = true;
