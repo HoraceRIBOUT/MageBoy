@@ -24,6 +24,7 @@ public class Sort : GridEntity
     public ParticleSystem.EmissionModule emissionModule;
     public ParticleSystem.MainModule mainModule;
 
+    public bool IsFirstMove { get; set; } = true;
     public void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -32,11 +33,9 @@ public class Sort : GridEntity
         emissionModule = partSys.emission;
         mainModule = partSys.main;
     }
-    
 
     public void Update()
     {
-
         if ((secretTimer + Time.deltaTime) % moveEveryXSeconds < (secretTimer) % moveEveryXSeconds)
         {
             DoNextMove();
@@ -120,7 +119,6 @@ public class Sort : GridEntity
     {
         if (lastDirection == InputSave.enumInput.A)
             lastDirection = InputSave.enumInput.Right;
-        Debug.Log(lastDirection);
         Move(GetDirectionForThisInput(lastDirection));
     }
 
@@ -156,13 +154,14 @@ public class Sort : GridEntity
     public void CurrentSequenceFinish()
     {
         //Debug.Log("Finish sequence...");
-        GameManager.instance.collisionMng.TestEveryCollision();
         if (sequenceToDoNext.Count == 0)
         {
             currentSequence = null;
+            IsFirstMove = false;
         }
         else
         {
+            GameManager.instance.collisionMng.TestEveryCollision();
             currentSequence = sequenceToDoNext[0];
             sequenceToDoNext.RemoveAt(0);
             
@@ -237,7 +236,6 @@ public class Sort : GridEntity
     {
         if (GameManager.instance.IsLevelFinish)
             return;
-        Debug.Log("dead");
         listInput.Clear();
         EndSort();
         GameManager.instance.EndLevelLose();
@@ -248,19 +246,17 @@ public class Sort : GridEntity
         Sequence moveOtherSequence = DOTween.Sequence();
         foreach (GridEntity gridEntities in GameManager.instance.collisionMng.listOfObjectCurrentlyOnGrid)
         {
-            if (gridEntities.entityType == GridEntity.gridEntityEnum.Pierre || gridEntities.entityType == GridEntity.gridEntityEnum.Sort)
+            if (gridEntities.entityType == GridEntity.gridEntityEnum.Pierre || gridEntities.entityType == GridEntity.gridEntityEnum.Sort || gridEntities.entityType == GridEntity.gridEntityEnum.Incubateur)
                 continue;
 
             if ((gridEntities.gridPosition - gridPosition).sqrMagnitude == 1)
             {
+                Debug.Log("name:"+gridEntities.entityName);
                 gridEntities.gridPosition += (gridEntities.gridPosition - gridPosition);
-
                 moveOtherSequence.Join(gridEntities.transform.DOMove(PixelUtils.gridToWorld(gridEntities.gridPosition), 0.2f));
             }
         }
         moveOtherSequence.Play();
-
-
     }
 
 
