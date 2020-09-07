@@ -52,16 +52,27 @@ public class CollisionManager : MonoBehaviour
         }
         for (int i = 0; i < listOfObjectCurrentlyOnGrid.Count; i++)
         {
-            for (int j = i + 1; j < listOfObjectCurrentlyOnGrid.Count; j++)
+            for (int j = i; j < listOfObjectCurrentlyOnGrid.Count; j++)
             {
                 if (i == j)
                     continue;
-
+                
                 if (listOfObjectCurrentlyOnGrid[i].gridPosition.x == listOfObjectCurrentlyOnGrid[j].gridPosition.x &&
                     listOfObjectCurrentlyOnGrid[i].gridPosition.y == listOfObjectCurrentlyOnGrid[j].gridPosition.y)
                 {
                     TreatCollision(listOfObjectCurrentlyOnGrid[i], listOfObjectCurrentlyOnGrid[j]);
                 }
+            }
+        }
+
+        int memory = listOfObjectCurrentlyOnGrid.Count;
+        for (int i = 0; i < listOfObjectCurrentlyOnGrid.Count; i++) 
+        {
+            listOfObjectCurrentlyOnGrid[i].Resolve();
+            if(memory != listOfObjectCurrentlyOnGrid.Count)
+            {
+                memory = listOfObjectCurrentlyOnGrid.Count;
+                i = i - 1;
             }
         }
     }

@@ -29,6 +29,15 @@ public class Obstacle : GridEntity
     public override void Died()
     {
         //How ?
-        GameManager.instance.collisionMng.RemoveAnObject(this);
+        haveToDied = true;
+    }
+
+    public override void Resolve()
+    {
+        if (haveToDied)
+        {
+            GameManager.instance.collisionMng.RemoveAnObject(this);
+            haveToDied = false;
+        }
     }
 }

@@ -114,6 +114,8 @@ public class InputSave : MonoBehaviour
             timerForFinishSort -= Time.deltaTime * 1.5f;
         }
 
+        GameManager.instance.ui_input.VisualUpdateTheValidateBar(timerForFinishSort / durationToFinishSort);
+
         if (Input.GetKeyDown(KeyCode.Return) || finishEnteringSort)
         {
             SpawnSort();
@@ -140,7 +142,7 @@ public class InputSave : MonoBehaviour
 
     void DeletePart()
     {
-        if (Input.GetKey(KeyCode.A) && !finishErasingInput)
+        if (Input.GetKey(KeyCode.B) && !finishErasingInput)
         {
             timerToEraseInput += Time.deltaTime;
             if (timerToEraseInput > durationToEraseInput)
@@ -154,8 +156,9 @@ public class InputSave : MonoBehaviour
             timerToEraseInput -= Time.deltaTime * 1.5f;
         }
 
-        if (Input.GetKeyDown(KeyCode.Delete) || finishErasingInput)
+        if (Input.GetKeyDown(KeyCode.Backspace) || finishErasingInput)
         {
+            Debug.Log("delete ?");
             if (listInputToRemake.Count > 0)
                 listInputToRemake.RemoveAt(listInputToRemake.Count - 1);
             finishErasingInput = false;
@@ -165,6 +168,12 @@ public class InputSave : MonoBehaviour
 
     void InputListManagement(KeyCode keyCode, enumInput enumEquivalent, string triggerAnimatorName)
     {
+        if (keyCode == KeyCode.A && timerForFinishSort > 0.2f)
+            return;
+        if (keyCode == KeyCode.B && timerToEraseInput > 0.2f)
+            return;
+
+
         if (Input.GetKeyUp(keyCode))
         {
             if (listInputToRemake.Count >= inputNumberLimit)

@@ -30,7 +30,16 @@ public class Mage : GridEntity
             sort.GoOneStepFurther();
         }
 
-        GameManager.instance.collisionMng.RemoveAnObject(this);
+        haveToDied = true;
+    }
+
+    public override void Resolve()
+    {
+        if (haveToDied)
+        {
+            GameManager.instance.collisionMng.RemoveAnObject(this);
+            haveToDied = false;
+        }
     }
 
     public void Reload()

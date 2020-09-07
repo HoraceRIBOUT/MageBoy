@@ -42,4 +42,8 @@ public class Incubateur : GridEntity
     {
         
     }
+
+    public override void Resolve()
+    {
+    }
 }

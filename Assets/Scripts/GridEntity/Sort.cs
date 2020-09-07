@@ -223,7 +223,16 @@ public class Sort : GridEntity
     {
         FindObjectOfType<InputSave>().SortFinish();
         GameManager.instance.ui_input.DeactiveAllInput();
-        GameManager.instance.collisionMng.RemoveAnObject(this);
+        haveToDied = true;
+    }
+
+    public override void Resolve()
+    {
+        if (haveToDied)
+        {
+            GameManager.instance.collisionMng.RemoveAnObject(this);
+            haveToDied = false;
+        }
     }
 
     public void DestroyThisSort()

@@ -11,11 +11,18 @@ public class UI_Input : MonoBehaviour
     public Color colorWhenActive = Color.white; //ABABAB
     private int lastActiveInput = -1;
 
+    public GameObject validationBar;
+
     private Animator anim;
 
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
+    }
+
+    public void VisualUpdateTheValidateBar(float value)
+    {
+        validationBar.transform.localScale = new Vector3(1, value, 1);
     }
 
     public void VisualUpdate(List<InputSave.enumInput> listInputToRemake)

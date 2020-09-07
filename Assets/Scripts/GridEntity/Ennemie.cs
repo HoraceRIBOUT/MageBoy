@@ -39,6 +39,15 @@ public class Ennemie : GridEntity
         ennemiAnimator.SetTrigger("Death");
         SoundManager.Instance.PlaySound(AudioFieldEnum.HIT);
         //And after that destroy him self. maybe saying it to the LevelManager
-        GameManager.instance.collisionMng.RemoveAnObject(this, true);
+        haveToDied = true;
+    }
+
+    public override void Resolve()
+    {
+        if (haveToDied)
+        {
+            GameManager.instance.collisionMng.RemoveAnObject(this, true);
+            haveToDied = false;
+        }
     }
 }

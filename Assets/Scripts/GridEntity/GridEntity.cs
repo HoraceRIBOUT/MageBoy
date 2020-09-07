@@ -30,4 +30,7 @@ public abstract class GridEntity : MonoBehaviour
     public int version = 0;
 
     public abstract void Died();
+
+    public bool haveToDied = false;
+    public abstract void Resolve();
 }

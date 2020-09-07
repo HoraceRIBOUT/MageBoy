@@ -91,8 +91,7 @@ public class GameManager : MonoBehaviour
         if (IsLevelFinish)
             return;
         IsLevelFinish = true;
-        StartCoroutine(EndLevelCoroutine(!testingLevel));
-        levelTransition.SetTrigger("Win");
+        StartCoroutine(EndLevelCoroutine(true, !testingLevel));
     }
 
     public void EndLevelLose()
@@ -101,11 +100,15 @@ public class GameManager : MonoBehaviour
         if (IsLevelFinish)
             return;
         IsLevelFinish = true;
-        StartCoroutine(EndLevelCoroutine());
-        levelTransition.SetTrigger("Lose");
+        StartCoroutine(EndLevelCoroutine(false));
     }
-    private IEnumerator EndLevelCoroutine(bool needToUpLevel = false)
+    private IEnumerator EndLevelCoroutine(bool win, bool needToUpLevel = false)
     {
+        yield return new WaitForSeconds(1f);
+        if(win)
+            levelTransition.SetTrigger("Win");
+        else
+            levelTransition.SetTrigger("Lose");
         yield return new WaitForSeconds(0.5f);
         Sort sort = FindObjectOfType<Sort>();
         sort.partSys.Stop();
@@ -121,6 +124,7 @@ public class GameManager : MonoBehaviour
         }
         yield return new WaitForSeconds(0.1f);
         sort.ReleaseInputManagerAndUI();
+        sort.Resolve();
         sort.DestroyThisSort();
         levelTransition.SetTrigger("Load");
 
