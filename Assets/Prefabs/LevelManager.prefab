@@ -3214,87 +3214,42 @@ MonoBehaviour:
       type: 3}
   levels:
   - entityOnThisLevel:
-    - entityName: Blob (1)
-      entityType: 2
-      gridPosition: {x: 3, y: 1}
-      theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 0
-    - entityName: Blob
+    - entityName: Blob(Clone)
       entityType: 2
       gridPosition: {x: 2, y: 2}
       theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 0
+      versionOfThisElement: 1
+    - entityName: Blob(Clone)
+      entityType: 2
+      gridPosition: {x: 3, y: 1}
+      theCorrespondingGameObject: {fileID: 0}
+      versionOfThisElement: 1
     - entityName: Mage
       entityType: 0
       gridPosition: {x: 0, y: 2}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 1
   - entityOnThisLevel:
-    - entityName: Blob(Clone)
-      entityType: 2
-      gridPosition: {x: 2, y: 3}
-      theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 0
-    - entityName: Blob(Clone)
-      entityType: 2
-      gridPosition: {x: 3, y: 2}
-      theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 0
-    - entityName: Blob(Clone)
-      entityType: 2
-      gridPosition: {x: 2, y: 1}
-      theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 0
     - entityName: Pierre(Clone)
       entityType: 3
-      gridPosition: {x: 2, y: 0}
+      gridPosition: {x: 1, y: 0}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 1
     - entityName: Pierre(Clone)
       entityType: 3
-      gridPosition: {x: 3, y: 0}
-      theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 0
-    - entityName: Pierre(Clone)
-      entityType: 3
-      gridPosition: {x: 4, y: 0}
-      theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 4
-    - entityName: Pierre(Clone)
-      entityType: 3
-      gridPosition: {x: 4, y: 1}
+      gridPosition: {x: 0, y: 0}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 2
     - entityName: Pierre(Clone)
       entityType: 3
-      gridPosition: {x: 4, y: 2}
-      theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 4
-    - entityName: Pierre(Clone)
-      entityType: 3
-      gridPosition: {x: 4, y: 3}
-      theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 0
-    - entityName: Pierre(Clone)
-      entityType: 3
-      gridPosition: {x: 4, y: 4}
+      gridPosition: {x: 0, y: 1}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 1
     - entityName: Pierre(Clone)
       entityType: 3
-      gridPosition: {x: 3, y: 4}
+      gridPosition: {x: 0, y: 3}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 0
-    - entityName: Pierre(Clone)
-      entityType: 3
-      gridPosition: {x: 2, y: 4}
-      theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 4
-    - entityName: Pierre(Clone)
-      entityType: 3
-      gridPosition: {x: 1, y: 4}
-      theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 5
     - entityName: Pierre(Clone)
       entityType: 3
       gridPosition: {x: 0, y: 4}
@@ -3302,22 +3257,67 @@ MonoBehaviour:
       versionOfThisElement: 4
     - entityName: Pierre(Clone)
       entityType: 3
-      gridPosition: {x: 0, y: 3}
+      gridPosition: {x: 1, y: 4}
+      theCorrespondingGameObject: {fileID: 0}
+      versionOfThisElement: 5
+    - entityName: Pierre(Clone)
+      entityType: 3
+      gridPosition: {x: 2, y: 4}
+      theCorrespondingGameObject: {fileID: 0}
+      versionOfThisElement: 4
+    - entityName: Pierre(Clone)
+      entityType: 3
+      gridPosition: {x: 3, y: 4}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 0
     - entityName: Pierre(Clone)
       entityType: 3
-      gridPosition: {x: 0, y: 1}
+      gridPosition: {x: 4, y: 4}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 1
     - entityName: Pierre(Clone)
       entityType: 3
-      gridPosition: {x: 0, y: 0}
+      gridPosition: {x: 4, y: 3}
+      theCorrespondingGameObject: {fileID: 0}
+      versionOfThisElement: 0
+    - entityName: Pierre(Clone)
+      entityType: 3
+      gridPosition: {x: 4, y: 2}
+      theCorrespondingGameObject: {fileID: 0}
+      versionOfThisElement: 4
+    - entityName: Pierre(Clone)
+      entityType: 3
+      gridPosition: {x: 4, y: 1}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 2
     - entityName: Pierre(Clone)
       entityType: 3
-      gridPosition: {x: 1, y: 0}
+      gridPosition: {x: 4, y: 0}
+      theCorrespondingGameObject: {fileID: 0}
+      versionOfThisElement: 4
+    - entityName: Pierre(Clone)
+      entityType: 3
+      gridPosition: {x: 3, y: 0}
+      theCorrespondingGameObject: {fileID: 0}
+      versionOfThisElement: 0
+    - entityName: Pierre(Clone)
+      entityType: 3
+      gridPosition: {x: 2, y: 0}
+      theCorrespondingGameObject: {fileID: 0}
+      versionOfThisElement: 1
+    - entityName: Blob(Clone)
+      entityType: 2
+      gridPosition: {x: 2, y: 1}
+      theCorrespondingGameObject: {fileID: 0}
+      versionOfThisElement: 1
+    - entityName: Blob(Clone)
+      entityType: 2
+      gridPosition: {x: 3, y: 2}
+      theCorrespondingGameObject: {fileID: 0}
+      versionOfThisElement: 1
+    - entityName: Blob(Clone)
+      entityType: 2
+      gridPosition: {x: 2, y: 3}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 1
     - entityName: Mage
@@ -3326,62 +3326,62 @@ MonoBehaviour:
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 1
   - entityOnThisLevel:
-    - entityName: Pierre (5)
+    - entityName: Pierre(Clone)
       entityType: 3
       gridPosition: {x: 4, y: 4}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 1
-    - entityName: Pierre (4)
+    - entityName: Pierre(Clone)
       entityType: 3
       gridPosition: {x: 3, y: 4}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 2
-    - entityName: Pierre (3)
+    - entityName: Pierre(Clone)
       entityType: 3
       gridPosition: {x: 1, y: 2}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 1
-    - entityName: Pierre (2)
+    - entityName: Pierre(Clone)
       entityType: 3
       gridPosition: {x: 1, y: 1}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 5
-    - entityName: Pierre (1)
+    - entityName: Pierre(Clone)
       entityType: 3
       gridPosition: {x: 0, y: 0}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 0
-    - entityName: Pierre
+    - entityName: Pierre(Clone)
       entityType: 3
       gridPosition: {x: 4, y: 0}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 4
-    - entityName: Blob (5)
+    - entityName: Blob(Clone)
       entityType: 2
       gridPosition: {x: 1, y: 0}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 0
-    - entityName: Blob (4)
+    - entityName: Blob(Clone)
       entityType: 2
       gridPosition: {x: 2, y: 1}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 0
-    - entityName: Blob (3)
+    - entityName: Blob(Clone)
       entityType: 2
       gridPosition: {x: 3, y: 0}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 0
-    - entityName: Blob (2)
+    - entityName: Blob(Clone)
       entityType: 2
       gridPosition: {x: 3, y: 3}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 0
-    - entityName: Blob (1)
+    - entityName: Blob(Clone)
       entityType: 2
       gridPosition: {x: 2, y: 2}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 0
-    - entityName: Blob
+    - entityName: Blob(Clone)
       entityType: 2
       gridPosition: {x: 4, y: 2}
       theCorrespondingGameObject: {fileID: 0}
@@ -3390,49 +3390,49 @@ MonoBehaviour:
       entityType: 0
       gridPosition: {x: 4, y: 1}
       theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 1
+      versionOfThisElement: 0
   - entityOnThisLevel:
-    - entityName: Pierre (1)
+    - entityName: Pierre(Clone)
       entityType: 3
       gridPosition: {x: 0, y: 3}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 4
-    - entityName: Pierre
+    - entityName: Pierre(Clone)
       entityType: 3
       gridPosition: {x: 0, y: 2}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 1
-    - entityName: Blob (6)
+    - entityName: Blob(Clone)
       entityType: 2
       gridPosition: {x: 1, y: 3}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 0
-    - entityName: Blob (5)
+    - entityName: Blob(Clone)
       entityType: 2
       gridPosition: {x: 1, y: 2}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 0
-    - entityName: Blob (4)
+    - entityName: Blob(Clone)
       entityType: 2
       gridPosition: {x: 2, y: 2}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 0
-    - entityName: Blob (3)
+    - entityName: Blob(Clone)
       entityType: 2
       gridPosition: {x: 3, y: 2}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 0
-    - entityName: Blob (2)
+    - entityName: Blob(Clone)
       entityType: 2
       gridPosition: {x: 4, y: 3}
       theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 0
-    - entityName: Blob (1)
+      versionOfThisElement: 1
+    - entityName: Blob(Clone)
       entityType: 2
       gridPosition: {x: 2, y: 4}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 0
-    - entityName: Blob
+    - entityName: Blob(Clone)
       entityType: 2
       gridPosition: {x: 3, y: 4}
       theCorrespondingGameObject: {fileID: 0}
@@ -3441,7 +3441,7 @@ MonoBehaviour:
       entityType: 0
       gridPosition: {x: 3, y: 3}
       theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 1
+      versionOfThisElement: 0
   - entityOnThisLevel:
     - entityName: Blob
       entityType: 2
@@ -3479,141 +3479,141 @@ MonoBehaviour:
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 1
   - entityOnThisLevel:
-    - entityName: Pierre (4)
-      entityType: 3
-      gridPosition: {x: 4, y: 0}
-      theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 4
-    - entityName: Pierre (3)
-      entityType: 3
-      gridPosition: {x: 3, y: 0}
-      theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 5
-    - entityName: Pierre (2)
-      entityType: 3
-      gridPosition: {x: 4, y: 4}
+    - entityName: Blob(Clone)
+      entityType: 2
+      gridPosition: {x: 2, y: 2}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 1
-    - entityName: Pierre (1)
-      entityType: 3
-      gridPosition: {x: 3, y: 4}
+    - entityName: Blob(Clone)
+      entityType: 2
+      gridPosition: {x: 4, y: 3}
       theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 4
-    - entityName: Pierre
+      versionOfThisElement: 1
+    - entityName: Blob(Clone)
+      entityType: 2
+      gridPosition: {x: 4, y: 1}
+      theCorrespondingGameObject: {fileID: 0}
+      versionOfThisElement: 1
+    - entityName: Pierre(Clone)
       entityType: 3
       gridPosition: {x: 1, y: 2}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 0
-    - entityName: Blob (2)
-      entityType: 2
-      gridPosition: {x: 4, y: 1}
+    - entityName: Pierre(Clone)
+      entityType: 3
+      gridPosition: {x: 3, y: 4}
       theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 0
-    - entityName: Blob (1)
-      entityType: 2
-      gridPosition: {x: 4, y: 3}
+      versionOfThisElement: 4
+    - entityName: Pierre(Clone)
+      entityType: 3
+      gridPosition: {x: 4, y: 4}
       theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 0
-    - entityName: Blob
-      entityType: 2
-      gridPosition: {x: 2, y: 2}
+      versionOfThisElement: 1
+    - entityName: Pierre(Clone)
+      entityType: 3
+      gridPosition: {x: 3, y: 0}
       theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 0
+      versionOfThisElement: 5
+    - entityName: Pierre(Clone)
+      entityType: 3
+      gridPosition: {x: 4, y: 0}
+      theCorrespondingGameObject: {fileID: 0}
+      versionOfThisElement: 4
     - entityName: Mage
       entityType: 0
       gridPosition: {x: 0, y: 2}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 1
   - entityOnThisLevel:
-    - entityName: Blob (4)
+    - entityName: Blob(Clone)
       entityType: 2
-      gridPosition: {x: 3, y: 3}
+      gridPosition: {x: 0, y: 1}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 0
-    - entityName: Blob (3)
+    - entityName: Blob(Clone)
       entityType: 2
-      gridPosition: {x: 2, y: 4}
+      gridPosition: {x: 2, y: 0}
       theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 0
-    - entityName: Blob (2)
+      versionOfThisElement: 1
+    - entityName: Blob(Clone)
       entityType: 2
       gridPosition: {x: 1, y: 4}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 0
-    - entityName: Blob (1)
+    - entityName: Blob(Clone)
       entityType: 2
-      gridPosition: {x: 2, y: 0}
+      gridPosition: {x: 2, y: 4}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 0
-    - entityName: Blob
+    - entityName: Blob(Clone)
       entityType: 2
-      gridPosition: {x: 0, y: 1}
+      gridPosition: {x: 3, y: 3}
       theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 0
+      versionOfThisElement: 1
     - entityName: Mage
       entityType: 0
       gridPosition: {x: 0, y: 0}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 1
   - entityOnThisLevel:
-    - entityName: Blob (5)
-      entityType: 2
-      gridPosition: {x: 1, y: 1}
-      theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 0
-    - entityName: Blob (4)
-      entityType: 2
-      gridPosition: {x: 1, y: 2}
-      theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 0
-    - entityName: Blob (3)
-      entityType: 2
-      gridPosition: {x: 1, y: 3}
-      theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 0
-    - entityName: Blob (2)
-      entityType: 2
-      gridPosition: {x: 4, y: 1}
-      theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 0
-    - entityName: Blob (1)
-      entityType: 2
-      gridPosition: {x: 3, y: 2}
-      theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 0
-    - entityName: Blob
-      entityType: 2
-      gridPosition: {x: 2, y: 3}
-      theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 0
-    - entityName: Pierre (5)
+    - entityName: Pierre(Clone)
       entityType: 3
-      gridPosition: {x: 2, y: 4}
+      gridPosition: {x: 4, y: 4}
       theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 2
-    - entityName: Pierre (4)
-      entityType: 3
-      gridPosition: {x: 4, y: 2}
-      theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 2
-    - entityName: Pierre (3)
-      entityType: 3
-      gridPosition: {x: 3, y: 3}
-      theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 1
-    - entityName: Pierre (2)
-      entityType: 3
-      gridPosition: {x: 3, y: 4}
-      theCorrespondingGameObject: {fileID: 0}
-      versionOfThisElement: 4
-    - entityName: Pierre (1)
+      versionOfThisElement: 0
+    - entityName: Pierre(Clone)
       entityType: 3
       gridPosition: {x: 4, y: 3}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 5
-    - entityName: Pierre
+    - entityName: Pierre(Clone)
       entityType: 3
-      gridPosition: {x: 4, y: 4}
+      gridPosition: {x: 3, y: 4}
+      theCorrespondingGameObject: {fileID: 0}
+      versionOfThisElement: 4
+    - entityName: Pierre(Clone)
+      entityType: 3
+      gridPosition: {x: 3, y: 3}
+      theCorrespondingGameObject: {fileID: 0}
+      versionOfThisElement: 1
+    - entityName: Pierre(Clone)
+      entityType: 3
+      gridPosition: {x: 4, y: 2}
+      theCorrespondingGameObject: {fileID: 0}
+      versionOfThisElement: 2
+    - entityName: Pierre(Clone)
+      entityType: 3
+      gridPosition: {x: 2, y: 4}
+      theCorrespondingGameObject: {fileID: 0}
+      versionOfThisElement: 2
+    - entityName: Blob(Clone)
+      entityType: 2
+      gridPosition: {x: 2, y: 3}
+      theCorrespondingGameObject: {fileID: 0}
+      versionOfThisElement: 0
+    - entityName: Blob(Clone)
+      entityType: 2
+      gridPosition: {x: 3, y: 2}
+      theCorrespondingGameObject: {fileID: 0}
+      versionOfThisElement: 1
+    - entityName: Blob(Clone)
+      entityType: 2
+      gridPosition: {x: 4, y: 1}
+      theCorrespondingGameObject: {fileID: 0}
+      versionOfThisElement: 1
+    - entityName: Blob(Clone)
+      entityType: 2
+      gridPosition: {x: 1, y: 3}
+      theCorrespondingGameObject: {fileID: 0}
+      versionOfThisElement: 0
+    - entityName: Blob(Clone)
+      entityType: 2
+      gridPosition: {x: 1, y: 2}
+      theCorrespondingGameObject: {fileID: 0}
+      versionOfThisElement: 0
+    - entityName: Blob(Clone)
+      entityType: 2
+      gridPosition: {x: 1, y: 1}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 0
     - entityName: Mage
