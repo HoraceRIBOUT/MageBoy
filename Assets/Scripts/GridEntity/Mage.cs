@@ -36,6 +36,9 @@ public class Mage : GridEntity
     public void Reload()
     {
         GetComponent<InputSave>().mageAnimator.SetBool("Burn", false);
+        if (GameManager.instance == null)
+            return;
+
         if (!GameManager.instance.collisionMng.listOfObjectCurrentlyOnGrid.Contains(this))
             GameManager.instance.collisionMng.AddAnObject(this);
     }
