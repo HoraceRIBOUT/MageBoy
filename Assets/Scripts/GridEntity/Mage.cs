@@ -24,12 +24,20 @@ public class Mage : GridEntity
     {
         this.transform.GetChild(0).localScale = new Vector3(100, -100, 100);
 
+        Sort sort = FindObjectOfType<Sort>();
+        if (sort.gridPosition == gridPosition)
+        {
+            sort.GoOneStepFurther();
+        }
+
         GameManager.instance.collisionMng.RemoveAnObject(this);
     }
 
     public void Reload()
     {
         this.transform.GetChild(0).localScale = new Vector3(100, 100, 100);
+        if (!GameManager.instance.collisionMng.listOfObjectCurrentlyOnGrid.Contains(this))
+            GameManager.instance.collisionMng.AddAnObject(this);
     }
 
 }

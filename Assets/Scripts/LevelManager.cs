@@ -130,10 +130,9 @@ public class LevelManager : MonoBehaviour
                 GridEntity.GridElement mageEntity = levels[levelId].entityOnThisLevel[i];
                 mageEntity.theCorrespondingGameObject = mageGO;
                 mageEntity.theCorrespondingGameObject.transform.position = PixelUtils.gridToWorld(levels[levelId].entityOnThisLevel[i].gridPosition);
-                Debug.Log("Wat ?");
-                mageEntity.gridPosition = levels[levelId].entityOnThisLevel[i].gridPosition;
                 levels[levelId].entityOnThisLevel[i] = mageEntity;
                 mageEntity.theCorrespondingGameObject.GetComponent<Mage>().Reload();
+                mageEntity.theCorrespondingGameObject.GetComponent<Mage>().gridPosition = levels[levelId].entityOnThisLevel[i].gridPosition;
                 continue;
             }
             GameObject prefab = getPrefabOfThisEntity(levels[levelId].entityOnThisLevel[i].entityType);
