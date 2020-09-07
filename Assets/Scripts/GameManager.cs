@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -38,12 +38,7 @@ public class GameManager : MonoBehaviour
 
         Mage mage = FindObjectOfType<Mage>();
         mage.gridPosition = PixelUtils.worldToGrid(mage.transform.position);
-#if !UNITY_EDITOR
-        lvlManager.currentShownLevel = 0;
-        lvlManager.SaveAndLoad();
         
-        collisionMng.AddAnObject(mage);
-#endif
         HardFirstLoad();
     }
 
