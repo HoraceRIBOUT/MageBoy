@@ -24,7 +24,7 @@ public class Inverseur : GridEntity
         SoundManager.Instance.PlaySound(AudioFieldEnum.HIT);
         //And after that destroy him self. maybe saying it to the LevelManager
         GameManager.instance.collisionMng.RemoveAnObject(this, true);
-        transform.DOScale(0f, 0.3f).OnComplete(() => Destroy(this.gameObject));
+        transform.DOScale(0f, 0.3f);//.OnComplete(() => Destroy(this.gameObject));
     }
 
 }
