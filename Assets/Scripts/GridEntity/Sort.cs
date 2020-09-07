@@ -291,6 +291,7 @@ public class Sort : GridEntity
                 break;
         }
 
+        animator.SetTrigger("Teleport");
         movement *= PixelUtils.caseSize * 2;
         this.transform.Translate(movement);
     }
@@ -303,6 +304,7 @@ public class Sort : GridEntity
             currentSequence.Kill();
             currentSequence = null;
         }
+        animator.SetTrigger("Teleport");
         transform.position = newPosition;
         // Sequence movementSequence = DOTween.Sequence();
         // movementSequence.Append(transform.DOMove(newPosition, 0.01f));
