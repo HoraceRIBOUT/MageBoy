@@ -22,7 +22,7 @@ public class Mage : GridEntity
 
     public override void Died()
     {
-        this.transform.GetChild(0).localScale = new Vector3(100, -100, 100);
+        GetComponent<InputSave>().mageAnimator.SetBool("Burn", true);
 
         Sort sort = FindObjectOfType<Sort>();
         if (sort.gridPosition == gridPosition)
@@ -35,7 +35,7 @@ public class Mage : GridEntity
 
     public void Reload()
     {
-        this.transform.GetChild(0).localScale = new Vector3(100, 100, 100);
+        GetComponent<InputSave>().mageAnimator.SetBool("Burn", false);
         if (!GameManager.instance.collisionMng.listOfObjectCurrentlyOnGrid.Contains(this))
             GameManager.instance.collisionMng.AddAnObject(this);
     }
