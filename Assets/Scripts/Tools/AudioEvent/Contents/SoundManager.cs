@@ -54,16 +54,11 @@ namespace FafaTools.Audio
 
         private void Update()
         {
-            if (audioSourceMusic.isPlaying && audioSourceMusic.clip == musicIntro && audioSourceMusic.time >= 6f)
+            if (!audioSourceMusic.isPlaying && audioSourceMusic.clip == musicIntro)
             {
                 audioSourceMusic.clip = musicLoop;
                 audioSourceMusic.Play();
-                audioSourceMusic.time = 0.04f;
                 audioSourceMusic.loop = true;
-            }
-            if (audioSourceMusic.isPlaying && audioSourceMusic.clip == musicLoop && audioSourceMusic.time >= 24f)
-            {
-                audioSourceMusic.time = 0.04f;
             }
         }
 
