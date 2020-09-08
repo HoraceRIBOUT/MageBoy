@@ -122,6 +122,9 @@ public class LevelManager : MonoBehaviour
 
     public void CreateLevel(int levelId, GameObject mageGO)
     {
+        Incubateur incub1 = null;
+        Incubateur incub2 = null;
+
         for (int i = 0; i < levels[levelId].entityOnThisLevel.Count; i++)
         {
             if (levels[levelId].entityOnThisLevel[i].entityName == "Mage" && mageGO != null)
@@ -147,11 +150,26 @@ public class LevelManager : MonoBehaviour
             gridEl.theCorrespondingGameObject = resultGameObject;
             levels[levelId].entityOnThisLevel[i] = gridEl;
 
+            if (levels[levelId].entityOnThisLevel[i].entityType == GridEntity.gridEntityEnum.Incubateur)
+            {
+                if (incub1 == null)
+                    incub1 = levels[levelId].entityOnThisLevel[i].theCorrespondingGameObject.GetComponent<Incubateur>();
+                else
+                    incub2 = levels[levelId].entityOnThisLevel[i].theCorrespondingGameObject.GetComponent<Incubateur>();
+            }
+
             if (GameManager.instance != null)
             {
                 //Add it from the collision buffer
                 GameManager.instance.collisionMng.AddAnObject(levels[levelId].entityOnThisLevel[i].theCorrespondingGameObject.GetComponent<GridEntity>());
             }
+        }
+
+        //Fix tp ? I think...?
+        if(incub1 != null)
+        {
+            incub1.otherIncubateur = incub2;
+            incub2.otherIncubateur = incub1;
         }
 
     }

@@ -14,6 +14,7 @@ public class Sort : GridEntity
     public float moveEveryXSeconds = 2f;
 
     private bool inverseDirection = false;
+    private InputSave.enumInput lastInput = InputSave.enumInput.A;
     private InputSave.enumInput lastDirection = InputSave.enumInput.A;
     private Animator animator;
 
@@ -25,6 +26,7 @@ public class Sort : GridEntity
     public ParticleSystem.MainModule mainModule;
 
     public bool IsFirstMove { get; set; } = true;
+    public bool moveFinish = true;
     public void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -32,12 +34,17 @@ public class Sort : GridEntity
         secretIncrement = 0;
         emissionModule = partSys.emission;
         mainModule = partSys.main;
+        moveFinish = true;
     }
 
     public void Update()
     {
         if ((secretTimer + Time.deltaTime) % moveEveryXSeconds < (secretTimer) % moveEveryXSeconds)
         {
+            if (!moveFinish)
+                return;
+            moveFinish = false;
+
             DoNextMove();
         }
         secretTimer += Time.deltaTime;
@@ -45,13 +52,13 @@ public class Sort : GridEntity
 
     public bool DoNextMove()
     {
-        if(listInput.Count == 0)
+        if (listInput.Count == 0)
         {
             Died();
             return false;
         }
         InputSave.enumInput currentInput = listInput[0];
-
+        lastInput = currentInput;
         if (inverseDirection)
         {
             if (currentInput == InputSave.enumInput.Up)
@@ -115,14 +122,17 @@ public class Sort : GridEntity
         return true;
     }
 
-    public void GoOneStepFurther()
+    public void GoOneStepFurther(bool combo)
     {
         if (lastDirection == InputSave.enumInput.A)
             lastDirection = InputSave.enumInput.Right;
-        Move(GetDirectionForThisInput(lastDirection));
+
+        Debug.Log("So  : "+ combo + " and " + lastInput + " = " + (combo && lastInput != InputSave.enumInput.B));
+
+        Move(GetDirectionForThisInput(lastDirection), combo && lastInput != InputSave.enumInput.B);
     }
 
-    public void Move(Vector2 directionToMove)
+    public void Move(Vector2 directionToMove, bool overrideThePreviousMove = false)
     {
         Sequence movementSequence = DOTween.Sequence();
         
@@ -130,8 +140,7 @@ public class Sort : GridEntity
         movementSequence.Append(transform.DORotate(GetRotationForThisDirection(directionToMove), 0f));
         movementSequence.Append(transform.DOMove(PixelUtils.gridToWorld(gridPosition) + movement, 0.2f));
         gridPosition += directionToMove;
-
-
+        
         animator.SetTrigger("Move");
         float timer = 0f;
         movementSequence.Append(DOTween.To(() => timer, x => timer = x, 1f, 0.1f));
@@ -144,11 +153,24 @@ public class Sort : GridEntity
         }
         else
         {
-            sequenceToDoNext.Add(movementSequence);
-            CurrentSequenceFinish();
+            if (!overrideThePreviousMove)
+            {
+                Debug.Log("Hello I'm filling the next sequence + "+ overrideThePreviousMove);
+                movementSequence.Pause();
+                sequenceToDoNext.Add(movementSequence);
+            }
+            else
+            {
+                currentSequence.Kill();
+                currentSequence = movementSequence;
+                currentSequence.Play().OnComplete(() => CurrentSequenceFinish());
+            }
+            //CurrentSequenceFinish();
         }
 
-       // Debug.Log("Goal is : " + ((Vector2)transform.position + movement));
+        //Debug.Log("Goal is : " + ((Vector2)transform.position + movement));
+
+        GameManager.instance.collisionMng.TestEveryCollision();
     }
 
     public void CurrentSequenceFinish()
@@ -158,10 +180,11 @@ public class Sort : GridEntity
         {
             currentSequence = null;
             IsFirstMove = false;
+            moveFinish = true;
         }
         else
         {
-            GameManager.instance.collisionMng.TestEveryCollision();
+            Debug.Log("Hello I'm laucnhing the next sequence !!");
             currentSequence = sequenceToDoNext[0];
             sequenceToDoNext.RemoveAt(0);
             
@@ -255,7 +278,9 @@ public class Sort : GridEntity
         Sequence moveOtherSequence = DOTween.Sequence();
         foreach (GridEntity gridEntities in GameManager.instance.collisionMng.listOfObjectCurrentlyOnGrid)
         {
-            if (gridEntities.entityType == GridEntity.gridEntityEnum.Pierre || gridEntities.entityType == GridEntity.gridEntityEnum.Sort || gridEntities.entityType == GridEntity.gridEntityEnum.Incubateur)
+            if (gridEntities.entityType == GridEntity.gridEntityEnum.Pierre 
+                || gridEntities.entityType == GridEntity.gridEntityEnum.Sort 
+                || gridEntities.entityType == GridEntity.gridEntityEnum.Incubateur)
                 continue;
 
             if ((gridEntities.gridPosition - gridPosition).sqrMagnitude == 1)
@@ -264,6 +289,7 @@ public class Sort : GridEntity
                 moveOtherSequence.Join(gridEntities.transform.DOMove(PixelUtils.gridToWorld(gridEntities.gridPosition), 0.2f));
             }
         }
+        moveOtherSequence.OnComplete(() => moveFinish = true);
         moveOtherSequence.Play();
     }
 
@@ -275,49 +301,55 @@ public class Sort : GridEntity
             lastDirection = InputSave.enumInput.Right;
         }
         //TO DO : use move and not this
-        Vector2 movement;
-        switch (lastDirection)
-        {
-            case InputSave.enumInput.Up:
-                movement = Vector2.up;
-                gridPosition.y += 2;
-                break;
-            case InputSave.enumInput.Down:
-                movement = Vector2.down;
-                gridPosition.y -= 2;
-                break;
-            case InputSave.enumInput.Left:
-                movement = Vector2.left;
-                gridPosition.x -= 2;
-                break;
-            case InputSave.enumInput.Right:
-                movement = Vector2.right;
-                gridPosition.x += 2;
-                break;
-            default:
-                Debug.LogError("!!! impossible memory !!!");
-                movement = Vector2.zero;
-                break;
-        }
+        Sequence movementSequence = DOTween.Sequence();
 
-        animator.SetTrigger("Teleport");
-        movement *= PixelUtils.caseSize * 2;
-        this.transform.Translate(movement);
+        Vector2 directionToMove = GetDirectionForThisInput(lastDirection);
+
+        Vector2 movement = directionToMove * PixelUtils.caseSize;
+        Vector2 offsetY = new Vector2(directionToMove.y, directionToMove.x) * PixelUtils.caseSize * 0.5f;
+        movementSequence.Append(transform.DORotate(GetRotationForThisDirection(directionToMove), 0f));
+        movementSequence.Append(transform.DOMove(PixelUtils.gridToWorld(gridPosition) + movement + offsetY, 0.1f));
+        movementSequence.Append(transform.DOMove(PixelUtils.gridToWorld(gridPosition) + movement * 2, 0.2f));
+        gridPosition += directionToMove * 2;
+
+        animator.SetTrigger("Move");
+        float timer = 0f;
+        movementSequence.Append(DOTween.To(() => timer, x => timer = x, 1f, 0.1f));
+        movementSequence.Append(transform.DORotate(new Vector3(0f, 0f, 0f), 0f));
+
+        if (currentSequence == null)
+        {
+            currentSequence = movementSequence;
+            currentSequence.Play().OnComplete(() => CurrentSequenceFinish());
+        }
+        else
+        {
+            sequenceToDoNext.Add(movementSequence);
+            //CurrentSequenceFinish();
+        }
     }
 
     public void TeleportAction(Vector2 newPosition)
     {
-        if(currentSequence!=null)
-        {
-            Debug.Log(currentSequence);
-            currentSequence.Kill();
-            currentSequence = null;
-        }
-        animator.SetTrigger("Teleport");
-        transform.position = newPosition;
+        Sequence newSequence = DOTween.Sequence();
+
+        newSequence.Append(transform.DORotate(transform.rotation.eulerAngles, 0.01f)
+            .OnStart(() => transform.position = newPosition)
+            .OnStart(() => animator.SetTrigger("Teleport"))
+            );
+        
         // Sequence movementSequence = DOTween.Sequence();
         // movementSequence.Append(transform.DOMove(newPosition, 0.01f));
         // sequenceToDoNext.Add(movementSequence);
+        
+        if (currentSequence != null)
+        {
+            sequenceToDoNext.Add(newSequence);
+        }
+        else
+        {
+            newSequence.Play();
+        }
     }
 
     public void InverseDirection()

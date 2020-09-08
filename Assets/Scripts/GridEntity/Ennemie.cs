@@ -28,7 +28,7 @@ public class Ennemie : GridEntity
         Sort sort = FindObjectOfType<Sort>();
         if (sort.gridPosition == gridPosition)
         {
-            sort.GoOneStepFurther();
+            sort.GoOneStepFurther(true);
         }
 
         Dead();

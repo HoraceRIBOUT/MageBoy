@@ -10,6 +10,11 @@ public class Incubateur : GridEntity
     
     public void Start()
     {
+        //ReAssignOtherIncubateur();
+    }
+
+    public void ReAssignOtherIncubateur()
+    {
         Incubateur[] all = FindObjectsOfType<Incubateur>();
         foreach(var item in all)
         {
@@ -18,14 +23,13 @@ public class Incubateur : GridEntity
         }
     }
 
-    public void TeleportAction(GridEntity sort)
+public void TeleportAction(Sort sort)
     {
         if (HasTeleported)
             return;
         otherIncubateur.HasTeleported = true;
         HasTeleported = true;
-        Sort sortentity = (Sort)sort;
-        sortentity.TeleportAction(otherIncubateur.transform.position);
+        sort.TeleportAction(otherIncubateur.transform.position);
         sort.gridPosition = otherIncubateur.gridPosition;
         float chrono = 0f;
         DOTween.To(() => chrono, x => chrono = x, 1f, 0.5f)

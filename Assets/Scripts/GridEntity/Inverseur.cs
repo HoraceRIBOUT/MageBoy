@@ -11,7 +11,7 @@ public class Inverseur : GridEntity
         Sort sort = FindObjectOfType<Sort>();
         if (sort.gridPosition == gridPosition)
         {
-            sort.GoOneStepFurther();
+            sort.GoOneStepFurther(true);
             sort.InverseDirection();
         }
 

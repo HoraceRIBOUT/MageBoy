@@ -109,10 +109,8 @@ public class CollisionManager : MonoBehaviour
                 switch (entiTwo.entityType)
                 {
                     case GridEntity.gridEntityEnum.Mage:
-                        //darken because burned ? lol
-                        Sort sort = (Sort)entiOne;
-                        if(!sort.IsFirstMove)
-                            entiOne.Died();
+                        //Mage die
+                        entiTwo.Died();
                         break;
                     case GridEntity.gridEntityEnum.Blob:
                     case GridEntity.gridEntityEnum.Inverseur:
@@ -124,8 +122,9 @@ public class CollisionManager : MonoBehaviour
                         entiOne.Died();
                         break;
                     case GridEntity.gridEntityEnum.Incubateur:
+                        //Teleport sort
                         Incubateur incub = (Incubateur)entiTwo;
-                        incub.TeleportAction(entiOne);
+                        incub.TeleportAction((Sort)entiOne);
                         break;
                     default:
                         break;
@@ -215,7 +214,7 @@ public class CollisionManager : MonoBehaviour
                 {
                     case GridEntity.gridEntityEnum.Sort:
                         Incubateur incub = (Incubateur)entiOne;
-                        incub.TeleportAction(entiTwo);
+                        incub.TeleportAction((Sort)entiTwo);
                         break;
                     case GridEntity.gridEntityEnum.Mage:
                         //Mage die
