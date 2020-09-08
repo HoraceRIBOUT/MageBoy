@@ -184,7 +184,7 @@ public class Sort : GridEntity
         }
         else
         {
-            Debug.Log("Hello I'm laucnhing the next sequence !!");
+            Debug.Log("Hello I'm laucnhing the next sequence !! " + sequenceToDoNext.Count);
             currentSequence = sequenceToDoNext[0];
             sequenceToDoNext.RemoveAt(0);
             
@@ -332,22 +332,22 @@ public class Sort : GridEntity
     public void TeleportAction(Vector2 newPosition)
     {
         Sequence newSequence = DOTween.Sequence();
-
-        newSequence.Append(transform.DORotate(transform.rotation.eulerAngles, 0.01f)
-            .OnStart(() => transform.position = newPosition)
-            .OnStart(() => animator.SetTrigger("Teleport"))
-            );
-        
+        newSequence.Append(transform.DOMove(newPosition, 0f).OnStart(() => Debug.Log("Ok, so... this will start or not ?")));
+        newSequence.OnStart(() => animator.SetTrigger("Teleport"));
+        newSequence.OnStart(() => Debug.Log("Starting ? Please ?"));
         // Sequence movementSequence = DOTween.Sequence();
         // movementSequence.Append(transform.DOMove(newPosition, 0.01f));
         // sequenceToDoNext.Add(movementSequence);
-        
+
         if (currentSequence != null)
         {
+            newSequence.Pause();
+            Debug.Log("Yeah ! I next one !");
             sequenceToDoNext.Add(newSequence);
         }
         else
         {
+            Debug.Log("Yeah ! I'm THE one !");
             newSequence.Play();
         }
     }
