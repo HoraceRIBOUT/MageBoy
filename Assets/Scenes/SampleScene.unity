@@ -1943,16 +1943,6 @@ PrefabInstance:
       objectReference: {fileID: 1790316418}
     - target: {fileID: 2637186714768044777, guid: 17e4957caee4fe24eb333ac3cc6b9715,
         type: 3}
-      propertyPath: levelsListReordable.Collection.Array.data[0].entityOnThisLevel.Array.data[0].theCorrespondingGameObject
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2637186714768044777, guid: 17e4957caee4fe24eb333ac3cc6b9715,
-        type: 3}
-      propertyPath: levelsListReordable.Collection.Array.data[1].entityOnThisLevel.Array.data[18].theCorrespondingGameObject
-      value: 
-      objectReference: {fileID: 1790316418}
-    - target: {fileID: 2637186714768044777, guid: 17e4957caee4fe24eb333ac3cc6b9715,
-        type: 3}
       propertyPath: levels.Array.data[1].entityOnThisLevel.Array.data[0].entityName
       value: Pierre(Clone)
       objectReference: {fileID: 0}
@@ -2253,16 +2243,6 @@ PrefabInstance:
       objectReference: {fileID: 1790316418}
     - target: {fileID: 2637186714768044777, guid: 17e4957caee4fe24eb333ac3cc6b9715,
         type: 3}
-      propertyPath: levelsListReordable.Collection.Array.data[0].entityOnThisLevel.Array.data[1].theCorrespondingGameObject
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2637186714768044777, guid: 17e4957caee4fe24eb333ac3cc6b9715,
-        type: 3}
-      propertyPath: levelsListReordable.Collection.Array.data[0].entityOnThisLevel.Array.data[2].theCorrespondingGameObject
-      value: 
-      objectReference: {fileID: 1790316418}
-    - target: {fileID: 2637186714768044777, guid: 17e4957caee4fe24eb333ac3cc6b9715,
-        type: 3}
       propertyPath: levels.Array.data[19].entityOnThisLevel.Array.data[0].theCorrespondingGameObject
       value: 
       objectReference: {fileID: 0}
@@ -2334,11 +2314,6 @@ PrefabInstance:
     - target: {fileID: 2637186714768044777, guid: 17e4957caee4fe24eb333ac3cc6b9715,
         type: 3}
       propertyPath: levels.Array.data[19].entityOnThisLevel.Array.data[14].theCorrespondingGameObject
-      value: 
-      objectReference: {fileID: 1790316418}
-    - target: {fileID: 2637186714768044777, guid: 17e4957caee4fe24eb333ac3cc6b9715,
-        type: 3}
-      propertyPath: levelsListReordable.Collection.Array.data[19].entityOnThisLevel.Array.data[14].theCorrespondingGameObject
       value: 
       objectReference: {fileID: 1790316418}
     - target: {fileID: 2637186714768044777, guid: 17e4957caee4fe24eb333ac3cc6b9715,
@@ -2600,6 +2575,16 @@ PrefabInstance:
         type: 3}
       propertyPath: levels.Array.data[19].entityOnThisLevel.Array.data[13].versionOfThisElement
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2637186714768044777, guid: 17e4957caee4fe24eb333ac3cc6b9715,
+        type: 3}
+      propertyPath: levelsListReordable.Collection.Array.data[0].id
+      value: Two blob and a mage
+      objectReference: {fileID: 0}
+    - target: {fileID: 2637186714768044777, guid: 17e4957caee4fe24eb333ac3cc6b9715,
+        type: 3}
+      propertyPath: levelsListReordable.Collection.Array.data[1].id
+      value: Round of rock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17e4957caee4fe24eb333ac3cc6b9715, type: 3}

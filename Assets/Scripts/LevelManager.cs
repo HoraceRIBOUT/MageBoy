@@ -32,6 +32,7 @@ public class LevelManager : MonoBehaviour
     [System.Serializable]
     public struct Level
     {
+        public string id;
         public List<GridEntity.GridElement> entityOnThisLevel;
     }
 
