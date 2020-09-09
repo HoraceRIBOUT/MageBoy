@@ -4208,6 +4208,1003 @@ MonoBehaviour:
       gridPosition: {x: 2, y: 4}
       theCorrespondingGameObject: {fileID: 0}
       versionOfThisElement: 1
+  levelsListReordable:
+    Collection:
+    - entityOnThisLevel:
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 2, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 3, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Mage
+        entityType: 0
+        gridPosition: {x: 0, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+    - entityOnThisLevel:
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 1, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 0, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 2
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 0, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 0, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 0, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 4
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 1, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 5
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 2, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 4
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 3, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 4, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 4, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 4, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 4
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 4, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 2
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 4, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 4
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 3, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 2, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 2, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 3, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 2, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Mage
+        entityType: 0
+        gridPosition: {x: 0, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+    - entityOnThisLevel:
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 4, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 3, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 2
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 1, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 1, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 5
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 0, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 4, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 4
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 1, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 2, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 3, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 3, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 2, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 4, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Mage
+        entityType: 0
+        gridPosition: {x: 4, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+    - entityOnThisLevel:
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 0, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 4
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 0, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 1, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 1, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 2, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 3, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 4, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 2, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 3, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Mage
+        entityType: 0
+        gridPosition: {x: 3, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+    - entityOnThisLevel:
+      - entityName: Blob
+        entityType: 2
+        gridPosition: {x: 3, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Pierre (4)
+        entityType: 3
+        gridPosition: {x: 2, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 5
+      - entityName: Pierre (3)
+        entityType: 3
+        gridPosition: {x: 2, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 2
+      - entityName: Pierre (2)
+        entityType: 3
+        gridPosition: {x: 2, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Pierre (1)
+        entityType: 3
+        gridPosition: {x: 2, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 4
+      - entityName: Pierre
+        entityType: 3
+        gridPosition: {x: 2, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Mage
+        entityType: 0
+        gridPosition: {x: 0, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+    - entityOnThisLevel:
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 2, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 4, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 4, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 1, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 3, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 4
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 4, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 3, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 5
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 4, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 4
+      - entityName: Mage
+        entityType: 0
+        gridPosition: {x: 0, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+    - entityOnThisLevel:
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 0, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 2, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 1, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 2, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 3, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Mage
+        entityType: 0
+        gridPosition: {x: 0, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+    - entityOnThisLevel:
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 4, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 4, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 5
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 3, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 4
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 3, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 4, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 2
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 2, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 2
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 2, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 3, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 4, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 1, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 1, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 1, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Mage
+        entityType: 0
+        gridPosition: {x: 2, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+    - entityOnThisLevel:
+      - entityName: Blob
+        entityType: 2
+        gridPosition: {x: 3, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur
+        entityType: 5
+        gridPosition: {x: 1, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Mage
+        entityType: 0
+        gridPosition: {x: 0, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+    - entityOnThisLevel:
+      - entityName: Blob
+        entityType: 2
+        gridPosition: {x: 4, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur (2)
+        entityType: 5
+        gridPosition: {x: 3, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur (1)
+        entityType: 5
+        gridPosition: {x: 2, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur
+        entityType: 5
+        gridPosition: {x: 1, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Mage
+        entityType: 0
+        gridPosition: {x: 0, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+    - entityOnThisLevel:
+      - entityName: Blob (1)
+        entityType: 2
+        gridPosition: {x: 1, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Blob
+        entityType: 2
+        gridPosition: {x: 3, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur (2)
+        entityType: 5
+        gridPosition: {x: 2, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur (1)
+        entityType: 5
+        gridPosition: {x: 4, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur
+        entityType: 5
+        gridPosition: {x: 3, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Pierre (5)
+        entityType: 3
+        gridPosition: {x: 4, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 2
+      - entityName: Pierre (4)
+        entityType: 3
+        gridPosition: {x: 3, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Pierre (3)
+        entityType: 3
+        gridPosition: {x: 1, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 2
+      - entityName: Pierre (2)
+        entityType: 3
+        gridPosition: {x: 1, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Pierre (1)
+        entityType: 3
+        gridPosition: {x: 0, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 4
+      - entityName: Pierre
+        entityType: 3
+        gridPosition: {x: 4, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 5
+      - entityName: Mage
+        entityType: 0
+        gridPosition: {x: 4, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+    - entityOnThisLevel:
+      - entityName: Pierre
+        entityType: 3
+        gridPosition: {x: 2, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur (4)
+        entityType: 5
+        gridPosition: {x: 2, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur (3)
+        entityType: 5
+        gridPosition: {x: 2, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur (2)
+        entityType: 5
+        gridPosition: {x: 1, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur (1)
+        entityType: 5
+        gridPosition: {x: 0, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur
+        entityType: 5
+        gridPosition: {x: 1, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Mage
+        entityType: 0
+        gridPosition: {x: 0, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+    - entityOnThisLevel:
+      - entityName: Blob
+        entityType: 2
+        gridPosition: {x: 2, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Incubateur (1)
+        entityType: 4
+        gridPosition: {x: 2, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Pierre (9)
+        entityType: 3
+        gridPosition: {x: 0, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Pierre (8)
+        entityType: 3
+        gridPosition: {x: 1, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Pierre (7)
+        entityType: 3
+        gridPosition: {x: 2, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 4
+      - entityName: Pierre (6)
+        entityType: 3
+        gridPosition: {x: 3, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 2
+      - entityName: Pierre (5)
+        entityType: 3
+        gridPosition: {x: 4, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 5
+      - entityName: Pierre (4)
+        entityType: 3
+        gridPosition: {x: 4, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Pierre (3)
+        entityType: 3
+        gridPosition: {x: 3, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Pierre (2)
+        entityType: 3
+        gridPosition: {x: 2, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 2
+      - entityName: Pierre (1)
+        entityType: 3
+        gridPosition: {x: 1, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 4
+      - entityName: Pierre
+        entityType: 3
+        gridPosition: {x: 0, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 4
+      - entityName: Incubateur
+        entityType: 4
+        gridPosition: {x: 2, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Mage
+        entityType: 0
+        gridPosition: {x: 0, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+    - entityOnThisLevel:
+      - entityName: Incubateur (1)
+        entityType: 4
+        gridPosition: {x: 0, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Incubateur
+        entityType: 4
+        gridPosition: {x: 2, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Blob (1)
+        entityType: 2
+        gridPosition: {x: 2, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Blob
+        entityType: 2
+        gridPosition: {x: 1, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Mage
+        entityType: 0
+        gridPosition: {x: 2, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+    - entityOnThisLevel:
+      - entityName: Pierre (4)
+        entityType: 3
+        gridPosition: {x: 4, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Pierre (3)
+        entityType: 3
+        gridPosition: {x: 3, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Pierre (2)
+        entityType: 3
+        gridPosition: {x: 2, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 4
+      - entityName: Pierre (1)
+        entityType: 3
+        gridPosition: {x: 1, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Pierre
+        entityType: 3
+        gridPosition: {x: 0, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 2
+      - entityName: Blob
+        entityType: 2
+        gridPosition: {x: 1, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Incubateur (1)
+        entityType: 4
+        gridPosition: {x: 0, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Incubateur
+        entityType: 4
+        gridPosition: {x: 2, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur
+        entityType: 5
+        gridPosition: {x: 1, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Mage
+        entityType: 0
+        gridPosition: {x: 0, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+    - entityOnThisLevel:
+      - entityName: Incubateur (1)
+        entityType: 4
+        gridPosition: {x: 2, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Incubateur
+        entityType: 4
+        gridPosition: {x: 0, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Pierre (4)
+        entityType: 3
+        gridPosition: {x: 2, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Pierre (3)
+        entityType: 3
+        gridPosition: {x: 0, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 2
+      - entityName: Pierre (2)
+        entityType: 3
+        gridPosition: {x: 1, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 4
+      - entityName: Pierre (1)
+        entityType: 3
+        gridPosition: {x: 4, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 5
+      - entityName: Pierre
+        entityType: 3
+        gridPosition: {x: 2, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Blob (2)
+        entityType: 2
+        gridPosition: {x: 3, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Blob (1)
+        entityType: 2
+        gridPosition: {x: 2, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Blob
+        entityType: 2
+        gridPosition: {x: 1, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Mage
+        entityType: 0
+        gridPosition: {x: 0, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+    - entityOnThisLevel:
+      - entityName: Blob
+        entityType: 2
+        gridPosition: {x: 0, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur (4)
+        entityType: 5
+        gridPosition: {x: 2, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur (3)
+        entityType: 5
+        gridPosition: {x: 1, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur (2)
+        entityType: 5
+        gridPosition: {x: 2, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur (1)
+        entityType: 5
+        gridPosition: {x: 3, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur
+        entityType: 5
+        gridPosition: {x: 4, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Pierre (3)
+        entityType: 3
+        gridPosition: {x: 2, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Pierre (2)
+        entityType: 3
+        gridPosition: {x: 2, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Pierre (1)
+        entityType: 3
+        gridPosition: {x: 1, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Pierre
+        entityType: 3
+        gridPosition: {x: 3, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 5
+      - entityName: Incubateur (1)
+        entityType: 4
+        gridPosition: {x: 4, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Incubateur
+        entityType: 4
+        gridPosition: {x: 0, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Mage
+        entityType: 0
+        gridPosition: {x: 1, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+    - entityOnThisLevel:
+      - entityName: Incubateur (1)
+        entityType: 4
+        gridPosition: {x: 4, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Incubateur
+        entityType: 4
+        gridPosition: {x: 2, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Blob
+        entityType: 2
+        gridPosition: {x: 0, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Pierre (1)
+        entityType: 3
+        gridPosition: {x: 1, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 2
+      - entityName: Pierre
+        entityType: 3
+        gridPosition: {x: 0, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 2
+      - entityName: Inverseur (3)
+        entityType: 5
+        gridPosition: {x: 4, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur (2)
+        entityType: 5
+        gridPosition: {x: 3, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur (1)
+        entityType: 5
+        gridPosition: {x: 1, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur
+        entityType: 5
+        gridPosition: {x: 3, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Mage
+        entityType: 0
+        gridPosition: {x: 2, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+    - entityOnThisLevel:
+      - entityName: Incubateur (1)
+        entityType: 4
+        gridPosition: {x: 2, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Incubateur
+        entityType: 4
+        gridPosition: {x: 4, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Pierre
+        entityType: 3
+        gridPosition: {x: 0, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 4
+      - entityName: Inverseur (5)
+        entityType: 5
+        gridPosition: {x: 3, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur (4)
+        entityType: 5
+        gridPosition: {x: 4, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur (3)
+        entityType: 5
+        gridPosition: {x: 1, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur (2)
+        entityType: 5
+        gridPosition: {x: 2, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur (1)
+        entityType: 5
+        gridPosition: {x: 3, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Inverseur
+        entityType: 5
+        gridPosition: {x: 2, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Mage
+        entityType: 0
+        gridPosition: {x: 2, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+    - entityOnThisLevel:
+      - entityName: Incubateur(Clone)
+        entityType: 4
+        gridPosition: {x: 3, y: 3}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Incubateur(Clone)
+        entityType: 4
+        gridPosition: {x: 3, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 2, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Blob(Clone)
+        entityType: 2
+        gridPosition: {x: 1, y: 0}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 4, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 5
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 3, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 2, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 4
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 1, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 2
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 0, y: 1}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 4
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 0, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 0
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 1, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 2, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 5
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 3, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 2
+      - entityName: Pierre(Clone)
+        entityType: 3
+        gridPosition: {x: 4, y: 2}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 5
+      - entityName: Mage
+        entityType: 0
+        gridPosition: {x: 2, y: 4}
+        theCorrespondingGameObject: {fileID: 0}
+        versionOfThisElement: 1
   currentShownLevel: 0
 --- !u!1 &2637186714774392839
 GameObject:

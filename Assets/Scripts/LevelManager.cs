@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MyBox;
@@ -35,8 +35,12 @@ public class LevelManager : MonoBehaviour
         public List<GridEntity.GridElement> entityOnThisLevel;
     }
 
+    //public List<Level> levels = new List<Level>();
+
+    [System.Serializable]
+    public class LevelList : Reorderable<Level> { public LevelList(int lenght) { Collection = new Level[lenght]; } }
     [Header("Level manager")]
-    public List<Level> levels = new List<Level>();
+    public LevelList levelsListReordable;
 
     public int currentShownLevel = 0;
 
@@ -71,8 +75,8 @@ public class LevelManager : MonoBehaviour
 
     public void LoadLevel(int previousLevel, int levelId)
     {
-        if(levelId >= levels.Count || 
-            previousLevel >= levels.Count ||
+        if(levelId >= levelsListReordable.Length || 
+            previousLevel >= levelsListReordable.Length ||
             levelId < 0 ||
             previousLevel < 0)
         {
@@ -83,7 +87,7 @@ public class LevelManager : MonoBehaviour
             int indexOfMage = UnloadLevel(previousLevel);
             Debug.Log("I have destroy level " + previousLevel);
 
-            CreateLevel(levelId, levels[previousLevel].entityOnThisLevel[indexOfMage].theCorrespondingGameObject);
+            CreateLevel(levelId, levelsListReordable[previousLevel].entityOnThisLevel[indexOfMage].theCorrespondingGameObject);
             Debug.Log("I have load level " + levelId);
         }
     }
@@ -91,9 +95,9 @@ public class LevelManager : MonoBehaviour
     public int UnloadLevel(int previousLevel)
     {
         int indexOfMage = -1;
-        for (int i = 0; i < levels[previousLevel].entityOnThisLevel.Count; i++)
+        for (int i = 0; i < levelsListReordable[previousLevel].entityOnThisLevel.Count; i++)
         {
-            if (levels[previousLevel].entityOnThisLevel[i].entityName == "Mage")
+            if (levelsListReordable[previousLevel].entityOnThisLevel[i].entityName == "Mage")
             {
                 //Don't destroy
                 indexOfMage = i;
@@ -104,17 +108,17 @@ public class LevelManager : MonoBehaviour
             {
                 //Remove it from the collision buffer
                 //Ok so : 
-                GridEntity.GridElement gridGrid = levels[previousLevel].entityOnThisLevel[i];
+                GridEntity.GridElement gridGrid = levelsListReordable[previousLevel].entityOnThisLevel[i];
                 GameObject gridObject = gridGrid.theCorrespondingGameObject;
                 GridEntity gridgridgridEnttity = gridObject.GetComponent<GridEntity>();
                 GameManager.instance.collisionMng.RemoveAnObject(gridgridgridEnttity);
             }
 
-            DestroyImmediate(levels[previousLevel].entityOnThisLevel[i].theCorrespondingGameObject);
+            DestroyImmediate(levelsListReordable[previousLevel].entityOnThisLevel[i].theCorrespondingGameObject);
 
-            GridEntity.GridElement gridEl = levels[previousLevel].entityOnThisLevel[i];
+            GridEntity.GridElement gridEl = levelsListReordable[previousLevel].entityOnThisLevel[i];
             gridEl.theCorrespondingGameObject = null;
-            levels[previousLevel].entityOnThisLevel[i] = gridEl;
+            levelsListReordable[previousLevel].entityOnThisLevel[i] = gridEl;
 
         }
         return indexOfMage;
@@ -125,43 +129,43 @@ public class LevelManager : MonoBehaviour
         Incubateur incub1 = null;
         Incubateur incub2 = null;
 
-        for (int i = 0; i < levels[levelId].entityOnThisLevel.Count; i++)
+        for (int i = 0; i < levelsListReordable[levelId].entityOnThisLevel.Count; i++)
         {
-            if (levels[levelId].entityOnThisLevel[i].entityName == "Mage" && mageGO != null)
+            if (levelsListReordable[levelId].entityOnThisLevel[i].entityName == "Mage" && mageGO != null)
             {
                 //Don't create
-                GridEntity.GridElement mageEntity = levels[levelId].entityOnThisLevel[i];
+                GridEntity.GridElement mageEntity = levelsListReordable[levelId].entityOnThisLevel[i];
                 mageEntity.theCorrespondingGameObject = mageGO;
-                mageEntity.theCorrespondingGameObject.transform.position = PixelUtils.gridToWorld(levels[levelId].entityOnThisLevel[i].gridPosition);
-                levels[levelId].entityOnThisLevel[i] = mageEntity;
+                mageEntity.theCorrespondingGameObject.transform.position = PixelUtils.gridToWorld(levelsListReordable[levelId].entityOnThisLevel[i].gridPosition);
+                levelsListReordable[levelId].entityOnThisLevel[i] = mageEntity;
                 Mage mageComponent = mageEntity.theCorrespondingGameObject.GetComponent<Mage>();
                 mageComponent.Reload();
-                mageComponent.version = levels[levelId].entityOnThisLevel[i].versionOfThisElement;
-                mageComponent.gridPosition = levels[levelId].entityOnThisLevel[i].gridPosition;
+                mageComponent.version = levelsListReordable[levelId].entityOnThisLevel[i].versionOfThisElement;
+                mageComponent.gridPosition = levelsListReordable[levelId].entityOnThisLevel[i].gridPosition;
                 continue;
             }
-            GameObject prefab = getPrefabOfThisEntity(levels[levelId].entityOnThisLevel[i].entityType);
-            Vector3 positionInWorld = PixelUtils.gridToWorld(levels[levelId].entityOnThisLevel[i].gridPosition);
+            GameObject prefab = getPrefabOfThisEntity(levelsListReordable[levelId].entityOnThisLevel[i].entityType);
+            Vector3 positionInWorld = PixelUtils.gridToWorld(levelsListReordable[levelId].entityOnThisLevel[i].gridPosition);
             GameObject resultGameObject = Instantiate(prefab, positionInWorld, Quaternion.identity);
-            resultGameObject.GetComponent<GridEntity>().gridPosition = levels[levelId].entityOnThisLevel[i].gridPosition;
-            resultGameObject.GetComponent<GridEntity>().version = levels[levelId].entityOnThisLevel[i].versionOfThisElement;
+            resultGameObject.GetComponent<GridEntity>().gridPosition = levelsListReordable[levelId].entityOnThisLevel[i].gridPosition;
+            resultGameObject.GetComponent<GridEntity>().version = levelsListReordable[levelId].entityOnThisLevel[i].versionOfThisElement;
 
-            GridEntity.GridElement gridEl = levels[levelId].entityOnThisLevel[i];
+            GridEntity.GridElement gridEl = levelsListReordable[levelId].entityOnThisLevel[i];
             gridEl.theCorrespondingGameObject = resultGameObject;
-            levels[levelId].entityOnThisLevel[i] = gridEl;
+            levelsListReordable[levelId].entityOnThisLevel[i] = gridEl;
 
-            if (levels[levelId].entityOnThisLevel[i].entityType == GridEntity.gridEntityEnum.Incubateur)
+            if (levelsListReordable[levelId].entityOnThisLevel[i].entityType == GridEntity.gridEntityEnum.Incubateur)
             {
                 if (incub1 == null)
-                    incub1 = levels[levelId].entityOnThisLevel[i].theCorrespondingGameObject.GetComponent<Incubateur>();
+                    incub1 = levelsListReordable[levelId].entityOnThisLevel[i].theCorrespondingGameObject.GetComponent<Incubateur>();
                 else
-                    incub2 = levels[levelId].entityOnThisLevel[i].theCorrespondingGameObject.GetComponent<Incubateur>();
+                    incub2 = levelsListReordable[levelId].entityOnThisLevel[i].theCorrespondingGameObject.GetComponent<Incubateur>();
             }
 
             if (GameManager.instance != null)
             {
                 //Add it from the collision buffer
-                GameManager.instance.collisionMng.AddAnObject(levels[levelId].entityOnThisLevel[i].theCorrespondingGameObject.GetComponent<GridEntity>());
+                GameManager.instance.collisionMng.AddAnObject(levelsListReordable[levelId].entityOnThisLevel[i].theCorrespondingGameObject.GetComponent<GridEntity>());
             }
         }
 
@@ -209,13 +213,13 @@ public class LevelManager : MonoBehaviour
 
     public void SaveLevel(int levelId)
     {
-        if (levelId < 0 || levelId >= levels.Count)
+        if (levelId < 0 || levelId >= levelsListReordable.Length)
         {
             Debug.LogError("Wrong level id");
             return;
         }
 
-        levels[levelId].entityOnThisLevel.Clear();
+        levelsListReordable[levelId].entityOnThisLevel.Clear();
         foreach (GridEntity gridEnt in FindObjectsOfType<GridEntity>())
         {
             ReplaceEntityExactlyOnTile(gridEnt);
@@ -227,7 +231,7 @@ public class LevelManager : MonoBehaviour
             thisElement.entityType = gridEnt.entityType;
             thisElement.versionOfThisElement = gridEnt.version;
 
-            levels[levelId].entityOnThisLevel.Add(thisElement);
+            levelsListReordable[levelId].entityOnThisLevel.Add(thisElement);
         }
 
         Debug.Log("I have save level " + levelId);
@@ -299,4 +303,16 @@ public class LevelManager : MonoBehaviour
         }
         return null;
     }
+
+
+    //[MyBox.ButtonMethod()]
+    //public void ListLevelInReordableList()
+    //{
+    //    levelsListReordable = new LevelList(levels.Count);
+    //    Debug.Log("Lenght = " + levelsListReordable.Length + " levels.Count = " + levels.Count);
+    //    for (int i = 0; i < levels.Count; i++)
+    //    {
+    //        levelsListReordable[i] = levels[i];
+    //    }
+    //}
 }
