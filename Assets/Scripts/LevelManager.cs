@@ -95,16 +95,23 @@ public class LevelManager : MonoBehaviour
 
     public int UnloadLevel(int previousLevel)
     {
+        //Failsave for sort
+        Sort sortExistant = FindObjectOfType<Sort>();
+        if (sortExistant != null)
+        {
+            sortExistant.TrueResolve();
+        }
+
+
         int indexOfMage = -1;
         for (int i = 0; i < levelsListReordable[previousLevel].entityOnThisLevel.Count; i++)
         {
-            if (levelsListReordable[previousLevel].entityOnThisLevel[i].entityName == "Mage")
+            if (levelsListReordable[previousLevel].entityOnThisLevel[i].entityType == GridEntity.gridEntityEnum.Mage)
             {
                 //Don't destroy
                 indexOfMage = i;
                 continue;
             }
-
             if (GameManager.instance != null)
             {
                 //Remove it from the collision buffer

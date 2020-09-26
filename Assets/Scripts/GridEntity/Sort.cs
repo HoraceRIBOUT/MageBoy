@@ -50,6 +50,23 @@ public class Sort : GridEntity
         secretTimer += Time.deltaTime;
     }
 
+    public void LateUpdate()
+    {
+        if (haveToDied)
+        {
+            TrueResolve();
+        }
+    }
+
+    public void TrueResolve()
+    {
+        Debug.Log("Ok, tryue resolve");
+        GameManager.instance.collisionMng.RemoveAnObject(this);
+        haveToDied = false;
+        listInput.Clear();
+        GameManager.instance.EndLevelLose();
+    }
+
     public bool DoNextMove()
     {
         if (listInput.Count == 0)
@@ -73,7 +90,7 @@ public class Sort : GridEntity
 
         if(currentInput != InputSave.enumInput.A && currentInput != InputSave.enumInput.B)
             lastDirection = currentInput;
-
+        
         //Do the rest
         switch (currentInput)
         {
@@ -105,6 +122,10 @@ public class Sort : GridEntity
                 Debug.LogError("How ?");
                 break;
         }
+        //Fail save : because can be kill while on the "collision test" of move. So it's shitty.
+        if (listInput.Count == 0)
+            return true;
+
         //Depile
         listInput.RemoveAt(0);
         //update visual
@@ -117,7 +138,7 @@ public class Sort : GridEntity
             return false;
         }
         //Verify the collision :
-        GameManager.instance.collisionMng.TestEveryCollision();
+        //GameManager.instance.collisionMng.TestEveryCollision();
 
         return true;
     }
@@ -145,7 +166,7 @@ public class Sort : GridEntity
         float timer = 0f;
         movementSequence.Append(DOTween.To(() => timer, x => timer = x, 1f, 0.1f));
         movementSequence.Append(transform.DORotate(new Vector3(0f, 0f, 0f), 0f));
-
+        
         if (currentSequence == null)
         {
             currentSequence = movementSequence;
@@ -251,11 +272,7 @@ public class Sort : GridEntity
 
     public override void Resolve()
     {
-        if (haveToDied)
-        {
-            GameManager.instance.collisionMng.RemoveAnObject(this);
-            haveToDied = false;
-        }
+        //Empty : it's in the late Update
     }
 
     public void DestroyThisSort()
@@ -268,9 +285,9 @@ public class Sort : GridEntity
     {
         if (GameManager.instance.IsLevelFinish)
             return;
-        listInput.Clear();
+        //Only launch the visual, the rest will be done later
         EndSort();
-        GameManager.instance.EndLevelLose();
+        haveToDied = true;
     }
 
     public void DealWithA()
@@ -291,6 +308,8 @@ public class Sort : GridEntity
         }
         moveOtherSequence.OnComplete(() => moveFinish = true);
         moveOtherSequence.Play();
+        
+        GameManager.instance.collisionMng.TestEveryCollision();
     }
 
 
@@ -327,14 +346,16 @@ public class Sort : GridEntity
             sequenceToDoNext.Add(movementSequence);
             //CurrentSequenceFinish();
         }
+
+        GameManager.instance.collisionMng.TestEveryCollision();
     }
 
     public void TeleportAction(Vector2 newPosition)
     {
         Sequence newSequence = DOTween.Sequence();
-        newSequence.Append(transform.DOMove(newPosition, 0f).OnStart(() => Debug.Log("Ok, so... this will start or not ?")));
+        newSequence.Append(transform.DOMove(newPosition, 0f)/*.OnStart(() => Debug.Log("Ok, so... this will start or not ?"))*/);
         newSequence.OnStart(() => animator.SetTrigger("Teleport"));
-        newSequence.OnStart(() => Debug.Log("Starting ? Please ?"));
+        //newSequence.OnStart(() => Debug.Log("Starting ? Please ?"));
         // Sequence movementSequence = DOTween.Sequence();
         // movementSequence.Append(transform.DOMove(newPosition, 0.01f));
         // sequenceToDoNext.Add(movementSequence);
@@ -342,12 +363,12 @@ public class Sort : GridEntity
         if (currentSequence != null)
         {
             newSequence.Pause();
-            Debug.Log("Yeah ! I next one !");
+            //Debug.Log("Yeah ! I next one !");
             sequenceToDoNext.Add(newSequence);
         }
         else
         {
-            Debug.Log("Yeah ! I'm THE one !");
+            //Debug.Log("Yeah ! I'm THE one !");
             newSequence.Play();
         }
     }

@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
 
     public void EndLevel()
     {
+        Debug.Log("win level");
         if (IsLevelFinish)
             return;
         IsLevelFinish = true;

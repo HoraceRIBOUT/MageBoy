@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -65,16 +65,32 @@ public class CollisionManager : MonoBehaviour
             }
         }
 
+        GridEntity sort = null;
         int memory = listOfObjectCurrentlyOnGrid.Count;
         for (int i = 0; i < listOfObjectCurrentlyOnGrid.Count; i++) 
         {
-            listOfObjectCurrentlyOnGrid[i].Resolve();
-            if(memory != listOfObjectCurrentlyOnGrid.Count)
+            if(listOfObjectCurrentlyOnGrid[i].entityType == GridEntity.gridEntityEnum.Sort)
             {
-                memory = listOfObjectCurrentlyOnGrid.Count;
-                i = i - 1;
+                sort = listOfObjectCurrentlyOnGrid[i];
+                continue;
             }
+            else
+            {
+                listOfObjectCurrentlyOnGrid[i].Resolve();
+                if (memory != listOfObjectCurrentlyOnGrid.Count)
+                {
+                    memory = listOfObjectCurrentlyOnGrid.Count;
+                    i = i - 1;
+                }
+            }
+
+            
         }
+        if(sort != null)
+        {
+            sort.Resolve();
+        }
+
     }
 
     public void TreatCollision(GridEntity entiOne, GridEntity entiTwo)
