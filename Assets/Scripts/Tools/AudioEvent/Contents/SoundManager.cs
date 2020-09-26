@@ -12,11 +12,13 @@ namespace FafaTools.Audio
         private AudioSource audioSourceUI;
         private AudioSource audioSourceEffects;
 
+#pragma warning disable 0649
         [SerializeField]
         private AudioDatabase m_SoundDataDase;
 
         [SerializeField]
-        private AudioClip musicIntro, musicLoop; 
+        private AudioClip musicIntro, musicLoop;
+#pragma warning restore 0649 
         private void Awake()
         {
             GameObject audioSourceDefault_GO = new GameObject("SM_AudioSource_Default");
