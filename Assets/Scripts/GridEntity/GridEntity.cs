@@ -12,6 +12,7 @@ public abstract class GridEntity : MonoBehaviour
         Pierre,
         Incubateur,
         Inverseur,
+        EndText,
     }
 
     [System.Serializable]

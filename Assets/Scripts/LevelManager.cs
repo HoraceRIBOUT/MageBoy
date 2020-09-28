@@ -306,6 +306,8 @@ public class LevelManager : MonoBehaviour
         {
             if (key == prefEnu.enumKey)
             {
+                if (key == GridEntity.gridEntityEnum.EndText)
+                    Debug.Log("Bloub");
                 return prefEnu.prefabValue;
             }
         }

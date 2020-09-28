@@ -109,6 +109,7 @@ public class CollisionManager : MonoBehaviour
                         break;
                     case GridEntity.gridEntityEnum.Blob:
                     case GridEntity.gridEntityEnum.Inverseur:
+                    case GridEntity.gridEntityEnum.EndText:
                         //Mage died 
                         entiOne.Died();
                         break;
@@ -130,6 +131,7 @@ public class CollisionManager : MonoBehaviour
                         break;
                     case GridEntity.gridEntityEnum.Blob:
                     case GridEntity.gridEntityEnum.Inverseur:
+                    case GridEntity.gridEntityEnum.EndText:
                         //Blob die
                         entiTwo.Died();
                         break;
@@ -168,6 +170,9 @@ public class CollisionManager : MonoBehaviour
                         //Blob die
                         entiOne.Died();
                         break;
+                    case GridEntity.gridEntityEnum.EndText:
+                        entiOne.Died();
+                        break;
                     default:
                         break;
                 }
@@ -195,6 +200,9 @@ public class CollisionManager : MonoBehaviour
                         //Blob die
                         entiOne.Died();
                         break;
+                    case GridEntity.gridEntityEnum.EndText:
+                        entiTwo.Died();
+                        break;
                     default:
                         break;
                 }
@@ -220,6 +228,9 @@ public class CollisionManager : MonoBehaviour
                         entiOne.Died();
                         entiTwo.Died();
                         break;
+                    case GridEntity.gridEntityEnum.EndText:
+                        entiTwo.Died();
+                        break;
                     default:
                         break;
                 }
@@ -238,11 +249,43 @@ public class CollisionManager : MonoBehaviour
                         break;
                     case GridEntity.gridEntityEnum.Blob:
                     case GridEntity.gridEntityEnum.Inverseur:
+                    case GridEntity.gridEntityEnum.EndText:
                         //Blob died 
                         entiTwo.Died();
                         break;
                     case GridEntity.gridEntityEnum.Pierre:
                         //Both break ?
+                        entiOne.Died();
+                        entiTwo.Died();
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case GridEntity.gridEntityEnum.EndText:
+                switch (entiTwo.entityType)
+                {
+                    case GridEntity.gridEntityEnum.Mage:
+                        //Mage die
+                        entiTwo.Died();
+                        break;
+                    case GridEntity.gridEntityEnum.Sort:
+                        //I die die
+                        entiOne.Died();
+                        break;
+                    case GridEntity.gridEntityEnum.Blob:
+                    case GridEntity.gridEntityEnum.Inverseur:
+                        //Both die
+                        entiOne.Died();
+                        entiTwo.Died();
+                        break;
+                    case GridEntity.gridEntityEnum.Pierre:
+                    case GridEntity.gridEntityEnum.Incubateur:
+                        //TextDied
+                        entiOne.Died();
+                        break;
+                    case GridEntity.gridEntityEnum.EndText:
+                        //both died
                         entiOne.Died();
                         entiTwo.Died();
                         break;
@@ -266,7 +309,7 @@ public class CollisionManager : MonoBehaviour
         bool result = true;
         foreach(GridEntity grid in listOfObjectCurrentlyOnGrid)
         {
-            if (grid.entityType == GridEntity.gridEntityEnum.Blob || grid.entityType == GridEntity.gridEntityEnum.Inverseur)
+            if (grid.entityType == GridEntity.gridEntityEnum.Blob || grid.entityType == GridEntity.gridEntityEnum.Inverseur || grid.entityType == GridEntity.gridEntityEnum.EndText)
                 result = false;
         }
         return result;
