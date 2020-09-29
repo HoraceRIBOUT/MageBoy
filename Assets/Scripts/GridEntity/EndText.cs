@@ -9,6 +9,7 @@ public class EndText : GridEntity
     public int deathOffset = 5;
     public List<Sprite> allVersion = new List<Sprite>();
     private SpriteRenderer sprite;
+    private bool deadDead;
 
     private void Awake()
     {
@@ -17,7 +18,7 @@ public class EndText : GridEntity
 
     private void Update()
     {
-        sprite.sprite = allVersion[version];
+        sprite.sprite = allVersion[version + (deadDead ? 5 : 0)];
     }
 
     public override void Died()
@@ -37,6 +38,7 @@ public class EndText : GridEntity
         SoundManager.Instance.PlaySound(AudioFieldEnum.HIT);
         //And after that destroy him self. maybe saying it to the LevelManager
         haveToDied = true;
+        deadDead = true;
     }
 
     public override void Resolve()

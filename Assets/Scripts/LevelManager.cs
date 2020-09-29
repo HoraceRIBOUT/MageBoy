@@ -82,6 +82,8 @@ public class LevelManager : MonoBehaviour
             previousLevel < 0)
         {
             Debug.Log("Victory screen");
+            int indexOfMage = UnloadLevel(previousLevel);
+            CreateLevel(previousLevel, levelsListReordable[previousLevel].entityOnThisLevel[indexOfMage].theCorrespondingGameObject);
         }
         else
         {
